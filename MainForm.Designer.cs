@@ -39,7 +39,6 @@
             this.pictureBoxOpen = new System.Windows.Forms.PictureBox();
             this.labelOpen = new System.Windows.Forms.Label();
             this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.panelSave = new System.Windows.Forms.Panel();
             this.pictureBoxSave = new System.Windows.Forms.PictureBox();
             this.labelSave = new System.Windows.Forms.Label();
@@ -58,6 +57,7 @@
             this.panelCnf = new System.Windows.Forms.Panel();
             this.labelCnf = new System.Windows.Forms.Label();
             this.pictureBoxCnf = new System.Windows.Forms.PictureBox();
+            this.toolTipMenu = new System.Windows.Forms.ToolTip(this.components);
             this.panelGeneral.SuspendLayout();
             this.panelLower.SuspendLayout();
             this.panelMenu.SuspendLayout();
@@ -157,6 +157,9 @@
             this.pictureBoxOpen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxOpen.TabIndex = 1;
             this.pictureBoxOpen.TabStop = false;
+            this.toolTipMenu.SetToolTip(this.pictureBoxOpen, "Відкрити збережену схему з бази даних");
+            this.pictureBoxOpen.MouseEnter += new System.EventHandler(this.MenuButtonsMouseEnter);
+            this.pictureBoxOpen.MouseLeave += new System.EventHandler(this.MenuButtonsMouseLeave);
             // 
             // labelOpen
             // 
@@ -168,6 +171,9 @@
             this.labelOpen.TabIndex = 0;
             this.labelOpen.Text = "Відкрити";
             this.labelOpen.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.toolTipMenu.SetToolTip(this.labelOpen, "Відкрити збережену схему з бази даних");
+            this.labelOpen.MouseEnter += new System.EventHandler(this.MenuButtonsMouseEnter);
+            this.labelOpen.MouseLeave += new System.EventHandler(this.MenuButtonsMouseLeave);
             // 
             // pictureBoxLogo
             // 
@@ -202,6 +208,9 @@
             this.pictureBoxSave.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxSave.TabIndex = 0;
             this.pictureBoxSave.TabStop = false;
+            this.toolTipMenu.SetToolTip(this.pictureBoxSave, "Зберегти цю схему в базу даних");
+            this.pictureBoxSave.MouseEnter += new System.EventHandler(this.MenuButtonsMouseEnter);
+            this.pictureBoxSave.MouseLeave += new System.EventHandler(this.MenuButtonsMouseLeave);
             // 
             // labelSave
             // 
@@ -213,6 +222,9 @@
             this.labelSave.TabIndex = 1;
             this.labelSave.Text = "Зберегти";
             this.labelSave.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.toolTipMenu.SetToolTip(this.labelSave, "Зберегти цю схему в базу даних");
+            this.labelSave.MouseEnter += new System.EventHandler(this.MenuButtonsMouseEnter);
+            this.labelSave.MouseLeave += new System.EventHandler(this.MenuButtonsMouseLeave);
             // 
             // panelInput
             // 
@@ -236,6 +248,9 @@
             this.labelInput.TabIndex = 0;
             this.labelInput.Text = "Побудувати схему";
             this.labelInput.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.toolTipMenu.SetToolTip(this.labelInput, "Побудувати схему за вказаним рядком виразу");
+            this.labelInput.MouseEnter += new System.EventHandler(this.MenuButtonsMouseEnter);
+            this.labelInput.MouseLeave += new System.EventHandler(this.MenuButtonsMouseLeave);
             // 
             // pictureBoxInput
             // 
@@ -247,6 +262,9 @@
             this.pictureBoxInput.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxInput.TabIndex = 1;
             this.pictureBoxInput.TabStop = false;
+            this.toolTipMenu.SetToolTip(this.pictureBoxInput, "Побудувати схему за вказаним рядком виразу");
+            this.pictureBoxInput.MouseEnter += new System.EventHandler(this.MenuButtonsMouseEnter);
+            this.pictureBoxInput.MouseLeave += new System.EventHandler(this.MenuButtonsMouseLeave);
             // 
             // panelOutput
             // 
@@ -270,6 +288,9 @@
             this.labelOutput.TabIndex = 0;
             this.labelOutput.Text = "Вираз схеми";
             this.labelOutput.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.toolTipMenu.SetToolTip(this.labelOutput, "Отримати рядок виразу, що грунтуєтсья на створенній схемі");
+            this.labelOutput.MouseEnter += new System.EventHandler(this.MenuButtonsMouseEnter);
+            this.labelOutput.MouseLeave += new System.EventHandler(this.MenuButtonsMouseLeave);
             // 
             // pictureBoxOutput
             // 
@@ -281,6 +302,9 @@
             this.pictureBoxOutput.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxOutput.TabIndex = 1;
             this.pictureBoxOutput.TabStop = false;
+            this.toolTipMenu.SetToolTip(this.pictureBoxOutput, "Отримати рядок виразу, що грунтуєтсья на створенній схемі");
+            this.pictureBoxOutput.MouseEnter += new System.EventHandler(this.MenuButtonsMouseEnter);
+            this.pictureBoxOutput.MouseLeave += new System.EventHandler(this.MenuButtonsMouseLeave);
             // 
             // panelTable
             // 
@@ -304,6 +328,9 @@
             this.labelTable.TabIndex = 0;
             this.labelTable.Text = "Таблиця істинності";
             this.labelTable.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.toolTipMenu.SetToolTip(this.labelTable, "Побудувати таблицю істинності за вказаною схемою");
+            this.labelTable.MouseEnter += new System.EventHandler(this.MenuButtonsMouseEnter);
+            this.labelTable.MouseLeave += new System.EventHandler(this.MenuButtonsMouseLeave);
             // 
             // pictureBoxTable
             // 
@@ -315,6 +342,9 @@
             this.pictureBoxTable.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxTable.TabIndex = 1;
             this.pictureBoxTable.TabStop = false;
+            this.toolTipMenu.SetToolTip(this.pictureBoxTable, "Побудувати таблицю істинності за вказаною схемою");
+            this.pictureBoxTable.MouseEnter += new System.EventHandler(this.MenuButtonsMouseEnter);
+            this.pictureBoxTable.MouseLeave += new System.EventHandler(this.MenuButtonsMouseLeave);
             // 
             // panelDnf
             // 
@@ -338,6 +368,9 @@
             this.labelDnf.TabIndex = 0;
             this.labelDnf.Text = "ДДНФ";
             this.labelDnf.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.toolTipMenu.SetToolTip(this.labelDnf, "Отримати ДДНФ виразу вказаної схеми");
+            this.labelDnf.MouseEnter += new System.EventHandler(this.MenuButtonsMouseEnter);
+            this.labelDnf.MouseLeave += new System.EventHandler(this.MenuButtonsMouseLeave);
             // 
             // pictureBoxDnf
             // 
@@ -349,6 +382,9 @@
             this.pictureBoxDnf.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxDnf.TabIndex = 1;
             this.pictureBoxDnf.TabStop = false;
+            this.toolTipMenu.SetToolTip(this.pictureBoxDnf, "Отримати ДДНФ виразу вказаної схеми");
+            this.pictureBoxDnf.MouseEnter += new System.EventHandler(this.MenuButtonsMouseEnter);
+            this.pictureBoxDnf.MouseLeave += new System.EventHandler(this.MenuButtonsMouseLeave);
             // 
             // panelCnf
             // 
@@ -372,6 +408,9 @@
             this.labelCnf.TabIndex = 0;
             this.labelCnf.Text = "ДКНФ";
             this.labelCnf.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.toolTipMenu.SetToolTip(this.labelCnf, "Отримати ДКНФ виразу вказаної схеми");
+            this.labelCnf.MouseEnter += new System.EventHandler(this.MenuButtonsMouseEnter);
+            this.labelCnf.MouseLeave += new System.EventHandler(this.MenuButtonsMouseLeave);
             // 
             // pictureBoxCnf
             // 
@@ -383,6 +422,9 @@
             this.pictureBoxCnf.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxCnf.TabIndex = 1;
             this.pictureBoxCnf.TabStop = false;
+            this.toolTipMenu.SetToolTip(this.pictureBoxCnf, "Отримати ДКНФ виразу вказаної схеми");
+            this.pictureBoxCnf.MouseEnter += new System.EventHandler(this.MenuButtonsMouseEnter);
+            this.pictureBoxCnf.MouseLeave += new System.EventHandler(this.MenuButtonsMouseLeave);
             // 
             // MainForm
             // 
@@ -430,7 +472,6 @@
         private System.Windows.Forms.Label labelOpen;
         private System.Windows.Forms.PictureBox pictureBoxOpen;
         private System.Windows.Forms.Panel panelSave;
-        private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.PictureBox pictureBoxSave;
         private System.Windows.Forms.Label labelSave;
         private System.Windows.Forms.Panel panelInput;
@@ -448,5 +489,6 @@
         private System.Windows.Forms.PictureBox pictureBoxCnf;
         private System.Windows.Forms.Label labelCnf;
         private System.Windows.Forms.PictureBox pictureBoxDnf;
+        private System.Windows.Forms.ToolTip toolTipMenu;
     }
 }

@@ -16,5 +16,15 @@ namespace LogicCircuits
         {
             InitializeComponent();
         }
+        
+        private void MenuButtonsMouseEnter(object sender, EventArgs e)
+        {
+            (sender as Control).Parent.BackColor = Color.LightGray;
+        }
+
+        private void MenuButtonsMouseLeave(object sender, EventArgs e)
+        {
+            (sender as Control).Parent.BackColor = SystemColors.Control;
+        }
     }
 }
