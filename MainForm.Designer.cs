@@ -76,6 +76,10 @@
             this.labelInput_ = new System.Windows.Forms.Label();
             this.pictureBoxInput_ = new System.Windows.Forms.PictureBox();
             this.panelGateInfo = new System.Windows.Forms.Panel();
+            this.pictureBoxGateTable = new System.Windows.Forms.PictureBox();
+            this.pictureBoxDiagram = new System.Windows.Forms.PictureBox();
+            this.pictureBoxFormula = new System.Windows.Forms.PictureBox();
+            this.labelGateName = new System.Windows.Forms.Label();
             this.panelStatus = new System.Windows.Forms.Panel();
             this.labelStatus = new System.Windows.Forms.Label();
             this.panelMenu = new System.Windows.Forms.Panel();
@@ -102,10 +106,6 @@
             this.labelOpen = new System.Windows.Forms.Label();
             this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
             this.toolTipMenu = new System.Windows.Forms.ToolTip(this.components);
-            this.labelGateName = new System.Windows.Forms.Label();
-            this.pictureBoxFormula = new System.Windows.Forms.PictureBox();
-            this.pictureBoxDiagram = new System.Windows.Forms.PictureBox();
-            this.pictureBoxGateTable = new System.Windows.Forms.PictureBox();
             this.panelGeneral.SuspendLayout();
             this.panelLower.SuspendLayout();
             this.panelTools.SuspendLayout();
@@ -134,6 +134,9 @@
             this.panelInput_.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxInput_)).BeginInit();
             this.panelGateInfo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGateTable)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDiagram)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFormula)).BeginInit();
             this.panelStatus.SuspendLayout();
             this.panelMenu.SuspendLayout();
             this.panelCnf.SuspendLayout();
@@ -151,9 +154,6 @@
             this.panelOpen.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOpen)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFormula)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDiagram)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGateTable)).BeginInit();
             this.SuspendLayout();
             // 
             // panelGeneral
@@ -762,6 +762,43 @@
             this.panelGateInfo.Size = new System.Drawing.Size(280, 135);
             this.panelGateInfo.TabIndex = 2;
             // 
+            // pictureBoxGateTable
+            // 
+            this.pictureBoxGateTable.Location = new System.Drawing.Point(167, 2);
+            this.pictureBoxGateTable.Name = "pictureBoxGateTable";
+            this.pictureBoxGateTable.Size = new System.Drawing.Size(109, 129);
+            this.pictureBoxGateTable.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxGateTable.TabIndex = 3;
+            this.pictureBoxGateTable.TabStop = false;
+            // 
+            // pictureBoxDiagram
+            // 
+            this.pictureBoxDiagram.Location = new System.Drawing.Point(21, 74);
+            this.pictureBoxDiagram.Name = "pictureBoxDiagram";
+            this.pictureBoxDiagram.Size = new System.Drawing.Size(116, 50);
+            this.pictureBoxDiagram.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxDiagram.TabIndex = 2;
+            this.pictureBoxDiagram.TabStop = false;
+            // 
+            // pictureBoxFormula
+            // 
+            this.pictureBoxFormula.Location = new System.Drawing.Point(7, 45);
+            this.pictureBoxFormula.Name = "pictureBoxFormula";
+            this.pictureBoxFormula.Size = new System.Drawing.Size(139, 30);
+            this.pictureBoxFormula.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxFormula.TabIndex = 1;
+            this.pictureBoxFormula.TabStop = false;
+            // 
+            // labelGateName
+            // 
+            this.labelGateName.Font = new System.Drawing.Font("Sans Serif Collection", 6.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelGateName.Location = new System.Drawing.Point(3, 2);
+            this.labelGateName.Name = "labelGateName";
+            this.labelGateName.Size = new System.Drawing.Size(158, 47);
+            this.labelGateName.TabIndex = 0;
+            this.labelGateName.Text = "<Назва вентиля>";
+            this.labelGateName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // panelStatus
             // 
             this.panelStatus.BackColor = System.Drawing.SystemColors.Control;
@@ -1092,43 +1129,6 @@
             this.pictureBoxLogo.TabIndex = 0;
             this.pictureBoxLogo.TabStop = false;
             // 
-            // labelGateName
-            // 
-            this.labelGateName.Font = new System.Drawing.Font("Sans Serif Collection", 6.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelGateName.Location = new System.Drawing.Point(9, 11);
-            this.labelGateName.Name = "labelGateName";
-            this.labelGateName.Size = new System.Drawing.Size(139, 23);
-            this.labelGateName.TabIndex = 0;
-            this.labelGateName.Text = "<Назва вентиля>";
-            this.labelGateName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // pictureBoxFormula
-            // 
-            this.pictureBoxFormula.Location = new System.Drawing.Point(9, 37);
-            this.pictureBoxFormula.Name = "pictureBoxFormula";
-            this.pictureBoxFormula.Size = new System.Drawing.Size(139, 30);
-            this.pictureBoxFormula.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBoxFormula.TabIndex = 1;
-            this.pictureBoxFormula.TabStop = false;
-            // 
-            // pictureBoxDiagram
-            // 
-            this.pictureBoxDiagram.Location = new System.Drawing.Point(21, 74);
-            this.pictureBoxDiagram.Name = "pictureBoxDiagram";
-            this.pictureBoxDiagram.Size = new System.Drawing.Size(116, 50);
-            this.pictureBoxDiagram.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBoxDiagram.TabIndex = 2;
-            this.pictureBoxDiagram.TabStop = false;
-            // 
-            // pictureBoxGateTable
-            // 
-            this.pictureBoxGateTable.Location = new System.Drawing.Point(167, 10);
-            this.pictureBoxGateTable.Name = "pictureBoxGateTable";
-            this.pictureBoxGateTable.Size = new System.Drawing.Size(100, 112);
-            this.pictureBoxGateTable.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBoxGateTable.TabIndex = 3;
-            this.pictureBoxGateTable.TabStop = false;
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1173,6 +1173,9 @@
             this.panelInput_.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxInput_)).EndInit();
             this.panelGateInfo.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGateTable)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDiagram)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFormula)).EndInit();
             this.panelStatus.ResumeLayout(false);
             this.panelMenu.ResumeLayout(false);
             this.panelCnf.ResumeLayout(false);
@@ -1190,9 +1193,6 @@
             this.panelOpen.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOpen)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFormula)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDiagram)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGateTable)).EndInit();
             this.ResumeLayout(false);
 
         }
