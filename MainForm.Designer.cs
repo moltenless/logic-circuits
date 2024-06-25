@@ -67,7 +67,14 @@
             this.pictureBoxInput_ = new System.Windows.Forms.PictureBox();
             this.labelInput_ = new System.Windows.Forms.Label();
             this.radioButtonInputAuto = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.radioButtonInputCustom = new System.Windows.Forms.RadioButton();
+            this.textBoxInput = new System.Windows.Forms.TextBox();
+            this.panelOutput_ = new System.Windows.Forms.Panel();
+            this.pictureBoxOutput_ = new System.Windows.Forms.PictureBox();
+            this.labelOutput_ = new System.Windows.Forms.Label();
+            this.radioButtonOutputAuto = new System.Windows.Forms.RadioButton();
+            this.radioButtonOutputCustom = new System.Windows.Forms.RadioButton();
+            this.textBoxOutput = new System.Windows.Forms.TextBox();
             this.panelGeneral.SuspendLayout();
             this.panelLower.SuspendLayout();
             this.panelTools.SuspendLayout();
@@ -91,6 +98,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
             this.panelInput_.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxInput_)).BeginInit();
+            this.panelOutput_.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOutput_)).BeginInit();
             this.SuspendLayout();
             // 
             // panelGeneral
@@ -138,11 +147,12 @@
             // 
             // panelParams
             // 
+            this.panelParams.Controls.Add(this.panelOutput_);
             this.panelParams.Controls.Add(this.panelInput_);
             this.panelParams.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelParams.Location = new System.Drawing.Point(0, 0);
             this.panelParams.Name = "panelParams";
-            this.panelParams.Size = new System.Drawing.Size(216, 141);
+            this.panelParams.Size = new System.Drawing.Size(365, 141);
             this.panelParams.TabIndex = 0;
             // 
             // panelStatus
@@ -478,9 +488,9 @@
             // panelGates
             // 
             this.panelGates.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelGates.Location = new System.Drawing.Point(216, 0);
+            this.panelGates.Location = new System.Drawing.Point(365, 0);
             this.panelGates.Name = "panelGates";
-            this.panelGates.Size = new System.Drawing.Size(1177, 141);
+            this.panelGates.Size = new System.Drawing.Size(1028, 141);
             this.panelGates.TabIndex = 1;
             // 
             // panelGateInfo
@@ -493,7 +503,8 @@
             // 
             // panelInput_
             // 
-            this.panelInput_.Controls.Add(this.radioButton2);
+            this.panelInput_.Controls.Add(this.textBoxInput);
+            this.panelInput_.Controls.Add(this.radioButtonInputCustom);
             this.panelInput_.Controls.Add(this.radioButtonInputAuto);
             this.panelInput_.Controls.Add(this.labelInput_);
             this.panelInput_.Controls.Add(this.pictureBoxInput_);
@@ -520,7 +531,7 @@
             this.labelInput_.Font = new System.Drawing.Font("Sans Serif Collection", 6.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelInput_.Location = new System.Drawing.Point(0, 38);
             this.labelInput_.Name = "labelInput_";
-            this.labelInput_.Size = new System.Drawing.Size(161, 27);
+            this.labelInput_.Size = new System.Drawing.Size(161, 24);
             this.labelInput_.TabIndex = 1;
             this.labelInput_.Text = "Вхідний сигнал";
             this.labelInput_.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -531,7 +542,7 @@
             this.radioButtonInputAuto.Checked = true;
             this.radioButtonInputAuto.Dock = System.Windows.Forms.DockStyle.Top;
             this.radioButtonInputAuto.Font = new System.Drawing.Font("Sans Serif Collection", 6.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButtonInputAuto.Location = new System.Drawing.Point(0, 65);
+            this.radioButtonInputAuto.Location = new System.Drawing.Point(0, 62);
             this.radioButtonInputAuto.Name = "radioButtonInputAuto";
             this.radioButtonInputAuto.Size = new System.Drawing.Size(161, 18);
             this.radioButtonInputAuto.TabIndex = 2;
@@ -540,15 +551,98 @@
             this.radioButtonInputAuto.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.radioButtonInputAuto.UseVisualStyleBackColor = true;
             // 
-            // radioButton2
+            // radioButtonInputCustom
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(12, 89);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(85, 17);
-            this.radioButton2.TabIndex = 3;
-            this.radioButton2.Text = "radioButton2";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.radioButtonInputCustom.Dock = System.Windows.Forms.DockStyle.Top;
+            this.radioButtonInputCustom.Font = new System.Drawing.Font("Sans Serif Collection", 6.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioButtonInputCustom.Location = new System.Drawing.Point(0, 80);
+            this.radioButtonInputCustom.Name = "radioButtonInputCustom";
+            this.radioButtonInputCustom.Size = new System.Drawing.Size(161, 21);
+            this.radioButtonInputCustom.TabIndex = 3;
+            this.radioButtonInputCustom.Text = "Власна назва";
+            this.radioButtonInputCustom.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.radioButtonInputCustom.UseVisualStyleBackColor = true;
+            // 
+            // textBoxInput
+            // 
+            this.textBoxInput.Dock = System.Windows.Forms.DockStyle.Top;
+            this.textBoxInput.Font = new System.Drawing.Font("Sans Serif Collection", 6.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxInput.Location = new System.Drawing.Point(0, 101);
+            this.textBoxInput.Name = "textBoxInput";
+            this.textBoxInput.Size = new System.Drawing.Size(161, 30);
+            this.textBoxInput.TabIndex = 4;
+            // 
+            // panelOutput_
+            // 
+            this.panelOutput_.Controls.Add(this.textBoxOutput);
+            this.panelOutput_.Controls.Add(this.radioButtonOutputCustom);
+            this.panelOutput_.Controls.Add(this.radioButtonOutputAuto);
+            this.panelOutput_.Controls.Add(this.labelOutput_);
+            this.panelOutput_.Controls.Add(this.pictureBoxOutput_);
+            this.panelOutput_.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panelOutput_.Location = new System.Drawing.Point(161, 0);
+            this.panelOutput_.Name = "panelOutput_";
+            this.panelOutput_.Size = new System.Drawing.Size(185, 141);
+            this.panelOutput_.TabIndex = 1;
+            // 
+            // pictureBoxOutput_
+            // 
+            this.pictureBoxOutput_.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pictureBoxOutput_.Image = global::LogicCircuits.Properties.Resources._output;
+            this.pictureBoxOutput_.Location = new System.Drawing.Point(0, 0);
+            this.pictureBoxOutput_.Name = "pictureBoxOutput_";
+            this.pictureBoxOutput_.Size = new System.Drawing.Size(185, 38);
+            this.pictureBoxOutput_.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxOutput_.TabIndex = 0;
+            this.pictureBoxOutput_.TabStop = false;
+            // 
+            // labelOutput_
+            // 
+            this.labelOutput_.Dock = System.Windows.Forms.DockStyle.Top;
+            this.labelOutput_.Font = new System.Drawing.Font("Sans Serif Collection", 6.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelOutput_.Location = new System.Drawing.Point(0, 38);
+            this.labelOutput_.Name = "labelOutput_";
+            this.labelOutput_.Size = new System.Drawing.Size(185, 24);
+            this.labelOutput_.TabIndex = 1;
+            this.labelOutput_.Text = "Вихідний сигнал";
+            this.labelOutput_.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // radioButtonOutputAuto
+            // 
+            this.radioButtonOutputAuto.CheckAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.radioButtonOutputAuto.Checked = true;
+            this.radioButtonOutputAuto.Dock = System.Windows.Forms.DockStyle.Top;
+            this.radioButtonOutputAuto.Font = new System.Drawing.Font("Sans Serif Collection", 6.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioButtonOutputAuto.Location = new System.Drawing.Point(0, 62);
+            this.radioButtonOutputAuto.Name = "radioButtonOutputAuto";
+            this.radioButtonOutputAuto.Size = new System.Drawing.Size(185, 18);
+            this.radioButtonOutputAuto.TabIndex = 2;
+            this.radioButtonOutputAuto.TabStop = true;
+            this.radioButtonOutputAuto.Text = "Автоматична назва";
+            this.radioButtonOutputAuto.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.radioButtonOutputAuto.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonOutputCustom
+            // 
+            this.radioButtonOutputCustom.Dock = System.Windows.Forms.DockStyle.Top;
+            this.radioButtonOutputCustom.Font = new System.Drawing.Font("Sans Serif Collection", 6.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioButtonOutputCustom.Location = new System.Drawing.Point(0, 80);
+            this.radioButtonOutputCustom.Name = "radioButtonOutputCustom";
+            this.radioButtonOutputCustom.Size = new System.Drawing.Size(185, 21);
+            this.radioButtonOutputCustom.TabIndex = 3;
+            this.radioButtonOutputCustom.TabStop = true;
+            this.radioButtonOutputCustom.Text = "Власна назва";
+            this.radioButtonOutputCustom.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.radioButtonOutputCustom.UseVisualStyleBackColor = true;
+            // 
+            // textBoxOutput
+            // 
+            this.textBoxOutput.Dock = System.Windows.Forms.DockStyle.Top;
+            this.textBoxOutput.Font = new System.Drawing.Font("Sans Serif Collection", 6.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxOutput.Location = new System.Drawing.Point(0, 101);
+            this.textBoxOutput.Name = "textBoxOutput";
+            this.textBoxOutput.Size = new System.Drawing.Size(185, 30);
+            this.textBoxOutput.TabIndex = 4;
             // 
             // MainForm
             // 
@@ -588,6 +682,9 @@
             this.panelInput_.ResumeLayout(false);
             this.panelInput_.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxInput_)).EndInit();
+            this.panelOutput_.ResumeLayout(false);
+            this.panelOutput_.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOutput_)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -630,6 +727,13 @@
         private System.Windows.Forms.Label labelInput_;
         private System.Windows.Forms.PictureBox pictureBoxInput_;
         private System.Windows.Forms.RadioButton radioButtonInputAuto;
-        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.RadioButton radioButtonInputCustom;
+        private System.Windows.Forms.TextBox textBoxInput;
+        private System.Windows.Forms.Panel panelOutput_;
+        private System.Windows.Forms.RadioButton radioButtonOutputAuto;
+        private System.Windows.Forms.Label labelOutput_;
+        private System.Windows.Forms.PictureBox pictureBoxOutput_;
+        private System.Windows.Forms.TextBox textBoxOutput;
+        private System.Windows.Forms.RadioButton radioButtonOutputCustom;
     }
 }

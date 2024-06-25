@@ -27,9 +27,6 @@ namespace LogicCircuits
         private void MenuButtonsMouseEnter(object sender, EventArgs e)
         {
             (sender as Control).Parent.BackColor = Color.LightGray;
-
-            Graphics g = panelCanvas.CreateGraphics();
-            g.DrawImage(Image.FromFile("D:\\Chrome media\\120px-NOT_ANSI_Labelled.svg.png"), 200, 200);
         }
 
         private void MenuButtonsMouseLeave(object sender, EventArgs e)
