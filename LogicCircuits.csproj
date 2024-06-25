@@ -110,5 +110,65 @@
   <ItemGroup>
     <None Include="Resources\table.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_and.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_buffer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_imply.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_nand.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_nor.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_not.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_or.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_xnor.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_xor.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_input.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_output.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\and.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\buffer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imply.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\nand.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\nor.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\not.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\or.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\xnor.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\xor.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

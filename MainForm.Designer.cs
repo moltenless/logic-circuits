@@ -31,9 +31,12 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.panelGeneral = new System.Windows.Forms.Panel();
+            this.panelCanvas = new System.Windows.Forms.Panel();
             this.panelLower = new System.Windows.Forms.Panel();
             this.panelTools = new System.Windows.Forms.Panel();
+            this.panelParams = new System.Windows.Forms.Panel();
             this.panelStatus = new System.Windows.Forms.Panel();
+            this.labelStatus = new System.Windows.Forms.Label();
             this.panelMenu = new System.Windows.Forms.Panel();
             this.panelCnf = new System.Windows.Forms.Panel();
             this.pictureBoxCnf = new System.Windows.Forms.PictureBox();
@@ -58,8 +61,18 @@
             this.labelOpen = new System.Windows.Forms.Label();
             this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
             this.toolTipMenu = new System.Windows.Forms.ToolTip(this.components);
+            this.panelGates = new System.Windows.Forms.Panel();
+            this.panelGateInfo = new System.Windows.Forms.Panel();
+            this.panelInput_ = new System.Windows.Forms.Panel();
+            this.pictureBoxInput_ = new System.Windows.Forms.PictureBox();
+            this.labelInput_ = new System.Windows.Forms.Label();
+            this.radioButtonInputAuto = new System.Windows.Forms.RadioButton();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.panelGeneral.SuspendLayout();
             this.panelLower.SuspendLayout();
+            this.panelTools.SuspendLayout();
+            this.panelParams.SuspendLayout();
+            this.panelStatus.SuspendLayout();
             this.panelMenu.SuspendLayout();
             this.panelCnf.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCnf)).BeginInit();
@@ -76,46 +89,82 @@
             this.panelOpen.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOpen)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
+            this.panelInput_.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxInput_)).BeginInit();
             this.SuspendLayout();
             // 
             // panelGeneral
             // 
             this.panelGeneral.BackColor = System.Drawing.SystemColors.Control;
+            this.panelGeneral.Controls.Add(this.panelCanvas);
             this.panelGeneral.Controls.Add(this.panelLower);
             this.panelGeneral.Controls.Add(this.panelMenu);
             this.panelGeneral.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelGeneral.Location = new System.Drawing.Point(0, 0);
             this.panelGeneral.Name = "panelGeneral";
-            this.panelGeneral.Size = new System.Drawing.Size(984, 561);
+            this.panelGeneral.Size = new System.Drawing.Size(1393, 715);
             this.panelGeneral.TabIndex = 0;
+            // 
+            // panelCanvas
+            // 
+            this.panelCanvas.BackColor = System.Drawing.SystemColors.Control;
+            this.panelCanvas.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelCanvas.Location = new System.Drawing.Point(0, 82);
+            this.panelCanvas.Name = "panelCanvas";
+            this.panelCanvas.Size = new System.Drawing.Size(1393, 473);
+            this.panelCanvas.TabIndex = 2;
             // 
             // panelLower
             // 
             this.panelLower.Controls.Add(this.panelTools);
             this.panelLower.Controls.Add(this.panelStatus);
             this.panelLower.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelLower.Location = new System.Drawing.Point(0, 461);
+            this.panelLower.Location = new System.Drawing.Point(0, 555);
             this.panelLower.Name = "panelLower";
-            this.panelLower.Size = new System.Drawing.Size(984, 100);
+            this.panelLower.Size = new System.Drawing.Size(1393, 160);
             this.panelLower.TabIndex = 1;
             // 
             // panelTools
             // 
             this.panelTools.BackColor = System.Drawing.SystemColors.Control;
+            this.panelTools.Controls.Add(this.panelGateInfo);
+            this.panelTools.Controls.Add(this.panelGates);
+            this.panelTools.Controls.Add(this.panelParams);
             this.panelTools.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelTools.Location = new System.Drawing.Point(0, 25);
+            this.panelTools.Location = new System.Drawing.Point(0, 19);
             this.panelTools.Name = "panelTools";
-            this.panelTools.Size = new System.Drawing.Size(984, 75);
+            this.panelTools.Size = new System.Drawing.Size(1393, 141);
             this.panelTools.TabIndex = 1;
+            // 
+            // panelParams
+            // 
+            this.panelParams.Controls.Add(this.panelInput_);
+            this.panelParams.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panelParams.Location = new System.Drawing.Point(0, 0);
+            this.panelParams.Name = "panelParams";
+            this.panelParams.Size = new System.Drawing.Size(216, 141);
+            this.panelParams.TabIndex = 0;
             // 
             // panelStatus
             // 
             this.panelStatus.BackColor = System.Drawing.SystemColors.Control;
+            this.panelStatus.Controls.Add(this.labelStatus);
             this.panelStatus.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelStatus.Location = new System.Drawing.Point(0, 0);
             this.panelStatus.Name = "panelStatus";
-            this.panelStatus.Size = new System.Drawing.Size(984, 25);
+            this.panelStatus.Size = new System.Drawing.Size(1393, 19);
             this.panelStatus.TabIndex = 0;
+            // 
+            // labelStatus
+            // 
+            this.labelStatus.Dock = System.Windows.Forms.DockStyle.Left;
+            this.labelStatus.Font = new System.Drawing.Font("Sans Serif Collection", 6.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelStatus.Location = new System.Drawing.Point(0, 0);
+            this.labelStatus.Name = "labelStatus";
+            this.labelStatus.Size = new System.Drawing.Size(346, 19);
+            this.labelStatus.TabIndex = 0;
+            this.labelStatus.Text = "Статус:";
+            this.labelStatus.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // panelMenu
             // 
@@ -132,7 +181,7 @@
             this.panelMenu.Location = new System.Drawing.Point(0, 0);
             this.panelMenu.Name = "panelMenu";
             this.panelMenu.Padding = new System.Windows.Forms.Padding(0, 0, 0, 7);
-            this.panelMenu.Size = new System.Drawing.Size(984, 82);
+            this.panelMenu.Size = new System.Drawing.Size(1393, 82);
             this.panelMenu.TabIndex = 0;
             // 
             // panelCnf
@@ -426,11 +475,86 @@
             this.pictureBoxLogo.TabIndex = 0;
             this.pictureBoxLogo.TabStop = false;
             // 
+            // panelGates
+            // 
+            this.panelGates.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelGates.Location = new System.Drawing.Point(216, 0);
+            this.panelGates.Name = "panelGates";
+            this.panelGates.Size = new System.Drawing.Size(1177, 141);
+            this.panelGates.TabIndex = 1;
+            // 
+            // panelGateInfo
+            // 
+            this.panelGateInfo.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panelGateInfo.Location = new System.Drawing.Point(1193, 0);
+            this.panelGateInfo.Name = "panelGateInfo";
+            this.panelGateInfo.Size = new System.Drawing.Size(200, 141);
+            this.panelGateInfo.TabIndex = 2;
+            // 
+            // panelInput_
+            // 
+            this.panelInput_.Controls.Add(this.radioButton2);
+            this.panelInput_.Controls.Add(this.radioButtonInputAuto);
+            this.panelInput_.Controls.Add(this.labelInput_);
+            this.panelInput_.Controls.Add(this.pictureBoxInput_);
+            this.panelInput_.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panelInput_.Location = new System.Drawing.Point(0, 0);
+            this.panelInput_.Name = "panelInput_";
+            this.panelInput_.Size = new System.Drawing.Size(161, 141);
+            this.panelInput_.TabIndex = 0;
+            // 
+            // pictureBoxInput_
+            // 
+            this.pictureBoxInput_.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pictureBoxInput_.Image = global::LogicCircuits.Properties.Resources._input;
+            this.pictureBoxInput_.Location = new System.Drawing.Point(0, 0);
+            this.pictureBoxInput_.Name = "pictureBoxInput_";
+            this.pictureBoxInput_.Size = new System.Drawing.Size(161, 38);
+            this.pictureBoxInput_.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxInput_.TabIndex = 0;
+            this.pictureBoxInput_.TabStop = false;
+            // 
+            // labelInput_
+            // 
+            this.labelInput_.Dock = System.Windows.Forms.DockStyle.Top;
+            this.labelInput_.Font = new System.Drawing.Font("Sans Serif Collection", 6.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelInput_.Location = new System.Drawing.Point(0, 38);
+            this.labelInput_.Name = "labelInput_";
+            this.labelInput_.Size = new System.Drawing.Size(161, 27);
+            this.labelInput_.TabIndex = 1;
+            this.labelInput_.Text = "Вхідний сигнал";
+            this.labelInput_.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // radioButtonInputAuto
+            // 
+            this.radioButtonInputAuto.CheckAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.radioButtonInputAuto.Checked = true;
+            this.radioButtonInputAuto.Dock = System.Windows.Forms.DockStyle.Top;
+            this.radioButtonInputAuto.Font = new System.Drawing.Font("Sans Serif Collection", 6.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioButtonInputAuto.Location = new System.Drawing.Point(0, 65);
+            this.radioButtonInputAuto.Name = "radioButtonInputAuto";
+            this.radioButtonInputAuto.Size = new System.Drawing.Size(161, 18);
+            this.radioButtonInputAuto.TabIndex = 2;
+            this.radioButtonInputAuto.TabStop = true;
+            this.radioButtonInputAuto.Text = "Автоматична назва";
+            this.radioButtonInputAuto.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.radioButtonInputAuto.UseVisualStyleBackColor = true;
+            // 
+            // radioButton2
+            // 
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.Location = new System.Drawing.Point(12, 89);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(85, 17);
+            this.radioButton2.TabIndex = 3;
+            this.radioButton2.Text = "radioButton2";
+            this.radioButton2.UseVisualStyleBackColor = true;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(984, 561);
+            this.ClientSize = new System.Drawing.Size(1393, 715);
             this.Controls.Add(this.panelGeneral);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
@@ -439,8 +563,12 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Калькулятор побудови логічних схем";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.panelGeneral.ResumeLayout(false);
             this.panelLower.ResumeLayout(false);
+            this.panelTools.ResumeLayout(false);
+            this.panelParams.ResumeLayout(false);
+            this.panelStatus.ResumeLayout(false);
             this.panelMenu.ResumeLayout(false);
             this.panelCnf.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCnf)).EndInit();
@@ -457,6 +585,9 @@
             this.panelOpen.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOpen)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
+            this.panelInput_.ResumeLayout(false);
+            this.panelInput_.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxInput_)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -490,5 +621,15 @@
         private System.Windows.Forms.Label labelCnf;
         private System.Windows.Forms.PictureBox pictureBoxDnf;
         private System.Windows.Forms.ToolTip toolTipMenu;
+        private System.Windows.Forms.Label labelStatus;
+        private System.Windows.Forms.Panel panelParams;
+        private System.Windows.Forms.Panel panelCanvas;
+        private System.Windows.Forms.Panel panelGateInfo;
+        private System.Windows.Forms.Panel panelGates;
+        private System.Windows.Forms.Panel panelInput_;
+        private System.Windows.Forms.Label labelInput_;
+        private System.Windows.Forms.PictureBox pictureBoxInput_;
+        private System.Windows.Forms.RadioButton radioButtonInputAuto;
+        private System.Windows.Forms.RadioButton radioButton2;
     }
 }
