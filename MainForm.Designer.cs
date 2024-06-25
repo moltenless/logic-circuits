@@ -120,7 +120,7 @@
             this.panelCanvas.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelCanvas.Location = new System.Drawing.Point(0, 82);
             this.panelCanvas.Name = "panelCanvas";
-            this.panelCanvas.Size = new System.Drawing.Size(1393, 499);
+            this.panelCanvas.Size = new System.Drawing.Size(1393, 474);
             this.panelCanvas.TabIndex = 2;
             // 
             // panelLower
@@ -128,9 +128,9 @@
             this.panelLower.Controls.Add(this.panelTools);
             this.panelLower.Controls.Add(this.panelStatus);
             this.panelLower.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelLower.Location = new System.Drawing.Point(0, 581);
+            this.panelLower.Location = new System.Drawing.Point(0, 556);
             this.panelLower.Name = "panelLower";
-            this.panelLower.Size = new System.Drawing.Size(1393, 134);
+            this.panelLower.Size = new System.Drawing.Size(1393, 159);
             this.panelLower.TabIndex = 1;
             // 
             // panelTools
@@ -140,19 +140,21 @@
             this.panelTools.Controls.Add(this.panelGates);
             this.panelTools.Controls.Add(this.panelParams);
             this.panelTools.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelTools.Location = new System.Drawing.Point(0, 19);
+            this.panelTools.Location = new System.Drawing.Point(0, 24);
             this.panelTools.Name = "panelTools";
-            this.panelTools.Size = new System.Drawing.Size(1393, 115);
+            this.panelTools.Size = new System.Drawing.Size(1393, 135);
             this.panelTools.TabIndex = 1;
             // 
             // panelParams
             // 
+            this.panelParams.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelParams.Controls.Add(this.panelOutput_);
             this.panelParams.Controls.Add(this.panelInput_);
             this.panelParams.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelParams.Location = new System.Drawing.Point(0, 0);
             this.panelParams.Name = "panelParams";
-            this.panelParams.Size = new System.Drawing.Size(346, 115);
+            this.panelParams.Padding = new System.Windows.Forms.Padding(10, 10, 0, 10);
+            this.panelParams.Size = new System.Drawing.Size(254, 135);
             this.panelParams.TabIndex = 0;
             // 
             // panelStatus
@@ -162,7 +164,7 @@
             this.panelStatus.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelStatus.Location = new System.Drawing.Point(0, 0);
             this.panelStatus.Name = "panelStatus";
-            this.panelStatus.Size = new System.Drawing.Size(1393, 19);
+            this.panelStatus.Size = new System.Drawing.Size(1393, 24);
             this.panelStatus.TabIndex = 0;
             // 
             // labelStatus
@@ -171,7 +173,7 @@
             this.labelStatus.Font = new System.Drawing.Font("Sans Serif Collection", 6.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelStatus.Location = new System.Drawing.Point(0, 0);
             this.labelStatus.Name = "labelStatus";
-            this.labelStatus.Size = new System.Drawing.Size(346, 19);
+            this.labelStatus.Size = new System.Drawing.Size(346, 24);
             this.labelStatus.TabIndex = 0;
             this.labelStatus.Text = "Статус:";
             this.labelStatus.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -488,9 +490,10 @@
             // panelGates
             // 
             this.panelGates.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelGates.Location = new System.Drawing.Point(346, 0);
+            this.panelGates.Location = new System.Drawing.Point(254, 0);
             this.panelGates.Name = "panelGates";
-            this.panelGates.Size = new System.Drawing.Size(1047, 115);
+            this.panelGates.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
+            this.panelGates.Size = new System.Drawing.Size(1139, 135);
             this.panelGates.TabIndex = 1;
             // 
             // panelGateInfo
@@ -498,20 +501,22 @@
             this.panelGateInfo.Dock = System.Windows.Forms.DockStyle.Right;
             this.panelGateInfo.Location = new System.Drawing.Point(1193, 0);
             this.panelGateInfo.Name = "panelGateInfo";
-            this.panelGateInfo.Size = new System.Drawing.Size(200, 115);
+            this.panelGateInfo.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
+            this.panelGateInfo.Size = new System.Drawing.Size(200, 135);
             this.panelGateInfo.TabIndex = 2;
             // 
             // panelInput_
             // 
+            this.panelInput_.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelInput_.Controls.Add(this.textBoxInput);
             this.panelInput_.Controls.Add(this.radioButtonInputCustom);
             this.panelInput_.Controls.Add(this.radioButtonInputAuto);
             this.panelInput_.Controls.Add(this.labelInput_);
             this.panelInput_.Controls.Add(this.pictureBoxInput_);
             this.panelInput_.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelInput_.Location = new System.Drawing.Point(0, 0);
+            this.panelInput_.Location = new System.Drawing.Point(10, 10);
             this.panelInput_.Name = "panelInput_";
-            this.panelInput_.Size = new System.Drawing.Size(112, 115);
+            this.panelInput_.Size = new System.Drawing.Size(112, 113);
             this.panelInput_.TabIndex = 0;
             // 
             // pictureBoxInput_
@@ -520,7 +525,7 @@
             this.pictureBoxInput_.Image = global::LogicCircuits.Properties.Resources._input;
             this.pictureBoxInput_.Location = new System.Drawing.Point(0, 0);
             this.pictureBoxInput_.Name = "pictureBoxInput_";
-            this.pictureBoxInput_.Size = new System.Drawing.Size(112, 38);
+            this.pictureBoxInput_.Size = new System.Drawing.Size(110, 38);
             this.pictureBoxInput_.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxInput_.TabIndex = 0;
             this.pictureBoxInput_.TabStop = false;
@@ -531,7 +536,7 @@
             this.labelInput_.Font = new System.Drawing.Font("Sans Serif Collection", 6.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelInput_.Location = new System.Drawing.Point(0, 38);
             this.labelInput_.Name = "labelInput_";
-            this.labelInput_.Size = new System.Drawing.Size(112, 24);
+            this.labelInput_.Size = new System.Drawing.Size(110, 24);
             this.labelInput_.TabIndex = 1;
             this.labelInput_.Text = "Вхідний сигнал";
             this.labelInput_.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -544,7 +549,7 @@
             this.radioButtonInputAuto.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radioButtonInputAuto.Location = new System.Drawing.Point(0, 62);
             this.radioButtonInputAuto.Name = "radioButtonInputAuto";
-            this.radioButtonInputAuto.Size = new System.Drawing.Size(112, 18);
+            this.radioButtonInputAuto.Size = new System.Drawing.Size(110, 18);
             this.radioButtonInputAuto.TabIndex = 2;
             this.radioButtonInputAuto.TabStop = true;
             this.radioButtonInputAuto.Text = "Автоматична назва";
@@ -557,7 +562,7 @@
             this.radioButtonInputCustom.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radioButtonInputCustom.Location = new System.Drawing.Point(0, 80);
             this.radioButtonInputCustom.Name = "radioButtonInputCustom";
-            this.radioButtonInputCustom.Size = new System.Drawing.Size(112, 15);
+            this.radioButtonInputCustom.Size = new System.Drawing.Size(110, 15);
             this.radioButtonInputCustom.TabIndex = 3;
             this.radioButtonInputCustom.Text = "Власна назва";
             this.radioButtonInputCustom.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -569,22 +574,23 @@
             this.textBoxInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxInput.Location = new System.Drawing.Point(0, 95);
             this.textBoxInput.Name = "textBoxInput";
-            this.textBoxInput.Size = new System.Drawing.Size(112, 18);
+            this.textBoxInput.Size = new System.Drawing.Size(110, 18);
             this.textBoxInput.TabIndex = 4;
             this.textBoxInput.Text = "X";
             this.textBoxInput.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // panelOutput_
             // 
+            this.panelOutput_.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelOutput_.Controls.Add(this.textBoxOutput);
             this.panelOutput_.Controls.Add(this.radioButtonOutputCustom);
             this.panelOutput_.Controls.Add(this.radioButtonOutputAuto);
             this.panelOutput_.Controls.Add(this.labelOutput_);
             this.panelOutput_.Controls.Add(this.pictureBoxOutput_);
             this.panelOutput_.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelOutput_.Location = new System.Drawing.Point(112, 0);
+            this.panelOutput_.Location = new System.Drawing.Point(122, 10);
             this.panelOutput_.Name = "panelOutput_";
-            this.panelOutput_.Size = new System.Drawing.Size(123, 115);
+            this.panelOutput_.Size = new System.Drawing.Size(123, 113);
             this.panelOutput_.TabIndex = 1;
             // 
             // pictureBoxOutput_
@@ -593,7 +599,7 @@
             this.pictureBoxOutput_.Image = global::LogicCircuits.Properties.Resources._output;
             this.pictureBoxOutput_.Location = new System.Drawing.Point(0, 0);
             this.pictureBoxOutput_.Name = "pictureBoxOutput_";
-            this.pictureBoxOutput_.Size = new System.Drawing.Size(123, 38);
+            this.pictureBoxOutput_.Size = new System.Drawing.Size(121, 38);
             this.pictureBoxOutput_.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxOutput_.TabIndex = 0;
             this.pictureBoxOutput_.TabStop = false;
@@ -604,7 +610,7 @@
             this.labelOutput_.Font = new System.Drawing.Font("Sans Serif Collection", 6.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelOutput_.Location = new System.Drawing.Point(0, 38);
             this.labelOutput_.Name = "labelOutput_";
-            this.labelOutput_.Size = new System.Drawing.Size(123, 24);
+            this.labelOutput_.Size = new System.Drawing.Size(121, 24);
             this.labelOutput_.TabIndex = 1;
             this.labelOutput_.Text = "Вихідний сигнал";
             this.labelOutput_.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -617,7 +623,7 @@
             this.radioButtonOutputAuto.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radioButtonOutputAuto.Location = new System.Drawing.Point(0, 62);
             this.radioButtonOutputAuto.Name = "radioButtonOutputAuto";
-            this.radioButtonOutputAuto.Size = new System.Drawing.Size(123, 18);
+            this.radioButtonOutputAuto.Size = new System.Drawing.Size(121, 18);
             this.radioButtonOutputAuto.TabIndex = 2;
             this.radioButtonOutputAuto.TabStop = true;
             this.radioButtonOutputAuto.Text = "Автоматична назва";
@@ -630,7 +636,7 @@
             this.radioButtonOutputCustom.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radioButtonOutputCustom.Location = new System.Drawing.Point(0, 80);
             this.radioButtonOutputCustom.Name = "radioButtonOutputCustom";
-            this.radioButtonOutputCustom.Size = new System.Drawing.Size(123, 15);
+            this.radioButtonOutputCustom.Size = new System.Drawing.Size(121, 15);
             this.radioButtonOutputCustom.TabIndex = 3;
             this.radioButtonOutputCustom.TabStop = true;
             this.radioButtonOutputCustom.Text = "Власна назва";
@@ -643,7 +649,7 @@
             this.textBoxOutput.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxOutput.Location = new System.Drawing.Point(0, 95);
             this.textBoxOutput.Name = "textBoxOutput";
-            this.textBoxOutput.Size = new System.Drawing.Size(123, 18);
+            this.textBoxOutput.Size = new System.Drawing.Size(121, 18);
             this.textBoxOutput.TabIndex = 4;
             this.textBoxOutput.Text = "Y";
             this.textBoxOutput.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
