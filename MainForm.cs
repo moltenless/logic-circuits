@@ -27,6 +27,11 @@ namespace LogicCircuits
         private void MenuButtonsMouseEnter(object sender, EventArgs e)
         {
             (sender as Control).Parent.BackColor = Color.LightGray;
+            object tag = (sender as Control).Tag;
+            if (tag != null && int.TryParse(tag.ToString(), out int gate))
+            {
+                string[]
+            }
         }
 
         private void MenuButtonsMouseLeave(object sender, EventArgs e)

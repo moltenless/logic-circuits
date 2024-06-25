@@ -170,5 +170,86 @@
   <ItemGroup>
     <None Include="Resources\xor.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\formula1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\formula2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\formula3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\formula4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\formula5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\formula6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\formula7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\formula8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\formula9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gate1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gate2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gate3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gate4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gate5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gate6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gate7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gate8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gate9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\table1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\table2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\table3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\table4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\table5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\table6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\table7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\table8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\table9.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

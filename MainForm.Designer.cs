@@ -34,8 +34,34 @@
             this.panelCanvas = new System.Windows.Forms.Panel();
             this.panelLower = new System.Windows.Forms.Panel();
             this.panelTools = new System.Windows.Forms.Panel();
-            this.panelGateInfo = new System.Windows.Forms.Panel();
             this.panelGates = new System.Windows.Forms.Panel();
+            this.panelImply = new System.Windows.Forms.Panel();
+            this.labelImply = new System.Windows.Forms.Label();
+            this.pictureBoxImply = new System.Windows.Forms.PictureBox();
+            this.panelXnor = new System.Windows.Forms.Panel();
+            this.labelXnor = new System.Windows.Forms.Label();
+            this.pictureBoxXnor = new System.Windows.Forms.PictureBox();
+            this.panelXor = new System.Windows.Forms.Panel();
+            this.labelXor = new System.Windows.Forms.Label();
+            this.pictureBoxXor = new System.Windows.Forms.PictureBox();
+            this.panelNor = new System.Windows.Forms.Panel();
+            this.labelNor = new System.Windows.Forms.Label();
+            this.pictureBoxNor = new System.Windows.Forms.PictureBox();
+            this.panelNand = new System.Windows.Forms.Panel();
+            this.labelNand = new System.Windows.Forms.Label();
+            this.pictureBoxNand = new System.Windows.Forms.PictureBox();
+            this.panelOr = new System.Windows.Forms.Panel();
+            this.labelOr = new System.Windows.Forms.Label();
+            this.pictureBoxOr = new System.Windows.Forms.PictureBox();
+            this.panelAnd = new System.Windows.Forms.Panel();
+            this.labelAnd = new System.Windows.Forms.Label();
+            this.pictureBoxAnd = new System.Windows.Forms.PictureBox();
+            this.panelNot = new System.Windows.Forms.Panel();
+            this.labelNot = new System.Windows.Forms.Label();
+            this.pictureBoxNot = new System.Windows.Forms.PictureBox();
+            this.panelBuffer = new System.Windows.Forms.Panel();
+            this.labelBuffer = new System.Windows.Forms.Label();
+            this.pictureBoxBuffer = new System.Windows.Forms.PictureBox();
             this.panelParams = new System.Windows.Forms.Panel();
             this.panelOutput_ = new System.Windows.Forms.Panel();
             this.textBoxOutput = new System.Windows.Forms.TextBox();
@@ -49,6 +75,7 @@
             this.radioButtonInputAuto = new System.Windows.Forms.RadioButton();
             this.labelInput_ = new System.Windows.Forms.Label();
             this.pictureBoxInput_ = new System.Windows.Forms.PictureBox();
+            this.panelGateInfo = new System.Windows.Forms.Panel();
             this.panelStatus = new System.Windows.Forms.Panel();
             this.labelStatus = new System.Windows.Forms.Label();
             this.panelMenu = new System.Windows.Forms.Panel();
@@ -75,42 +102,38 @@
             this.labelOpen = new System.Windows.Forms.Label();
             this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
             this.toolTipMenu = new System.Windows.Forms.ToolTip(this.components);
-            this.panelBuffer = new System.Windows.Forms.Panel();
-            this.pictureBoxBuffer = new System.Windows.Forms.PictureBox();
-            this.labelBuffer = new System.Windows.Forms.Label();
-            this.panelNot = new System.Windows.Forms.Panel();
-            this.pictureBoxNot = new System.Windows.Forms.PictureBox();
-            this.labelNot = new System.Windows.Forms.Label();
-            this.panelAnd = new System.Windows.Forms.Panel();
-            this.pictureBoxAnd = new System.Windows.Forms.PictureBox();
-            this.labelAnd = new System.Windows.Forms.Label();
-            this.panelOr = new System.Windows.Forms.Panel();
-            this.pictureBoxOr = new System.Windows.Forms.PictureBox();
-            this.labelOr = new System.Windows.Forms.Label();
-            this.panelNand = new System.Windows.Forms.Panel();
-            this.pictureBoxNand = new System.Windows.Forms.PictureBox();
-            this.labelNand = new System.Windows.Forms.Label();
-            this.panelNor = new System.Windows.Forms.Panel();
-            this.pictureBoxNor = new System.Windows.Forms.PictureBox();
-            this.labelNor = new System.Windows.Forms.Label();
-            this.panelXor = new System.Windows.Forms.Panel();
-            this.pictureBoxXor = new System.Windows.Forms.PictureBox();
-            this.labelXor = new System.Windows.Forms.Label();
-            this.panelXnor = new System.Windows.Forms.Panel();
-            this.pictureBoxXnor = new System.Windows.Forms.PictureBox();
-            this.labelXnor = new System.Windows.Forms.Label();
-            this.panelImply = new System.Windows.Forms.Panel();
-            this.pictureBoxImply = new System.Windows.Forms.PictureBox();
-            this.labelImply = new System.Windows.Forms.Label();
+            this.labelGateName = new System.Windows.Forms.Label();
+            this.pictureBoxFormula = new System.Windows.Forms.PictureBox();
+            this.pictureBoxDiagram = new System.Windows.Forms.PictureBox();
+            this.pictureBoxGateTable = new System.Windows.Forms.PictureBox();
             this.panelGeneral.SuspendLayout();
             this.panelLower.SuspendLayout();
             this.panelTools.SuspendLayout();
             this.panelGates.SuspendLayout();
+            this.panelImply.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxImply)).BeginInit();
+            this.panelXnor.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxXnor)).BeginInit();
+            this.panelXor.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxXor)).BeginInit();
+            this.panelNor.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxNor)).BeginInit();
+            this.panelNand.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxNand)).BeginInit();
+            this.panelOr.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOr)).BeginInit();
+            this.panelAnd.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAnd)).BeginInit();
+            this.panelNot.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxNot)).BeginInit();
+            this.panelBuffer.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBuffer)).BeginInit();
             this.panelParams.SuspendLayout();
             this.panelOutput_.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOutput_)).BeginInit();
             this.panelInput_.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxInput_)).BeginInit();
+            this.panelGateInfo.SuspendLayout();
             this.panelStatus.SuspendLayout();
             this.panelMenu.SuspendLayout();
             this.panelCnf.SuspendLayout();
@@ -128,24 +151,9 @@
             this.panelOpen.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOpen)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
-            this.panelBuffer.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBuffer)).BeginInit();
-            this.panelNot.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxNot)).BeginInit();
-            this.panelAnd.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAnd)).BeginInit();
-            this.panelOr.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOr)).BeginInit();
-            this.panelNand.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxNand)).BeginInit();
-            this.panelNor.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxNor)).BeginInit();
-            this.panelXor.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxXor)).BeginInit();
-            this.panelXnor.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxXnor)).BeginInit();
-            this.panelImply.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxImply)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFormula)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDiagram)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGateTable)).BeginInit();
             this.SuspendLayout();
             // 
             // panelGeneral
@@ -191,16 +199,6 @@
             this.panelTools.Size = new System.Drawing.Size(1393, 135);
             this.panelTools.TabIndex = 1;
             // 
-            // panelGateInfo
-            // 
-            this.panelGateInfo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelGateInfo.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelGateInfo.Location = new System.Drawing.Point(1113, 0);
-            this.panelGateInfo.Name = "panelGateInfo";
-            this.panelGateInfo.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
-            this.panelGateInfo.Size = new System.Drawing.Size(280, 135);
-            this.panelGateInfo.TabIndex = 2;
-            // 
             // panelGates
             // 
             this.panelGates.AutoScroll = true;
@@ -220,6 +218,366 @@
             this.panelGates.Padding = new System.Windows.Forms.Padding(10, 10, 0, 10);
             this.panelGates.Size = new System.Drawing.Size(854, 135);
             this.panelGates.TabIndex = 1;
+            // 
+            // panelImply
+            // 
+            this.panelImply.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelImply.Controls.Add(this.labelImply);
+            this.panelImply.Controls.Add(this.pictureBoxImply);
+            this.panelImply.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panelImply.Location = new System.Drawing.Point(1204, 10);
+            this.panelImply.Name = "panelImply";
+            this.panelImply.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.panelImply.Size = new System.Drawing.Size(163, 96);
+            this.panelImply.TabIndex = 8;
+            // 
+            // labelImply
+            // 
+            this.labelImply.Dock = System.Windows.Forms.DockStyle.Top;
+            this.labelImply.Font = new System.Drawing.Font("Sans Serif Collection", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelImply.Location = new System.Drawing.Point(0, 67);
+            this.labelImply.Name = "labelImply";
+            this.labelImply.Size = new System.Drawing.Size(161, 32);
+            this.labelImply.TabIndex = 1;
+            this.labelImply.Tag = "9";
+            this.labelImply.Text = "IMPLY";
+            this.labelImply.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelImply.MouseEnter += new System.EventHandler(this.MenuButtonsMouseEnter);
+            this.labelImply.MouseLeave += new System.EventHandler(this.MenuButtonsMouseLeave);
+            // 
+            // pictureBoxImply
+            // 
+            this.pictureBoxImply.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pictureBoxImply.Image = global::LogicCircuits.Properties.Resources._imply;
+            this.pictureBoxImply.Location = new System.Drawing.Point(0, 5);
+            this.pictureBoxImply.Name = "pictureBoxImply";
+            this.pictureBoxImply.Size = new System.Drawing.Size(161, 62);
+            this.pictureBoxImply.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxImply.TabIndex = 0;
+            this.pictureBoxImply.TabStop = false;
+            this.pictureBoxImply.Tag = "9";
+            this.pictureBoxImply.MouseEnter += new System.EventHandler(this.MenuButtonsMouseEnter);
+            this.pictureBoxImply.MouseLeave += new System.EventHandler(this.MenuButtonsMouseLeave);
+            // 
+            // panelXnor
+            // 
+            this.panelXnor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelXnor.Controls.Add(this.labelXnor);
+            this.panelXnor.Controls.Add(this.pictureBoxXnor);
+            this.panelXnor.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panelXnor.Location = new System.Drawing.Point(1045, 10);
+            this.panelXnor.Name = "panelXnor";
+            this.panelXnor.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.panelXnor.Size = new System.Drawing.Size(159, 96);
+            this.panelXnor.TabIndex = 7;
+            // 
+            // labelXnor
+            // 
+            this.labelXnor.Dock = System.Windows.Forms.DockStyle.Top;
+            this.labelXnor.Font = new System.Drawing.Font("Sans Serif Collection", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelXnor.Location = new System.Drawing.Point(0, 67);
+            this.labelXnor.Name = "labelXnor";
+            this.labelXnor.Size = new System.Drawing.Size(157, 32);
+            this.labelXnor.TabIndex = 1;
+            this.labelXnor.Tag = "8";
+            this.labelXnor.Text = "XNOR";
+            this.labelXnor.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelXnor.MouseEnter += new System.EventHandler(this.MenuButtonsMouseEnter);
+            this.labelXnor.MouseLeave += new System.EventHandler(this.MenuButtonsMouseLeave);
+            // 
+            // pictureBoxXnor
+            // 
+            this.pictureBoxXnor.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pictureBoxXnor.Image = global::LogicCircuits.Properties.Resources._xnor;
+            this.pictureBoxXnor.Location = new System.Drawing.Point(0, 5);
+            this.pictureBoxXnor.Name = "pictureBoxXnor";
+            this.pictureBoxXnor.Size = new System.Drawing.Size(157, 62);
+            this.pictureBoxXnor.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxXnor.TabIndex = 0;
+            this.pictureBoxXnor.TabStop = false;
+            this.pictureBoxXnor.Tag = "8";
+            this.pictureBoxXnor.MouseEnter += new System.EventHandler(this.MenuButtonsMouseEnter);
+            this.pictureBoxXnor.MouseLeave += new System.EventHandler(this.MenuButtonsMouseLeave);
+            // 
+            // panelXor
+            // 
+            this.panelXor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelXor.Controls.Add(this.labelXor);
+            this.panelXor.Controls.Add(this.pictureBoxXor);
+            this.panelXor.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panelXor.Location = new System.Drawing.Point(886, 10);
+            this.panelXor.Name = "panelXor";
+            this.panelXor.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.panelXor.Size = new System.Drawing.Size(159, 96);
+            this.panelXor.TabIndex = 6;
+            // 
+            // labelXor
+            // 
+            this.labelXor.Dock = System.Windows.Forms.DockStyle.Top;
+            this.labelXor.Font = new System.Drawing.Font("Sans Serif Collection", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelXor.Location = new System.Drawing.Point(0, 67);
+            this.labelXor.Name = "labelXor";
+            this.labelXor.Size = new System.Drawing.Size(157, 32);
+            this.labelXor.TabIndex = 1;
+            this.labelXor.Tag = "7";
+            this.labelXor.Text = "XOR";
+            this.labelXor.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelXor.MouseEnter += new System.EventHandler(this.MenuButtonsMouseEnter);
+            this.labelXor.MouseLeave += new System.EventHandler(this.MenuButtonsMouseLeave);
+            // 
+            // pictureBoxXor
+            // 
+            this.pictureBoxXor.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pictureBoxXor.Image = global::LogicCircuits.Properties.Resources._xor;
+            this.pictureBoxXor.Location = new System.Drawing.Point(0, 5);
+            this.pictureBoxXor.Name = "pictureBoxXor";
+            this.pictureBoxXor.Size = new System.Drawing.Size(157, 62);
+            this.pictureBoxXor.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxXor.TabIndex = 0;
+            this.pictureBoxXor.TabStop = false;
+            this.pictureBoxXor.Tag = "7";
+            this.pictureBoxXor.MouseEnter += new System.EventHandler(this.MenuButtonsMouseEnter);
+            this.pictureBoxXor.MouseLeave += new System.EventHandler(this.MenuButtonsMouseLeave);
+            // 
+            // panelNor
+            // 
+            this.panelNor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelNor.Controls.Add(this.labelNor);
+            this.panelNor.Controls.Add(this.pictureBoxNor);
+            this.panelNor.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panelNor.Location = new System.Drawing.Point(726, 10);
+            this.panelNor.Name = "panelNor";
+            this.panelNor.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.panelNor.Size = new System.Drawing.Size(160, 96);
+            this.panelNor.TabIndex = 5;
+            // 
+            // labelNor
+            // 
+            this.labelNor.Dock = System.Windows.Forms.DockStyle.Top;
+            this.labelNor.Font = new System.Drawing.Font("Sans Serif Collection", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelNor.Location = new System.Drawing.Point(0, 67);
+            this.labelNor.Name = "labelNor";
+            this.labelNor.Size = new System.Drawing.Size(158, 32);
+            this.labelNor.TabIndex = 1;
+            this.labelNor.Tag = "6";
+            this.labelNor.Text = "NOR";
+            this.labelNor.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelNor.MouseEnter += new System.EventHandler(this.MenuButtonsMouseEnter);
+            this.labelNor.MouseLeave += new System.EventHandler(this.MenuButtonsMouseLeave);
+            // 
+            // pictureBoxNor
+            // 
+            this.pictureBoxNor.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pictureBoxNor.Image = global::LogicCircuits.Properties.Resources._nor;
+            this.pictureBoxNor.Location = new System.Drawing.Point(0, 5);
+            this.pictureBoxNor.Name = "pictureBoxNor";
+            this.pictureBoxNor.Size = new System.Drawing.Size(158, 62);
+            this.pictureBoxNor.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxNor.TabIndex = 0;
+            this.pictureBoxNor.TabStop = false;
+            this.pictureBoxNor.Tag = "6";
+            this.pictureBoxNor.MouseEnter += new System.EventHandler(this.MenuButtonsMouseEnter);
+            this.pictureBoxNor.MouseLeave += new System.EventHandler(this.MenuButtonsMouseLeave);
+            // 
+            // panelNand
+            // 
+            this.panelNand.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelNand.Controls.Add(this.labelNand);
+            this.panelNand.Controls.Add(this.pictureBoxNand);
+            this.panelNand.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panelNand.Location = new System.Drawing.Point(573, 10);
+            this.panelNand.Name = "panelNand";
+            this.panelNand.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.panelNand.Size = new System.Drawing.Size(153, 96);
+            this.panelNand.TabIndex = 4;
+            // 
+            // labelNand
+            // 
+            this.labelNand.Dock = System.Windows.Forms.DockStyle.Top;
+            this.labelNand.Font = new System.Drawing.Font("Sans Serif Collection", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelNand.Location = new System.Drawing.Point(0, 67);
+            this.labelNand.Name = "labelNand";
+            this.labelNand.Size = new System.Drawing.Size(151, 33);
+            this.labelNand.TabIndex = 1;
+            this.labelNand.Tag = "5";
+            this.labelNand.Text = "NAND";
+            this.labelNand.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelNand.MouseEnter += new System.EventHandler(this.MenuButtonsMouseEnter);
+            this.labelNand.MouseLeave += new System.EventHandler(this.MenuButtonsMouseLeave);
+            // 
+            // pictureBoxNand
+            // 
+            this.pictureBoxNand.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pictureBoxNand.Image = global::LogicCircuits.Properties.Resources._nand;
+            this.pictureBoxNand.Location = new System.Drawing.Point(0, 5);
+            this.pictureBoxNand.Name = "pictureBoxNand";
+            this.pictureBoxNand.Size = new System.Drawing.Size(151, 62);
+            this.pictureBoxNand.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxNand.TabIndex = 0;
+            this.pictureBoxNand.TabStop = false;
+            this.pictureBoxNand.Tag = "5";
+            this.pictureBoxNand.MouseEnter += new System.EventHandler(this.MenuButtonsMouseEnter);
+            this.pictureBoxNand.MouseLeave += new System.EventHandler(this.MenuButtonsMouseLeave);
+            // 
+            // panelOr
+            // 
+            this.panelOr.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelOr.Controls.Add(this.labelOr);
+            this.panelOr.Controls.Add(this.pictureBoxOr);
+            this.panelOr.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panelOr.Location = new System.Drawing.Point(416, 10);
+            this.panelOr.Name = "panelOr";
+            this.panelOr.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.panelOr.Size = new System.Drawing.Size(157, 96);
+            this.panelOr.TabIndex = 3;
+            // 
+            // labelOr
+            // 
+            this.labelOr.Dock = System.Windows.Forms.DockStyle.Top;
+            this.labelOr.Font = new System.Drawing.Font("Sans Serif Collection", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelOr.Location = new System.Drawing.Point(0, 67);
+            this.labelOr.Name = "labelOr";
+            this.labelOr.Size = new System.Drawing.Size(155, 31);
+            this.labelOr.TabIndex = 1;
+            this.labelOr.Tag = "4";
+            this.labelOr.Text = "OR";
+            this.labelOr.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelOr.MouseEnter += new System.EventHandler(this.MenuButtonsMouseEnter);
+            this.labelOr.MouseLeave += new System.EventHandler(this.MenuButtonsMouseLeave);
+            // 
+            // pictureBoxOr
+            // 
+            this.pictureBoxOr.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pictureBoxOr.Image = global::LogicCircuits.Properties.Resources._or;
+            this.pictureBoxOr.Location = new System.Drawing.Point(0, 5);
+            this.pictureBoxOr.Name = "pictureBoxOr";
+            this.pictureBoxOr.Size = new System.Drawing.Size(155, 62);
+            this.pictureBoxOr.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxOr.TabIndex = 0;
+            this.pictureBoxOr.TabStop = false;
+            this.pictureBoxOr.Tag = "4";
+            this.pictureBoxOr.MouseEnter += new System.EventHandler(this.MenuButtonsMouseEnter);
+            this.pictureBoxOr.MouseLeave += new System.EventHandler(this.MenuButtonsMouseLeave);
+            // 
+            // panelAnd
+            // 
+            this.panelAnd.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelAnd.Controls.Add(this.labelAnd);
+            this.panelAnd.Controls.Add(this.pictureBoxAnd);
+            this.panelAnd.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panelAnd.Location = new System.Drawing.Point(273, 10);
+            this.panelAnd.Name = "panelAnd";
+            this.panelAnd.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.panelAnd.Size = new System.Drawing.Size(143, 96);
+            this.panelAnd.TabIndex = 2;
+            // 
+            // labelAnd
+            // 
+            this.labelAnd.Dock = System.Windows.Forms.DockStyle.Top;
+            this.labelAnd.Font = new System.Drawing.Font("Sans Serif Collection", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelAnd.Location = new System.Drawing.Point(0, 67);
+            this.labelAnd.Name = "labelAnd";
+            this.labelAnd.Size = new System.Drawing.Size(141, 31);
+            this.labelAnd.TabIndex = 1;
+            this.labelAnd.Tag = "3";
+            this.labelAnd.Text = "AND";
+            this.labelAnd.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelAnd.MouseEnter += new System.EventHandler(this.MenuButtonsMouseEnter);
+            this.labelAnd.MouseLeave += new System.EventHandler(this.MenuButtonsMouseLeave);
+            // 
+            // pictureBoxAnd
+            // 
+            this.pictureBoxAnd.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pictureBoxAnd.Image = global::LogicCircuits.Properties.Resources._and;
+            this.pictureBoxAnd.Location = new System.Drawing.Point(0, 5);
+            this.pictureBoxAnd.Name = "pictureBoxAnd";
+            this.pictureBoxAnd.Size = new System.Drawing.Size(141, 62);
+            this.pictureBoxAnd.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxAnd.TabIndex = 0;
+            this.pictureBoxAnd.TabStop = false;
+            this.pictureBoxAnd.Tag = "3";
+            this.pictureBoxAnd.MouseEnter += new System.EventHandler(this.MenuButtonsMouseEnter);
+            this.pictureBoxAnd.MouseLeave += new System.EventHandler(this.MenuButtonsMouseLeave);
+            // 
+            // panelNot
+            // 
+            this.panelNot.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelNot.Controls.Add(this.labelNot);
+            this.panelNot.Controls.Add(this.pictureBoxNot);
+            this.panelNot.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panelNot.Location = new System.Drawing.Point(142, 10);
+            this.panelNot.Name = "panelNot";
+            this.panelNot.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.panelNot.Size = new System.Drawing.Size(131, 96);
+            this.panelNot.TabIndex = 1;
+            // 
+            // labelNot
+            // 
+            this.labelNot.Dock = System.Windows.Forms.DockStyle.Top;
+            this.labelNot.Font = new System.Drawing.Font("Sans Serif Collection", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelNot.Location = new System.Drawing.Point(0, 67);
+            this.labelNot.Name = "labelNot";
+            this.labelNot.Size = new System.Drawing.Size(129, 32);
+            this.labelNot.TabIndex = 1;
+            this.labelNot.Tag = "2";
+            this.labelNot.Text = "NOT";
+            this.labelNot.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelNot.MouseEnter += new System.EventHandler(this.MenuButtonsMouseEnter);
+            this.labelNot.MouseLeave += new System.EventHandler(this.MenuButtonsMouseLeave);
+            // 
+            // pictureBoxNot
+            // 
+            this.pictureBoxNot.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pictureBoxNot.Image = global::LogicCircuits.Properties.Resources._not;
+            this.pictureBoxNot.Location = new System.Drawing.Point(0, 5);
+            this.pictureBoxNot.Name = "pictureBoxNot";
+            this.pictureBoxNot.Size = new System.Drawing.Size(129, 62);
+            this.pictureBoxNot.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxNot.TabIndex = 0;
+            this.pictureBoxNot.TabStop = false;
+            this.pictureBoxNot.Tag = "2";
+            this.pictureBoxNot.MouseEnter += new System.EventHandler(this.MenuButtonsMouseEnter);
+            this.pictureBoxNot.MouseLeave += new System.EventHandler(this.MenuButtonsMouseLeave);
+            // 
+            // panelBuffer
+            // 
+            this.panelBuffer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelBuffer.Controls.Add(this.labelBuffer);
+            this.panelBuffer.Controls.Add(this.pictureBoxBuffer);
+            this.panelBuffer.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panelBuffer.Location = new System.Drawing.Point(10, 10);
+            this.panelBuffer.Name = "panelBuffer";
+            this.panelBuffer.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.panelBuffer.Size = new System.Drawing.Size(132, 96);
+            this.panelBuffer.TabIndex = 0;
+            // 
+            // labelBuffer
+            // 
+            this.labelBuffer.Dock = System.Windows.Forms.DockStyle.Top;
+            this.labelBuffer.Font = new System.Drawing.Font("Sans Serif Collection", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelBuffer.Location = new System.Drawing.Point(0, 67);
+            this.labelBuffer.Name = "labelBuffer";
+            this.labelBuffer.Size = new System.Drawing.Size(130, 32);
+            this.labelBuffer.TabIndex = 1;
+            this.labelBuffer.Tag = "1";
+            this.labelBuffer.Text = "Buffer";
+            this.labelBuffer.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelBuffer.MouseEnter += new System.EventHandler(this.MenuButtonsMouseEnter);
+            this.labelBuffer.MouseLeave += new System.EventHandler(this.MenuButtonsMouseLeave);
+            // 
+            // pictureBoxBuffer
+            // 
+            this.pictureBoxBuffer.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pictureBoxBuffer.Image = global::LogicCircuits.Properties.Resources._buffer;
+            this.pictureBoxBuffer.Location = new System.Drawing.Point(0, 5);
+            this.pictureBoxBuffer.Name = "pictureBoxBuffer";
+            this.pictureBoxBuffer.Size = new System.Drawing.Size(130, 62);
+            this.pictureBoxBuffer.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxBuffer.TabIndex = 0;
+            this.pictureBoxBuffer.TabStop = false;
+            this.pictureBoxBuffer.Tag = "1";
+            this.pictureBoxBuffer.MouseEnter += new System.EventHandler(this.MenuButtonsMouseEnter);
+            this.pictureBoxBuffer.MouseLeave += new System.EventHandler(this.MenuButtonsMouseLeave);
             // 
             // panelParams
             // 
@@ -389,6 +747,20 @@
             this.pictureBoxInput_.TabStop = false;
             this.pictureBoxInput_.MouseEnter += new System.EventHandler(this.MenuButtonsMouseEnter);
             this.pictureBoxInput_.MouseLeave += new System.EventHandler(this.MenuButtonsMouseLeave);
+            // 
+            // panelGateInfo
+            // 
+            this.panelGateInfo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelGateInfo.Controls.Add(this.pictureBoxGateTable);
+            this.panelGateInfo.Controls.Add(this.pictureBoxDiagram);
+            this.panelGateInfo.Controls.Add(this.pictureBoxFormula);
+            this.panelGateInfo.Controls.Add(this.labelGateName);
+            this.panelGateInfo.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panelGateInfo.Location = new System.Drawing.Point(1113, 0);
+            this.panelGateInfo.Name = "panelGateInfo";
+            this.panelGateInfo.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
+            this.panelGateInfo.Size = new System.Drawing.Size(280, 135);
+            this.panelGateInfo.TabIndex = 2;
             // 
             // panelStatus
             // 
@@ -720,347 +1092,42 @@
             this.pictureBoxLogo.TabIndex = 0;
             this.pictureBoxLogo.TabStop = false;
             // 
-            // panelBuffer
+            // labelGateName
             // 
-            this.panelBuffer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelBuffer.Controls.Add(this.labelBuffer);
-            this.panelBuffer.Controls.Add(this.pictureBoxBuffer);
-            this.panelBuffer.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelBuffer.Location = new System.Drawing.Point(10, 10);
-            this.panelBuffer.Name = "panelBuffer";
-            this.panelBuffer.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.panelBuffer.Size = new System.Drawing.Size(132, 96);
-            this.panelBuffer.TabIndex = 0;
+            this.labelGateName.Font = new System.Drawing.Font("Sans Serif Collection", 6.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelGateName.Location = new System.Drawing.Point(9, 11);
+            this.labelGateName.Name = "labelGateName";
+            this.labelGateName.Size = new System.Drawing.Size(139, 23);
+            this.labelGateName.TabIndex = 0;
+            this.labelGateName.Text = "<Назва вентиля>";
+            this.labelGateName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // pictureBoxBuffer
+            // pictureBoxFormula
             // 
-            this.pictureBoxBuffer.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pictureBoxBuffer.Image = global::LogicCircuits.Properties.Resources._buffer;
-            this.pictureBoxBuffer.Location = new System.Drawing.Point(0, 5);
-            this.pictureBoxBuffer.Name = "pictureBoxBuffer";
-            this.pictureBoxBuffer.Size = new System.Drawing.Size(130, 62);
-            this.pictureBoxBuffer.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBoxBuffer.TabIndex = 0;
-            this.pictureBoxBuffer.TabStop = false;
-            this.pictureBoxBuffer.MouseEnter += new System.EventHandler(this.MenuButtonsMouseEnter);
-            this.pictureBoxBuffer.MouseLeave += new System.EventHandler(this.MenuButtonsMouseLeave);
+            this.pictureBoxFormula.Location = new System.Drawing.Point(9, 37);
+            this.pictureBoxFormula.Name = "pictureBoxFormula";
+            this.pictureBoxFormula.Size = new System.Drawing.Size(139, 30);
+            this.pictureBoxFormula.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxFormula.TabIndex = 1;
+            this.pictureBoxFormula.TabStop = false;
             // 
-            // labelBuffer
+            // pictureBoxDiagram
             // 
-            this.labelBuffer.Dock = System.Windows.Forms.DockStyle.Top;
-            this.labelBuffer.Font = new System.Drawing.Font("Sans Serif Collection", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelBuffer.Location = new System.Drawing.Point(0, 67);
-            this.labelBuffer.Name = "labelBuffer";
-            this.labelBuffer.Size = new System.Drawing.Size(130, 32);
-            this.labelBuffer.TabIndex = 1;
-            this.labelBuffer.Text = "Buffer";
-            this.labelBuffer.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.labelBuffer.MouseEnter += new System.EventHandler(this.MenuButtonsMouseEnter);
-            this.labelBuffer.MouseLeave += new System.EventHandler(this.MenuButtonsMouseLeave);
+            this.pictureBoxDiagram.Location = new System.Drawing.Point(21, 74);
+            this.pictureBoxDiagram.Name = "pictureBoxDiagram";
+            this.pictureBoxDiagram.Size = new System.Drawing.Size(116, 50);
+            this.pictureBoxDiagram.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxDiagram.TabIndex = 2;
+            this.pictureBoxDiagram.TabStop = false;
             // 
-            // panelNot
+            // pictureBoxGateTable
             // 
-            this.panelNot.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelNot.Controls.Add(this.labelNot);
-            this.panelNot.Controls.Add(this.pictureBoxNot);
-            this.panelNot.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelNot.Location = new System.Drawing.Point(142, 10);
-            this.panelNot.Name = "panelNot";
-            this.panelNot.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.panelNot.Size = new System.Drawing.Size(131, 96);
-            this.panelNot.TabIndex = 1;
-            // 
-            // pictureBoxNot
-            // 
-            this.pictureBoxNot.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pictureBoxNot.Image = global::LogicCircuits.Properties.Resources._not;
-            this.pictureBoxNot.Location = new System.Drawing.Point(0, 5);
-            this.pictureBoxNot.Name = "pictureBoxNot";
-            this.pictureBoxNot.Size = new System.Drawing.Size(129, 62);
-            this.pictureBoxNot.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBoxNot.TabIndex = 0;
-            this.pictureBoxNot.TabStop = false;
-            this.pictureBoxNot.MouseEnter += new System.EventHandler(this.MenuButtonsMouseEnter);
-            this.pictureBoxNot.MouseLeave += new System.EventHandler(this.MenuButtonsMouseLeave);
-            // 
-            // labelNot
-            // 
-            this.labelNot.Dock = System.Windows.Forms.DockStyle.Top;
-            this.labelNot.Font = new System.Drawing.Font("Sans Serif Collection", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNot.Location = new System.Drawing.Point(0, 67);
-            this.labelNot.Name = "labelNot";
-            this.labelNot.Size = new System.Drawing.Size(129, 32);
-            this.labelNot.TabIndex = 1;
-            this.labelNot.Text = "NOT";
-            this.labelNot.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.labelNot.MouseEnter += new System.EventHandler(this.MenuButtonsMouseEnter);
-            this.labelNot.MouseLeave += new System.EventHandler(this.MenuButtonsMouseLeave);
-            // 
-            // panelAnd
-            // 
-            this.panelAnd.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelAnd.Controls.Add(this.labelAnd);
-            this.panelAnd.Controls.Add(this.pictureBoxAnd);
-            this.panelAnd.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelAnd.Location = new System.Drawing.Point(273, 10);
-            this.panelAnd.Name = "panelAnd";
-            this.panelAnd.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.panelAnd.Size = new System.Drawing.Size(143, 96);
-            this.panelAnd.TabIndex = 2;
-            // 
-            // pictureBoxAnd
-            // 
-            this.pictureBoxAnd.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pictureBoxAnd.Image = global::LogicCircuits.Properties.Resources._and;
-            this.pictureBoxAnd.Location = new System.Drawing.Point(0, 5);
-            this.pictureBoxAnd.Name = "pictureBoxAnd";
-            this.pictureBoxAnd.Size = new System.Drawing.Size(141, 62);
-            this.pictureBoxAnd.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBoxAnd.TabIndex = 0;
-            this.pictureBoxAnd.TabStop = false;
-            this.pictureBoxAnd.MouseEnter += new System.EventHandler(this.MenuButtonsMouseEnter);
-            this.pictureBoxAnd.MouseLeave += new System.EventHandler(this.MenuButtonsMouseLeave);
-            // 
-            // labelAnd
-            // 
-            this.labelAnd.Dock = System.Windows.Forms.DockStyle.Top;
-            this.labelAnd.Font = new System.Drawing.Font("Sans Serif Collection", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelAnd.Location = new System.Drawing.Point(0, 67);
-            this.labelAnd.Name = "labelAnd";
-            this.labelAnd.Size = new System.Drawing.Size(141, 31);
-            this.labelAnd.TabIndex = 1;
-            this.labelAnd.Text = "AND";
-            this.labelAnd.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.labelAnd.MouseEnter += new System.EventHandler(this.MenuButtonsMouseEnter);
-            this.labelAnd.MouseLeave += new System.EventHandler(this.MenuButtonsMouseLeave);
-            // 
-            // panelOr
-            // 
-            this.panelOr.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelOr.Controls.Add(this.labelOr);
-            this.panelOr.Controls.Add(this.pictureBoxOr);
-            this.panelOr.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelOr.Location = new System.Drawing.Point(416, 10);
-            this.panelOr.Name = "panelOr";
-            this.panelOr.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.panelOr.Size = new System.Drawing.Size(157, 96);
-            this.panelOr.TabIndex = 3;
-            // 
-            // pictureBoxOr
-            // 
-            this.pictureBoxOr.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pictureBoxOr.Image = global::LogicCircuits.Properties.Resources._or;
-            this.pictureBoxOr.Location = new System.Drawing.Point(0, 5);
-            this.pictureBoxOr.Name = "pictureBoxOr";
-            this.pictureBoxOr.Size = new System.Drawing.Size(155, 62);
-            this.pictureBoxOr.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBoxOr.TabIndex = 0;
-            this.pictureBoxOr.TabStop = false;
-            this.pictureBoxOr.MouseEnter += new System.EventHandler(this.MenuButtonsMouseEnter);
-            this.pictureBoxOr.MouseLeave += new System.EventHandler(this.MenuButtonsMouseLeave);
-            // 
-            // labelOr
-            // 
-            this.labelOr.Dock = System.Windows.Forms.DockStyle.Top;
-            this.labelOr.Font = new System.Drawing.Font("Sans Serif Collection", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelOr.Location = new System.Drawing.Point(0, 67);
-            this.labelOr.Name = "labelOr";
-            this.labelOr.Size = new System.Drawing.Size(155, 31);
-            this.labelOr.TabIndex = 1;
-            this.labelOr.Text = "OR";
-            this.labelOr.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.labelOr.MouseEnter += new System.EventHandler(this.MenuButtonsMouseEnter);
-            this.labelOr.MouseLeave += new System.EventHandler(this.MenuButtonsMouseLeave);
-            // 
-            // panelNand
-            // 
-            this.panelNand.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelNand.Controls.Add(this.labelNand);
-            this.panelNand.Controls.Add(this.pictureBoxNand);
-            this.panelNand.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelNand.Location = new System.Drawing.Point(573, 10);
-            this.panelNand.Name = "panelNand";
-            this.panelNand.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.panelNand.Size = new System.Drawing.Size(153, 96);
-            this.panelNand.TabIndex = 4;
-            // 
-            // pictureBoxNand
-            // 
-            this.pictureBoxNand.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pictureBoxNand.Image = global::LogicCircuits.Properties.Resources._nand;
-            this.pictureBoxNand.Location = new System.Drawing.Point(0, 5);
-            this.pictureBoxNand.Name = "pictureBoxNand";
-            this.pictureBoxNand.Size = new System.Drawing.Size(151, 62);
-            this.pictureBoxNand.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBoxNand.TabIndex = 0;
-            this.pictureBoxNand.TabStop = false;
-            this.pictureBoxNand.MouseEnter += new System.EventHandler(this.MenuButtonsMouseEnter);
-            this.pictureBoxNand.MouseLeave += new System.EventHandler(this.MenuButtonsMouseLeave);
-            // 
-            // labelNand
-            // 
-            this.labelNand.Dock = System.Windows.Forms.DockStyle.Top;
-            this.labelNand.Font = new System.Drawing.Font("Sans Serif Collection", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNand.Location = new System.Drawing.Point(0, 67);
-            this.labelNand.Name = "labelNand";
-            this.labelNand.Size = new System.Drawing.Size(151, 33);
-            this.labelNand.TabIndex = 1;
-            this.labelNand.Text = "NAND";
-            this.labelNand.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.labelNand.MouseEnter += new System.EventHandler(this.MenuButtonsMouseEnter);
-            this.labelNand.MouseLeave += new System.EventHandler(this.MenuButtonsMouseLeave);
-            // 
-            // panelNor
-            // 
-            this.panelNor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelNor.Controls.Add(this.labelNor);
-            this.panelNor.Controls.Add(this.pictureBoxNor);
-            this.panelNor.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelNor.Location = new System.Drawing.Point(726, 10);
-            this.panelNor.Name = "panelNor";
-            this.panelNor.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.panelNor.Size = new System.Drawing.Size(160, 96);
-            this.panelNor.TabIndex = 5;
-            // 
-            // pictureBoxNor
-            // 
-            this.pictureBoxNor.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pictureBoxNor.Image = global::LogicCircuits.Properties.Resources._nor;
-            this.pictureBoxNor.Location = new System.Drawing.Point(0, 5);
-            this.pictureBoxNor.Name = "pictureBoxNor";
-            this.pictureBoxNor.Size = new System.Drawing.Size(158, 62);
-            this.pictureBoxNor.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBoxNor.TabIndex = 0;
-            this.pictureBoxNor.TabStop = false;
-            this.pictureBoxNor.MouseEnter += new System.EventHandler(this.MenuButtonsMouseEnter);
-            this.pictureBoxNor.MouseLeave += new System.EventHandler(this.MenuButtonsMouseLeave);
-            // 
-            // labelNor
-            // 
-            this.labelNor.Dock = System.Windows.Forms.DockStyle.Top;
-            this.labelNor.Font = new System.Drawing.Font("Sans Serif Collection", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNor.Location = new System.Drawing.Point(0, 67);
-            this.labelNor.Name = "labelNor";
-            this.labelNor.Size = new System.Drawing.Size(158, 32);
-            this.labelNor.TabIndex = 1;
-            this.labelNor.Text = "NOR";
-            this.labelNor.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.labelNor.MouseEnter += new System.EventHandler(this.MenuButtonsMouseEnter);
-            this.labelNor.MouseLeave += new System.EventHandler(this.MenuButtonsMouseLeave);
-            // 
-            // panelXor
-            // 
-            this.panelXor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelXor.Controls.Add(this.labelXor);
-            this.panelXor.Controls.Add(this.pictureBoxXor);
-            this.panelXor.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelXor.Location = new System.Drawing.Point(886, 10);
-            this.panelXor.Name = "panelXor";
-            this.panelXor.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.panelXor.Size = new System.Drawing.Size(159, 96);
-            this.panelXor.TabIndex = 6;
-            // 
-            // pictureBoxXor
-            // 
-            this.pictureBoxXor.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pictureBoxXor.Image = global::LogicCircuits.Properties.Resources._xor;
-            this.pictureBoxXor.Location = new System.Drawing.Point(0, 5);
-            this.pictureBoxXor.Name = "pictureBoxXor";
-            this.pictureBoxXor.Size = new System.Drawing.Size(157, 62);
-            this.pictureBoxXor.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBoxXor.TabIndex = 0;
-            this.pictureBoxXor.TabStop = false;
-            this.pictureBoxXor.MouseEnter += new System.EventHandler(this.MenuButtonsMouseEnter);
-            this.pictureBoxXor.MouseLeave += new System.EventHandler(this.MenuButtonsMouseLeave);
-            // 
-            // labelXor
-            // 
-            this.labelXor.Dock = System.Windows.Forms.DockStyle.Top;
-            this.labelXor.Font = new System.Drawing.Font("Sans Serif Collection", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelXor.Location = new System.Drawing.Point(0, 67);
-            this.labelXor.Name = "labelXor";
-            this.labelXor.Size = new System.Drawing.Size(157, 32);
-            this.labelXor.TabIndex = 1;
-            this.labelXor.Text = "XOR";
-            this.labelXor.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.labelXor.MouseEnter += new System.EventHandler(this.MenuButtonsMouseEnter);
-            this.labelXor.MouseLeave += new System.EventHandler(this.MenuButtonsMouseLeave);
-            // 
-            // panelXnor
-            // 
-            this.panelXnor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelXnor.Controls.Add(this.labelXnor);
-            this.panelXnor.Controls.Add(this.pictureBoxXnor);
-            this.panelXnor.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelXnor.Location = new System.Drawing.Point(1045, 10);
-            this.panelXnor.Name = "panelXnor";
-            this.panelXnor.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.panelXnor.Size = new System.Drawing.Size(159, 96);
-            this.panelXnor.TabIndex = 7;
-            // 
-            // pictureBoxXnor
-            // 
-            this.pictureBoxXnor.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pictureBoxXnor.Image = global::LogicCircuits.Properties.Resources._xnor;
-            this.pictureBoxXnor.Location = new System.Drawing.Point(0, 5);
-            this.pictureBoxXnor.Name = "pictureBoxXnor";
-            this.pictureBoxXnor.Size = new System.Drawing.Size(157, 62);
-            this.pictureBoxXnor.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBoxXnor.TabIndex = 0;
-            this.pictureBoxXnor.TabStop = false;
-            this.pictureBoxXnor.MouseEnter += new System.EventHandler(this.MenuButtonsMouseEnter);
-            this.pictureBoxXnor.MouseLeave += new System.EventHandler(this.MenuButtonsMouseLeave);
-            // 
-            // labelXnor
-            // 
-            this.labelXnor.Dock = System.Windows.Forms.DockStyle.Top;
-            this.labelXnor.Font = new System.Drawing.Font("Sans Serif Collection", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelXnor.Location = new System.Drawing.Point(0, 67);
-            this.labelXnor.Name = "labelXnor";
-            this.labelXnor.Size = new System.Drawing.Size(157, 32);
-            this.labelXnor.TabIndex = 1;
-            this.labelXnor.Text = "XNOR";
-            this.labelXnor.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.labelXnor.MouseEnter += new System.EventHandler(this.MenuButtonsMouseEnter);
-            this.labelXnor.MouseLeave += new System.EventHandler(this.MenuButtonsMouseLeave);
-            // 
-            // panelImply
-            // 
-            this.panelImply.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelImply.Controls.Add(this.labelImply);
-            this.panelImply.Controls.Add(this.pictureBoxImply);
-            this.panelImply.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelImply.Location = new System.Drawing.Point(1204, 10);
-            this.panelImply.Name = "panelImply";
-            this.panelImply.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.panelImply.Size = new System.Drawing.Size(163, 96);
-            this.panelImply.TabIndex = 8;
-            // 
-            // pictureBoxImply
-            // 
-            this.pictureBoxImply.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pictureBoxImply.Image = global::LogicCircuits.Properties.Resources._imply;
-            this.pictureBoxImply.Location = new System.Drawing.Point(0, 5);
-            this.pictureBoxImply.Name = "pictureBoxImply";
-            this.pictureBoxImply.Size = new System.Drawing.Size(161, 62);
-            this.pictureBoxImply.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBoxImply.TabIndex = 0;
-            this.pictureBoxImply.TabStop = false;
-            this.pictureBoxImply.MouseEnter += new System.EventHandler(this.MenuButtonsMouseEnter);
-            this.pictureBoxImply.MouseLeave += new System.EventHandler(this.MenuButtonsMouseLeave);
-            // 
-            // labelImply
-            // 
-            this.labelImply.Dock = System.Windows.Forms.DockStyle.Top;
-            this.labelImply.Font = new System.Drawing.Font("Sans Serif Collection", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelImply.Location = new System.Drawing.Point(0, 67);
-            this.labelImply.Name = "labelImply";
-            this.labelImply.Size = new System.Drawing.Size(161, 32);
-            this.labelImply.TabIndex = 1;
-            this.labelImply.Text = "IMPLY";
-            this.labelImply.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.labelImply.MouseEnter += new System.EventHandler(this.MenuButtonsMouseEnter);
-            this.labelImply.MouseLeave += new System.EventHandler(this.MenuButtonsMouseLeave);
+            this.pictureBoxGateTable.Location = new System.Drawing.Point(167, 10);
+            this.pictureBoxGateTable.Name = "pictureBoxGateTable";
+            this.pictureBoxGateTable.Size = new System.Drawing.Size(100, 112);
+            this.pictureBoxGateTable.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxGateTable.TabIndex = 3;
+            this.pictureBoxGateTable.TabStop = false;
             // 
             // MainForm
             // 
@@ -1080,6 +1147,24 @@
             this.panelLower.ResumeLayout(false);
             this.panelTools.ResumeLayout(false);
             this.panelGates.ResumeLayout(false);
+            this.panelImply.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxImply)).EndInit();
+            this.panelXnor.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxXnor)).EndInit();
+            this.panelXor.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxXor)).EndInit();
+            this.panelNor.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxNor)).EndInit();
+            this.panelNand.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxNand)).EndInit();
+            this.panelOr.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOr)).EndInit();
+            this.panelAnd.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAnd)).EndInit();
+            this.panelNot.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxNot)).EndInit();
+            this.panelBuffer.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBuffer)).EndInit();
             this.panelParams.ResumeLayout(false);
             this.panelOutput_.ResumeLayout(false);
             this.panelOutput_.PerformLayout();
@@ -1087,6 +1172,7 @@
             this.panelInput_.ResumeLayout(false);
             this.panelInput_.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxInput_)).EndInit();
+            this.panelGateInfo.ResumeLayout(false);
             this.panelStatus.ResumeLayout(false);
             this.panelMenu.ResumeLayout(false);
             this.panelCnf.ResumeLayout(false);
@@ -1104,24 +1190,9 @@
             this.panelOpen.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOpen)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
-            this.panelBuffer.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBuffer)).EndInit();
-            this.panelNot.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxNot)).EndInit();
-            this.panelAnd.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAnd)).EndInit();
-            this.panelOr.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOr)).EndInit();
-            this.panelNand.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxNand)).EndInit();
-            this.panelNor.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxNor)).EndInit();
-            this.panelXor.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxXor)).EndInit();
-            this.panelXnor.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxXnor)).EndInit();
-            this.panelImply.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxImply)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFormula)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDiagram)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGateTable)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1199,5 +1270,9 @@
         private System.Windows.Forms.Label labelImply;
         private System.Windows.Forms.PictureBox pictureBoxImply;
         private System.Windows.Forms.Label labelXnor;
+        private System.Windows.Forms.PictureBox pictureBoxGateTable;
+        private System.Windows.Forms.PictureBox pictureBoxDiagram;
+        private System.Windows.Forms.PictureBox pictureBoxFormula;
+        private System.Windows.Forms.Label labelGateName;
     }
 }

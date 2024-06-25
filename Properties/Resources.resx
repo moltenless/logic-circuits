@@ -136,6 +136,60 @@
   <data name="DNF" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\DNF.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="formula1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\formula1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="formula2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\formula2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="formula3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\formula3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="formula4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\formula4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="formula5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\formula5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="formula6" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\formula6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="formula7" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\formula7.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="formula8" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\formula8.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="formula9" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\formula9.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="gate1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\gate1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="gate2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\gate2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="gate3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\gate3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="gate4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\gate4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="gate5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\gate5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="gate6" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\gate6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="gate7" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\gate7.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="gate8" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\gate8.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="gate9" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\gate9.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="imply" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\imply.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -165,6 +219,33 @@
   </data>
   <data name="table" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\table.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="table1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\table1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="table2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\table2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="table3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\table3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="table4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\table4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="table5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\table5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="table6" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\table6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="table7" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\table7.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="table8" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\table8.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="table9" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\table9.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="xnor" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\xnor.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
