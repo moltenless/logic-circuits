@@ -24,6 +24,31 @@ namespace LogicCircuits
 
         }
 
+        private void Render(Graphics g = null)
+        {
+            if (g == null) g = panelCanvas.CreateGraphics();
+
+            int width = panelCanvas.Width, height = panelCanvas.Height;
+
+            for (int i = -2; i < height / 30 + 2; i++)
+            {
+                for (int j = -2; j < width / 30 + 2; j++)
+                {
+                    g.FillRectangle(Brushes.Black, j * 30 - 12, i * 30 - 12, 2, 1);
+                }
+            }
+        }
+
+        private void panelCanvas_Paint(object sender, PaintEventArgs e)
+        {
+            Render(e.Graphics);
+        }
+
+        private void panelCanvas_SizeChanged(object sender, EventArgs e)
+        {
+            panelCanvas.Refresh();
+        }
+
         private void MenuButtonsMouseEnter(object sender, EventArgs e)
         {
             (sender as Control).Parent.BackColor = Color.LightGray;

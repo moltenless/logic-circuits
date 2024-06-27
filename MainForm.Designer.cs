@@ -170,12 +170,14 @@
             // 
             // panelCanvas
             // 
-            this.panelCanvas.BackColor = System.Drawing.SystemColors.Control;
+            this.panelCanvas.BackColor = System.Drawing.Color.LightGray;
             this.panelCanvas.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelCanvas.Location = new System.Drawing.Point(0, 82);
             this.panelCanvas.Name = "panelCanvas";
             this.panelCanvas.Size = new System.Drawing.Size(1393, 474);
             this.panelCanvas.TabIndex = 2;
+            this.panelCanvas.SizeChanged += new System.EventHandler(this.panelCanvas_SizeChanged);
+            this.panelCanvas.Paint += new System.Windows.Forms.PaintEventHandler(this.panelCanvas_Paint);
             // 
             // panelLower
             // 
