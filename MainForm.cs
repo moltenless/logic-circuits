@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 
 namespace LogicCircuits
@@ -48,9 +49,10 @@ namespace LogicCircuits
                 }
             }
 
-            for (int i = 0; i < draft.Count;i++)
+            int gateWidth = 70, gateHeight = 40;//coef 0.575
+            for (int i = 0; i < draft.Count; i++)
             {
-                g.DrawImage(draft[i].Diagram, draft[i].Location.X, draft[i].Location.Y, 70, 40); //coef 0.575
+                g.DrawImage(draft[i].Diagram, draft[i].Location.X - gateWidth / 2, draft[i].Location.Y - gateHeight / 2, gateWidth, gateHeight); 
             }
         }
 
@@ -87,7 +89,7 @@ namespace LogicCircuits
                 case 6:
                     gate = new NOR();
                     break;
-                case 7: 
+                case 7:
                     gate = new XOR();
                     break;
                 case 8:
@@ -99,16 +101,59 @@ namespace LogicCircuits
             }
 
             int width = panelCanvas.Width, height = panelCanvas.Height;
-            gate.Location = new Point(width/2, height/2);
+            gate.Location =  panelCanvas.PointToClient(Cursor.Position);
 
             draft.Add(gate);
             Render();
         }
 
+        private bool gateSelected = false;
+        private int gateTag = -1;
         private void GatesToolsClicked(object sender, EventArgs e)
         {
-            int tag = int.Parse((sender as Control).Tag.ToString());
-            AddGate(tag);
+            int current = int.Parse((sender as Control).Tag.ToString());
+
+            if (!gateSelected)
+            {
+                gateSelected = true;
+                gateTag = current;
+                Cursor = Cursors.Cross;
+                (sender as Control).Parent.BackColor = Color.LightGray;
+            }
+            else
+            {
+                if (current == gateTag)
+                {
+                    gateSelected = false;
+                    Cursor = Cursors.Default;
+                    (sender as Control).Parent.BackColor = SystemColors.Control;
+                }
+                else
+                {
+                    for (int i = 0; i < panelGates.Controls.Count; i++)
+                        if (panelGates.Controls[i].Controls[0].Tag.ToString() == gateTag.ToString())
+                        {
+                            panelGates.Controls[i].BackColor = SystemColors.Control; break;
+                        }
+                    gateTag = current;
+                    (sender as Control).Parent.BackColor = Color.LightGray;
+                }
+            }
+        }
+
+        private void panelCanvas_Click(object sender, EventArgs e)
+        {
+            if (gateSelected)
+            {
+                gateSelected = false;
+                Cursor = Cursors.Default;
+                for (int i = 0; i < panelGates.Controls.Count; i++)
+                    if (panelGates.Controls[i].Controls[0].Tag.ToString() == gateTag.ToString())
+                    {
+                        panelGates.Controls[i].BackColor = SystemColors.Control; break;
+                    }
+                AddGate(gateTag);
+            }
         }
 
         private void MenuButtonsMouseEnter(object sender, EventArgs e)
@@ -127,7 +172,8 @@ namespace LogicCircuits
 
         private void MenuButtonsMouseLeave(object sender, EventArgs e)
         {
-            (sender as Control).Parent.BackColor = SystemColors.Control;
+            if (!(gateSelected && (sender as Control).Tag.ToString() == gateTag.ToString()))
+                (sender as Control).Parent.BackColor = SystemColors.Control;
 
             labelGateName.Text = "<Назва вентиля>";
             if (pictureBoxFormula.Image != null) pictureBoxFormula.Image = null;

@@ -177,6 +177,7 @@
             this.panelCanvas.Size = new System.Drawing.Size(1393, 474);
             this.panelCanvas.TabIndex = 2;
             this.panelCanvas.SizeChanged += new System.EventHandler(this.panelCanvas_SizeChanged);
+            this.panelCanvas.Click += new System.EventHandler(this.panelCanvas_Click);
             this.panelCanvas.Paint += new System.Windows.Forms.PaintEventHandler(this.panelCanvas_Paint);
             // 
             // panelLower
