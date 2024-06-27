@@ -29,7 +29,7 @@ namespace LogicCircuits
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-
+            Render();
         }
 
         private void Render(Graphics g = null)
@@ -37,6 +37,7 @@ namespace LogicCircuits
             if (g == null) g = panelCanvas.CreateGraphics();
 
             g.Clear(Color.LightGray);
+            panelCanvas.Controls.Clear();
 
             int width = panelCanvas.Width, height = panelCanvas.Height;
 
@@ -51,18 +52,27 @@ namespace LogicCircuits
             int gateWidth = 70, gateHeight = 40;//coef 0.575
             for (int i = 0; i < draft.Count; i++)
             {
-                g.DrawImage(draft[i].Diagram, draft[i].Location.X - gateWidth / 2, draft[i].Location.Y - gateHeight / 2, gateWidth, gateHeight); 
+                g.DrawImage(draft[i].Diagram, draft[i].Location.X - gateWidth / 2, draft[i].Location.Y - gateHeight / 2, gateWidth, gateHeight);
+                Button removeButton = new Button
+                {
+                    Tag = draft[i],
+                    Size = new Size(10, 10),
+                    BackgroundImage = Properties.Resources.close,
+                    BackgroundImageLayout = ImageLayout.Zoom,
+                    Location = new Point(draft[i].Location.X - gateWidth / 4, draft[i].Location.Y - 4 * gateHeight / 5),
+                    FlatStyle = FlatStyle.Flat,
+                };
+                removeButton.Click += (sender, e) => {
+                    draft.Remove(removeButton.Tag as IElement);
+                    Render();
+                };
+                panelCanvas.Controls.Add(removeButton);
             }
-        }
-
-        private void panelCanvas_Paint(object sender, PaintEventArgs e)
-        {
-            Render(e.Graphics);
         }
 
         private void panelCanvas_SizeChanged(object sender, EventArgs e)
         {
-            panelCanvas.Refresh();
+            Render();
         }
 
         private void AddGate(int tag)
@@ -100,7 +110,7 @@ namespace LogicCircuits
             }
 
             int width = panelCanvas.Width, height = panelCanvas.Height;
-            gate.Location =  panelCanvas.PointToClient(Cursor.Position);
+            gate.Location = panelCanvas.PointToClient(Cursor.Position);
 
             draft.Add(gate);
             Render();
