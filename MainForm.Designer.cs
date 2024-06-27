@@ -244,6 +244,7 @@
             this.labelImply.Tag = "9";
             this.labelImply.Text = "IMPLY";
             this.labelImply.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelImply.Click += new System.EventHandler(this.GatesToolsClicked);
             this.labelImply.MouseEnter += new System.EventHandler(this.MenuButtonsMouseEnter);
             this.labelImply.MouseLeave += new System.EventHandler(this.MenuButtonsMouseLeave);
             // 
@@ -258,6 +259,7 @@
             this.pictureBoxImply.TabIndex = 0;
             this.pictureBoxImply.TabStop = false;
             this.pictureBoxImply.Tag = "9";
+            this.pictureBoxImply.Click += new System.EventHandler(this.GatesToolsClicked);
             this.pictureBoxImply.MouseEnter += new System.EventHandler(this.MenuButtonsMouseEnter);
             this.pictureBoxImply.MouseLeave += new System.EventHandler(this.MenuButtonsMouseLeave);
             // 
@@ -284,6 +286,7 @@
             this.labelXnor.Tag = "8";
             this.labelXnor.Text = "XNOR";
             this.labelXnor.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelXnor.Click += new System.EventHandler(this.GatesToolsClicked);
             this.labelXnor.MouseEnter += new System.EventHandler(this.MenuButtonsMouseEnter);
             this.labelXnor.MouseLeave += new System.EventHandler(this.MenuButtonsMouseLeave);
             // 
@@ -298,6 +301,7 @@
             this.pictureBoxXnor.TabIndex = 0;
             this.pictureBoxXnor.TabStop = false;
             this.pictureBoxXnor.Tag = "8";
+            this.pictureBoxXnor.Click += new System.EventHandler(this.GatesToolsClicked);
             this.pictureBoxXnor.MouseEnter += new System.EventHandler(this.MenuButtonsMouseEnter);
             this.pictureBoxXnor.MouseLeave += new System.EventHandler(this.MenuButtonsMouseLeave);
             // 
@@ -324,6 +328,7 @@
             this.labelXor.Tag = "7";
             this.labelXor.Text = "XOR";
             this.labelXor.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelXor.Click += new System.EventHandler(this.GatesToolsClicked);
             this.labelXor.MouseEnter += new System.EventHandler(this.MenuButtonsMouseEnter);
             this.labelXor.MouseLeave += new System.EventHandler(this.MenuButtonsMouseLeave);
             // 
@@ -338,6 +343,7 @@
             this.pictureBoxXor.TabIndex = 0;
             this.pictureBoxXor.TabStop = false;
             this.pictureBoxXor.Tag = "7";
+            this.pictureBoxXor.Click += new System.EventHandler(this.GatesToolsClicked);
             this.pictureBoxXor.MouseEnter += new System.EventHandler(this.MenuButtonsMouseEnter);
             this.pictureBoxXor.MouseLeave += new System.EventHandler(this.MenuButtonsMouseLeave);
             // 
@@ -364,6 +370,7 @@
             this.labelNor.Tag = "6";
             this.labelNor.Text = "NOR";
             this.labelNor.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelNor.Click += new System.EventHandler(this.GatesToolsClicked);
             this.labelNor.MouseEnter += new System.EventHandler(this.MenuButtonsMouseEnter);
             this.labelNor.MouseLeave += new System.EventHandler(this.MenuButtonsMouseLeave);
             // 
@@ -378,6 +385,7 @@
             this.pictureBoxNor.TabIndex = 0;
             this.pictureBoxNor.TabStop = false;
             this.pictureBoxNor.Tag = "6";
+            this.pictureBoxNor.Click += new System.EventHandler(this.GatesToolsClicked);
             this.pictureBoxNor.MouseEnter += new System.EventHandler(this.MenuButtonsMouseEnter);
             this.pictureBoxNor.MouseLeave += new System.EventHandler(this.MenuButtonsMouseLeave);
             // 
@@ -404,6 +412,7 @@
             this.labelNand.Tag = "5";
             this.labelNand.Text = "NAND";
             this.labelNand.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelNand.Click += new System.EventHandler(this.GatesToolsClicked);
             this.labelNand.MouseEnter += new System.EventHandler(this.MenuButtonsMouseEnter);
             this.labelNand.MouseLeave += new System.EventHandler(this.MenuButtonsMouseLeave);
             // 
@@ -418,6 +427,7 @@
             this.pictureBoxNand.TabIndex = 0;
             this.pictureBoxNand.TabStop = false;
             this.pictureBoxNand.Tag = "5";
+            this.pictureBoxNand.Click += new System.EventHandler(this.GatesToolsClicked);
             this.pictureBoxNand.MouseEnter += new System.EventHandler(this.MenuButtonsMouseEnter);
             this.pictureBoxNand.MouseLeave += new System.EventHandler(this.MenuButtonsMouseLeave);
             // 
@@ -444,6 +454,7 @@
             this.labelOr.Tag = "4";
             this.labelOr.Text = "OR";
             this.labelOr.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelOr.Click += new System.EventHandler(this.GatesToolsClicked);
             this.labelOr.MouseEnter += new System.EventHandler(this.MenuButtonsMouseEnter);
             this.labelOr.MouseLeave += new System.EventHandler(this.MenuButtonsMouseLeave);
             // 
@@ -458,6 +469,7 @@
             this.pictureBoxOr.TabIndex = 0;
             this.pictureBoxOr.TabStop = false;
             this.pictureBoxOr.Tag = "4";
+            this.pictureBoxOr.Click += new System.EventHandler(this.GatesToolsClicked);
             this.pictureBoxOr.MouseEnter += new System.EventHandler(this.MenuButtonsMouseEnter);
             this.pictureBoxOr.MouseLeave += new System.EventHandler(this.MenuButtonsMouseLeave);
             // 
@@ -484,6 +496,7 @@
             this.labelAnd.Tag = "3";
             this.labelAnd.Text = "AND";
             this.labelAnd.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelAnd.Click += new System.EventHandler(this.GatesToolsClicked);
             this.labelAnd.MouseEnter += new System.EventHandler(this.MenuButtonsMouseEnter);
             this.labelAnd.MouseLeave += new System.EventHandler(this.MenuButtonsMouseLeave);
             // 
@@ -498,6 +511,7 @@
             this.pictureBoxAnd.TabIndex = 0;
             this.pictureBoxAnd.TabStop = false;
             this.pictureBoxAnd.Tag = "3";
+            this.pictureBoxAnd.Click += new System.EventHandler(this.GatesToolsClicked);
             this.pictureBoxAnd.MouseEnter += new System.EventHandler(this.MenuButtonsMouseEnter);
             this.pictureBoxAnd.MouseLeave += new System.EventHandler(this.MenuButtonsMouseLeave);
             // 
@@ -512,6 +526,7 @@
             this.panelNot.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
             this.panelNot.Size = new System.Drawing.Size(131, 96);
             this.panelNot.TabIndex = 1;
+            this.panelNot.Click += new System.EventHandler(this.GatesToolsClicked);
             // 
             // labelNot
             // 
@@ -524,6 +539,7 @@
             this.labelNot.Tag = "2";
             this.labelNot.Text = "NOT";
             this.labelNot.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelNot.Click += new System.EventHandler(this.GatesToolsClicked);
             this.labelNot.MouseEnter += new System.EventHandler(this.MenuButtonsMouseEnter);
             this.labelNot.MouseLeave += new System.EventHandler(this.MenuButtonsMouseLeave);
             // 
@@ -538,6 +554,7 @@
             this.pictureBoxNot.TabIndex = 0;
             this.pictureBoxNot.TabStop = false;
             this.pictureBoxNot.Tag = "2";
+            this.pictureBoxNot.Click += new System.EventHandler(this.GatesToolsClicked);
             this.pictureBoxNot.MouseEnter += new System.EventHandler(this.MenuButtonsMouseEnter);
             this.pictureBoxNot.MouseLeave += new System.EventHandler(this.MenuButtonsMouseLeave);
             // 
@@ -564,6 +581,7 @@
             this.labelBuffer.Tag = "1";
             this.labelBuffer.Text = "Buffer";
             this.labelBuffer.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelBuffer.Click += new System.EventHandler(this.GatesToolsClicked);
             this.labelBuffer.MouseEnter += new System.EventHandler(this.MenuButtonsMouseEnter);
             this.labelBuffer.MouseLeave += new System.EventHandler(this.MenuButtonsMouseLeave);
             // 
@@ -578,6 +596,7 @@
             this.pictureBoxBuffer.TabIndex = 0;
             this.pictureBoxBuffer.TabStop = false;
             this.pictureBoxBuffer.Tag = "1";
+            this.pictureBoxBuffer.Click += new System.EventHandler(this.GatesToolsClicked);
             this.pictureBoxBuffer.MouseEnter += new System.EventHandler(this.MenuButtonsMouseEnter);
             this.pictureBoxBuffer.MouseLeave += new System.EventHandler(this.MenuButtonsMouseLeave);
             // 
