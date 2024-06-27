@@ -53,6 +53,7 @@ namespace LogicCircuits
             for (int i = 0; i < draft.Count; i++)
             {
                 g.DrawImage(draft[i].Diagram, draft[i].Location.X - gateWidth / 2, draft[i].Location.Y - gateHeight / 2, gateWidth, gateHeight);
+
                 Button removeButton = new Button
                 {
                     Tag = draft[i],
@@ -62,17 +63,71 @@ namespace LogicCircuits
                     Location = new Point(draft[i].Location.X - gateWidth / 4, draft[i].Location.Y - 4 * gateHeight / 5),
                     FlatStyle = FlatStyle.Flat,
                 };
-                removeButton.Click += (sender, e) => {
-                    draft.Remove(removeButton.Tag as IElement);
+                toolTipMenu.SetToolTip(removeButton, "Видалити вентиль");
+                removeButton.Click += (sender, e) =>
+                {
+                    draft.Remove((sender as Control).Tag as IElement);
+                    elementMoveable = false;
+                    Cursor = Cursors.Default;
                     Render();
                 };
                 panelCanvas.Controls.Add(removeButton);
+
+                Button moveButton = new Button
+                {
+                    Tag = draft[i],
+                    Size = new Size(10, 10),
+                    BackgroundImage = Properties.Resources.move,
+                    BackgroundImageLayout = ImageLayout.Zoom,
+                    Location = new Point(draft[i].Location.X - 2 * gateWidth / 5, draft[i].Location.Y - 4 * gateHeight / 5),
+                    FlatStyle = FlatStyle.Flat,
+                };
+                toolTipMenu.SetToolTip(moveButton, "Перемістити вентиль");
+                moveButton.Click += (sender, e) =>
+                {
+                    if (!elementMoveable)
+                    {
+                        elementMoveable = true;
+                        moveableElement = (sender as Control).Tag as IElement;
+                        Cursor = Cursors.NoMove2D;
+                    }
+                    else
+                    {
+                        if ((sender as Control).Tag as IElement == moveableElement)
+                        {
+                            elementMoveable = false;
+                            Cursor = Cursors.Default;
+                        }
+                        else
+                        {
+                            moveableElement = (sender as Control).Tag as IElement;
+                        }
+                    }
+                };
+                panelCanvas.Controls.Add(moveButton);
             }
         }
 
-        private void panelCanvas_SizeChanged(object sender, EventArgs e)
+        private void PanelCanvasClick(object sender, EventArgs e)
         {
-            Render();
+            if (gateSelected)
+            {
+                gateSelected = false;
+                Cursor = Cursors.Default;
+                for (int i = 0; i < panelGates.Controls.Count; i++)
+                    if (panelGates.Controls[i].Controls[0].Tag.ToString() == gateTag.ToString())
+                    {
+                        panelGates.Controls[i].BackColor = SystemColors.Control; break;
+                    }
+                AddGate(gateTag);
+            }
+            if (elementMoveable)
+            {
+                elementMoveable = false;
+                Cursor = Cursors.Default;
+                moveableElement.Location = panelCanvas.PointToClient(Cursor.Position);
+                Render();
+            }
         }
 
         private void AddGate(int tag)
@@ -118,6 +173,9 @@ namespace LogicCircuits
 
         private bool gateSelected = false;
         private int gateTag = -1;
+
+        private bool elementMoveable = false;
+        private IElement moveableElement = null;
         private void GatesToolsClicked(object sender, EventArgs e)
         {
             int current = int.Parse((sender as Control).Tag.ToString());
@@ -147,21 +205,6 @@ namespace LogicCircuits
                     gateTag = current;
                     (sender as Control).Parent.BackColor = Color.LightGray;
                 }
-            }
-        }
-
-        private void panelCanvas_Click(object sender, EventArgs e)
-        {
-            if (gateSelected)
-            {
-                gateSelected = false;
-                Cursor = Cursors.Default;
-                for (int i = 0; i < panelGates.Controls.Count; i++)
-                    if (panelGates.Controls[i].Controls[0].Tag.ToString() == gateTag.ToString())
-                    {
-                        panelGates.Controls[i].BackColor = SystemColors.Control; break;
-                    }
-                AddGate(gateTag);
             }
         }
 

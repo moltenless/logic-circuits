@@ -1157,8 +1157,7 @@
             this.panelCanvas.Name = "panelCanvas";
             this.panelCanvas.Size = new System.Drawing.Size(1393, 474);
             this.panelCanvas.TabIndex = 4;
-            this.panelCanvas.SizeChanged += new System.EventHandler(this.panelCanvas_SizeChanged);
-            this.panelCanvas.Click += new System.EventHandler(this.panelCanvas_Click);
+            this.panelCanvas.Click += new System.EventHandler(this.PanelCanvasClick);
             // 
             // MainForm
             // 
