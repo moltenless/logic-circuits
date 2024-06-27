@@ -30,8 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            this.panelGeneral = new System.Windows.Forms.Panel();
-            this.panelCanvas = new System.Windows.Forms.Panel();
             this.panelLower = new System.Windows.Forms.Panel();
             this.panelTools = new System.Windows.Forms.Panel();
             this.panelGates = new System.Windows.Forms.Panel();
@@ -106,7 +104,9 @@
             this.labelOpen = new System.Windows.Forms.Label();
             this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
             this.toolTipMenu = new System.Windows.Forms.ToolTip(this.components);
-            this.panelGeneral.SuspendLayout();
+            this.panelUpper = new System.Windows.Forms.Panel();
+            this.panelGeneral = new System.Windows.Forms.Panel();
+            this.panelCanvas = new System.Windows.Forms.Panel();
             this.panelLower.SuspendLayout();
             this.panelTools.SuspendLayout();
             this.panelGates.SuspendLayout();
@@ -154,31 +154,9 @@
             this.panelOpen.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOpen)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
+            this.panelUpper.SuspendLayout();
+            this.panelGeneral.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // panelGeneral
-            // 
-            this.panelGeneral.BackColor = System.Drawing.SystemColors.Control;
-            this.panelGeneral.Controls.Add(this.panelCanvas);
-            this.panelGeneral.Controls.Add(this.panelLower);
-            this.panelGeneral.Controls.Add(this.panelMenu);
-            this.panelGeneral.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelGeneral.Location = new System.Drawing.Point(0, 0);
-            this.panelGeneral.Name = "panelGeneral";
-            this.panelGeneral.Size = new System.Drawing.Size(1393, 715);
-            this.panelGeneral.TabIndex = 0;
-            // 
-            // panelCanvas
-            // 
-            this.panelCanvas.BackColor = System.Drawing.Color.LightGray;
-            this.panelCanvas.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelCanvas.Location = new System.Drawing.Point(0, 82);
-            this.panelCanvas.Name = "panelCanvas";
-            this.panelCanvas.Size = new System.Drawing.Size(1393, 474);
-            this.panelCanvas.TabIndex = 2;
-            this.panelCanvas.SizeChanged += new System.EventHandler(this.panelCanvas_SizeChanged);
-            this.panelCanvas.Click += new System.EventHandler(this.panelCanvas_Click);
-            this.panelCanvas.Paint += new System.Windows.Forms.PaintEventHandler(this.panelCanvas_Paint);
             // 
             // panelLower
             // 
@@ -844,6 +822,7 @@
             // 
             // panelMenu
             // 
+            this.panelMenu.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panelMenu.BackColor = System.Drawing.SystemColors.Control;
             this.panelMenu.Controls.Add(this.panelCnf);
             this.panelMenu.Controls.Add(this.panelDnf);
@@ -852,12 +831,10 @@
             this.panelMenu.Controls.Add(this.panelInput);
             this.panelMenu.Controls.Add(this.panelSave);
             this.panelMenu.Controls.Add(this.panelOpen);
-            this.panelMenu.Controls.Add(this.pictureBoxLogo);
-            this.panelMenu.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelMenu.Location = new System.Drawing.Point(0, 0);
+            this.panelMenu.Location = new System.Drawing.Point(270, 0);
             this.panelMenu.Name = "panelMenu";
             this.panelMenu.Padding = new System.Windows.Forms.Padding(0, 0, 0, 7);
-            this.panelMenu.Size = new System.Drawing.Size(1393, 82);
+            this.panelMenu.Size = new System.Drawing.Size(721, 82);
             this.panelMenu.TabIndex = 0;
             // 
             // panelCnf
@@ -866,7 +843,7 @@
             this.panelCnf.Controls.Add(this.pictureBoxCnf);
             this.panelCnf.Controls.Add(this.labelCnf);
             this.panelCnf.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelCnf.Location = new System.Drawing.Point(759, 0);
+            this.panelCnf.Location = new System.Drawing.Point(635, 0);
             this.panelCnf.Name = "panelCnf";
             this.panelCnf.Padding = new System.Windows.Forms.Padding(3);
             this.panelCnf.Size = new System.Drawing.Size(84, 75);
@@ -906,7 +883,7 @@
             this.panelDnf.Controls.Add(this.pictureBoxDnf);
             this.panelDnf.Controls.Add(this.labelDnf);
             this.panelDnf.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelDnf.Location = new System.Drawing.Point(676, 0);
+            this.panelDnf.Location = new System.Drawing.Point(552, 0);
             this.panelDnf.Name = "panelDnf";
             this.panelDnf.Padding = new System.Windows.Forms.Padding(3);
             this.panelDnf.Size = new System.Drawing.Size(83, 75);
@@ -946,7 +923,7 @@
             this.panelTable.Controls.Add(this.pictureBoxTable);
             this.panelTable.Controls.Add(this.labelTable);
             this.panelTable.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelTable.Location = new System.Drawing.Point(523, 0);
+            this.panelTable.Location = new System.Drawing.Point(399, 0);
             this.panelTable.Name = "panelTable";
             this.panelTable.Padding = new System.Windows.Forms.Padding(3);
             this.panelTable.Size = new System.Drawing.Size(153, 75);
@@ -986,7 +963,7 @@
             this.panelOutput.Controls.Add(this.pictureBoxOutput);
             this.panelOutput.Controls.Add(this.labelOutput);
             this.panelOutput.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelOutput.Location = new System.Drawing.Point(423, 0);
+            this.panelOutput.Location = new System.Drawing.Point(299, 0);
             this.panelOutput.Name = "panelOutput";
             this.panelOutput.Padding = new System.Windows.Forms.Padding(3);
             this.panelOutput.Size = new System.Drawing.Size(100, 75);
@@ -1026,7 +1003,7 @@
             this.panelInput.Controls.Add(this.pictureBoxInput);
             this.panelInput.Controls.Add(this.labelInput);
             this.panelInput.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelInput.Location = new System.Drawing.Point(279, 0);
+            this.panelInput.Location = new System.Drawing.Point(155, 0);
             this.panelInput.Name = "panelInput";
             this.panelInput.Padding = new System.Windows.Forms.Padding(3);
             this.panelInput.Size = new System.Drawing.Size(144, 75);
@@ -1066,7 +1043,7 @@
             this.panelSave.Controls.Add(this.pictureBoxSave);
             this.panelSave.Controls.Add(this.labelSave);
             this.panelSave.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelSave.Location = new System.Drawing.Point(200, 0);
+            this.panelSave.Location = new System.Drawing.Point(76, 0);
             this.panelSave.Name = "panelSave";
             this.panelSave.Padding = new System.Windows.Forms.Padding(3);
             this.panelSave.Size = new System.Drawing.Size(79, 75);
@@ -1106,7 +1083,7 @@
             this.panelOpen.Controls.Add(this.pictureBoxOpen);
             this.panelOpen.Controls.Add(this.labelOpen);
             this.panelOpen.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelOpen.Location = new System.Drawing.Point(124, 0);
+            this.panelOpen.Location = new System.Drawing.Point(0, 0);
             this.panelOpen.Name = "panelOpen";
             this.panelOpen.Padding = new System.Windows.Forms.Padding(3);
             this.panelOpen.Size = new System.Drawing.Size(76, 75);
@@ -1146,10 +1123,43 @@
             this.pictureBoxLogo.Image = global::LogicCircuits.Properties.Resources.diagram1;
             this.pictureBoxLogo.Location = new System.Drawing.Point(0, 0);
             this.pictureBoxLogo.Name = "pictureBoxLogo";
-            this.pictureBoxLogo.Size = new System.Drawing.Size(124, 75);
+            this.pictureBoxLogo.Size = new System.Drawing.Size(122, 82);
             this.pictureBoxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxLogo.TabIndex = 0;
             this.pictureBoxLogo.TabStop = false;
+            // 
+            // panelUpper
+            // 
+            this.panelUpper.Controls.Add(this.pictureBoxLogo);
+            this.panelUpper.Controls.Add(this.panelMenu);
+            this.panelUpper.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelUpper.Location = new System.Drawing.Point(0, 0);
+            this.panelUpper.Name = "panelUpper";
+            this.panelUpper.Size = new System.Drawing.Size(1393, 82);
+            this.panelUpper.TabIndex = 3;
+            // 
+            // panelGeneral
+            // 
+            this.panelGeneral.Controls.Add(this.panelCanvas);
+            this.panelGeneral.Controls.Add(this.panelLower);
+            this.panelGeneral.Controls.Add(this.panelUpper);
+            this.panelGeneral.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelGeneral.Location = new System.Drawing.Point(0, 0);
+            this.panelGeneral.Name = "panelGeneral";
+            this.panelGeneral.Size = new System.Drawing.Size(1393, 715);
+            this.panelGeneral.TabIndex = 4;
+            // 
+            // panelCanvas
+            // 
+            this.panelCanvas.BackColor = System.Drawing.Color.LightGray;
+            this.panelCanvas.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelCanvas.Location = new System.Drawing.Point(0, 82);
+            this.panelCanvas.Name = "panelCanvas";
+            this.panelCanvas.Size = new System.Drawing.Size(1393, 474);
+            this.panelCanvas.TabIndex = 4;
+            this.panelCanvas.SizeChanged += new System.EventHandler(this.panelCanvas_SizeChanged);
+            this.panelCanvas.Click += new System.EventHandler(this.panelCanvas_Click);
+            this.panelCanvas.Paint += new System.Windows.Forms.PaintEventHandler(this.panelCanvas_Paint);
             // 
             // MainForm
             // 
@@ -1165,7 +1175,6 @@
             this.Text = "Калькулятор побудови логічних схем";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.MainForm_Load);
-            this.panelGeneral.ResumeLayout(false);
             this.panelLower.ResumeLayout(false);
             this.panelTools.ResumeLayout(false);
             this.panelGates.ResumeLayout(false);
@@ -1215,12 +1224,13 @@
             this.panelOpen.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOpen)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
+            this.panelUpper.ResumeLayout(false);
+            this.panelGeneral.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.Panel panelGeneral;
         private System.Windows.Forms.Panel panelMenu;
         private System.Windows.Forms.Panel panelLower;
         private System.Windows.Forms.Panel panelTools;
@@ -1250,7 +1260,6 @@
         private System.Windows.Forms.ToolTip toolTipMenu;
         private System.Windows.Forms.Label labelStatus;
         private System.Windows.Forms.Panel panelParams;
-        private System.Windows.Forms.Panel panelCanvas;
         private System.Windows.Forms.Panel panelGateInfo;
         private System.Windows.Forms.Panel panelGates;
         private System.Windows.Forms.Panel panelInput_;
@@ -1296,5 +1305,8 @@
         private System.Windows.Forms.PictureBox pictureBoxDiagram;
         private System.Windows.Forms.PictureBox pictureBoxFormula;
         private System.Windows.Forms.Label labelGateName;
+        private System.Windows.Forms.Panel panelUpper;
+        private System.Windows.Forms.Panel panelGeneral;
+        private System.Windows.Forms.Panel panelCanvas;
     }
 }
