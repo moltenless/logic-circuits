@@ -49,6 +49,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Elements\GateInfo.cs" />
+    <Compile Include="Elements\Gates\AND.cs" />
+    <Compile Include="Elements\Gates\Buffer.cs" />
+    <Compile Include="Elements\Gates\IMPLY.cs" />
+    <Compile Include="Elements\Gates\NAND.cs" />
+    <Compile Include="Elements\Gates\NOR.cs" />
+    <Compile Include="Elements\Gates\NOT.cs" />
+    <Compile Include="Elements\Gates\OR.cs" />
+    <Compile Include="Elements\Gates\XNOR.cs" />
+    <Compile Include="Elements\Gates\XOR.cs" />
+    <Compile Include="Elements\IElement.cs" />
+    <Compile Include="Elements\IGate.cs" />
+    <Compile Include="Elements\Input.cs" />
+    <Compile Include="Elements\Output.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
