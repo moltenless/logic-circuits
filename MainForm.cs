@@ -31,6 +31,7 @@ namespace LogicCircuits
         {
             Render();
         }
+        
 
         private void Render(Graphics g = null)
         {
@@ -231,6 +232,12 @@ namespace LogicCircuits
             if (pictureBoxFormula.Image != null) pictureBoxFormula.Image = null;
             if (pictureBoxDiagram != null) pictureBoxDiagram.Image = null;
             if (pictureBoxGateTable != null) pictureBoxGateTable.Image = null;
+        }
+
+        protected override void WndProc(ref Message m) //prevents redrawing caused by alt
+        {
+            if (m.Msg == 0x128) return;
+            base.WndProc(ref m);
         }
     }
 }
