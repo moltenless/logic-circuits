@@ -12,6 +12,23 @@ namespace LogicCircuits.Elements.Gates
         public Point Location { get; set; }
         public Image Diagram { get; } = Properties.Resources.xor;
 
+        public List<IOutputContainingElement> Inputs { get; set; } = new List<IOutputContainingElement>();
+        public InputsMultiplicity InputsMultiplicity { get; } = InputsMultiplicity.Double;
+        public bool SetNewInput(IOutputContainingElement elementForInput)
+        {
+            if (Inputs.Count > 1 || elementForInput == this || elementForInput.Output != null) return false;
+
+            Inputs.Add(elementForInput);
+            elementForInput.Output = this;
+            return true;
+        }
+
+        public IInputContainingElement Output { get; set; }
+        public bool SetOutput(IInputContainingElement elementForOutput)
+        {
+            return elementForOutput.SetNewInput(this);
+        }
+
 
 
         public static GateInfo GetInfo()

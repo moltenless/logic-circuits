@@ -14,7 +14,22 @@ namespace LogicCircuits.Elements.Gates
 
 
 
+        public List<IOutputContainingElement> Inputs { get; set; } = new List<IOutputContainingElement>();
+        public InputsMultiplicity InputsMultiplicity { get; } = InputsMultiplicity.Multiple;
+        public bool SetNewInput(IOutputContainingElement elementForInput)
+        {
+            if (elementForInput == this || elementForInput.Output != null) return false;
 
+            Inputs.Add(elementForInput);
+            elementForInput.Output = this;
+            return true;
+        }
+
+        public IInputContainingElement Output { get; set; }
+        public bool SetOutput(IInputContainingElement elementForOutput)
+        {
+            return elementForOutput.SetNewInput(this);
+        }
 
 
 

@@ -7,10 +7,19 @@ using System.Threading.Tasks;
 
 namespace LogicCircuits.Elements
 {
-    internal class Input : IElement
+    internal class Input : IElement, IOutputContainingElement
     {
         public Point Location { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
         public Image Diagram => throw new NotImplementedException();
+
+
+
+        public IInputContainingElement Output => throw new NotImplementedException();
+
+        public bool SetOutput(IInputContainingElement elementForOutput)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
