@@ -74,6 +74,7 @@ namespace LogicCircuits
                 };
                 panelCanvas.Controls.Add(removeButton);
 
+
                 Button moveButton = new Button
                 {
                     Tag = draft[i],
@@ -106,6 +107,7 @@ namespace LogicCircuits
                     }
                 };
                 panelCanvas.Controls.Add(moveButton);
+
             }
         }
 

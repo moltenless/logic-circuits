@@ -14,8 +14,7 @@ namespace LogicCircuits.Elements
         public Image Diagram => throw new NotImplementedException();
 
 
-
-        public IInputContainingElement Output => throw new NotImplementedException();
+        public IInputContainingElement Output { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
         public bool SetOutput(IInputContainingElement elementForOutput)
         {
