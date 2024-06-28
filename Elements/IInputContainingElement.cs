@@ -10,6 +10,5 @@ namespace LogicCircuits.Elements
     {
         List<IOutputContainingElement> Inputs { get; }
         InputsMultiplicity InputsMultiplicity { get; }
-        bool SetNewInput(IOutputContainingElement elementForInput);
     }
 }

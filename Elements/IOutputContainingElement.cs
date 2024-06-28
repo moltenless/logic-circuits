@@ -9,6 +9,6 @@ namespace LogicCircuits.Elements
     internal interface IOutputContainingElement
     {
         IInputContainingElement Output { get; set; }
-        bool SetOutput(IInputContainingElement elementForOutput);
+        bool Connect(IInputContainingElement elementToConnectWith);
     }
 }

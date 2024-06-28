@@ -14,19 +14,18 @@ namespace LogicCircuits.Elements.Gates
 
         public List<IOutputContainingElement> Inputs { get; set; } = new List<IOutputContainingElement>();
         public InputsMultiplicity InputsMultiplicity { get; } = InputsMultiplicity.Single;
-        public bool SetNewInput(IOutputContainingElement elementForInput)
-        {
-            if (Inputs.Count != 0 || elementForInput == this || elementForInput.Output != null) return false;
-
-            Inputs.Add(elementForInput);
-            elementForInput.Output = this;
-            return true;
-        }
-
         public IInputContainingElement Output { get; set; }
-        public bool SetOutput(IInputContainingElement elementForOutput)
+
+        public bool Connect(IInputContainingElement elementToConnectWith)
         {
-            return elementForOutput.SetNewInput(this);
+            if (elementToConnectWith == this || Output != null) return false;
+
+            if (elementToConnectWith.InputsMultiplicity == InputsMultiplicity.Single && elementToConnectWith.Inputs.Count != 0) return false;
+            if (elementToConnectWith.InputsMultiplicity == InputsMultiplicity.Double && elementToConnectWith.Inputs.Count > 1) return false;
+
+            Output = elementToConnectWith;
+            elementToConnectWith.Inputs.Add(this);
+            return true;
         }
 
 

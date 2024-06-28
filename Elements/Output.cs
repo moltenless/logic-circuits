@@ -18,10 +18,5 @@ namespace LogicCircuits.Elements
         public List<IOutputContainingElement> Inputs => throw new NotImplementedException();
 
         public InputsMultiplicity InputsMultiplicity => throw new NotImplementedException();
-
-        public bool SetNewInput(IOutputContainingElement elementForInput)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

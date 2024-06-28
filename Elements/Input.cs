@@ -16,7 +16,7 @@ namespace LogicCircuits.Elements
 
         public IInputContainingElement Output { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
-        public bool SetOutput(IInputContainingElement elementForOutput)
+        public bool Connect(IInputContainingElement elementForOutput)
         {
             throw new NotImplementedException();
         }
