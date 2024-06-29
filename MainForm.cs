@@ -31,7 +31,6 @@ namespace LogicCircuits
         {
             Render();
         }
-        
 
         private void Render(Graphics g = null)
         {
@@ -55,14 +54,13 @@ namespace LogicCircuits
             {
                 g.DrawImage(draft[i].Diagram, draft[i].Location.X - gateWidth / 2, draft[i].Location.Y - gateHeight / 2, gateWidth, gateHeight);
 
-                Button removeButton = new Button
+                PictureBox removeButton = new PictureBox
                 {
                     Tag = draft[i],
                     Size = new Size(10, 10),
-                    BackgroundImage = Properties.Resources.close,
-                    BackgroundImageLayout = ImageLayout.Zoom,
+                    Image = Properties.Resources.close,
+                    SizeMode = PictureBoxSizeMode.Zoom,
                     Location = new Point(draft[i].Location.X - gateWidth / 4, draft[i].Location.Y - 4 * gateHeight / 5),
-                    FlatStyle = FlatStyle.Flat,
                 };
                 toolTipMenu.SetToolTip(removeButton, "Видалити вентиль");
                 removeButton.Click += (sender, e) =>
@@ -75,14 +73,13 @@ namespace LogicCircuits
                 panelCanvas.Controls.Add(removeButton);
 
 
-                Button moveButton = new Button
+                PictureBox moveButton = new PictureBox
                 {
                     Tag = draft[i],
                     Size = new Size(10, 10),
-                    BackgroundImage = Properties.Resources.move,
-                    BackgroundImageLayout = ImageLayout.Zoom,
+                    Image = Properties.Resources.move,
+                    SizeMode = PictureBoxSizeMode.Zoom,
                     Location = new Point(draft[i].Location.X - 2 * gateWidth / 5, draft[i].Location.Y - 4 * gateHeight / 5),
-                    FlatStyle = FlatStyle.Flat,
                 };
                 toolTipMenu.SetToolTip(moveButton, "Перемістити вентиль");
                 moveButton.Click += (sender, e) =>
@@ -108,6 +105,60 @@ namespace LogicCircuits
                 };
                 panelCanvas.Controls.Add(moveButton);
 
+
+                PictureBox connectButton = new PictureBox
+                {
+                    Tag = draft[i],
+                    Size = new Size(15, 15),
+                    Image = Properties.Resources.connect,
+                    SizeMode = PictureBoxSizeMode.Zoom,
+                };
+                Point connLocation = new Point();
+                if (draft[i] is AND || draft[i] is NAND)
+                    connLocation = new Point(draft[i].Location.X - 2 * gateWidth / 6, draft[i].Location.Y - 1 * gateHeight / 5);
+                else if (draft[i] is OR || draft[i] is NOR)
+                    connLocation = new Point(draft[i].Location.X - 2 * gateWidth / 7, draft[i].Location.Y - 1 * gateHeight / 5);
+                else if (draft[i] is XOR || draft[i] is XNOR)
+                    connLocation = new Point(draft[i].Location.X - 2 * gateWidth / 9, draft[i].Location.Y - 1 * gateHeight / 5);
+                else if (draft[i] is IMPLY)
+                    connLocation = new Point(draft[i].Location.X - 2 * gateWidth / 8, draft[i].Location.Y - 1 * gateHeight / 5);
+                else if (draft[i] is Elements.Gates.Buffer || draft[i] is NOT)
+                    connLocation = new Point(draft[i].Location.X - 2 * gateWidth / 5, draft[i].Location.Y - 1 * gateHeight / 5);
+
+                connectButton.Location = connLocation;
+                toolTipMenu.SetToolTip(connectButton, "Приєднати вентиль або вихідний сигнал");
+                connectButton.Click += (sender, e) =>
+                {
+                    if (!elementConnectable)
+                    {
+                        elementConnectable = true;
+                        connectableElement = (sender as Control).Tag as IElement;
+                        Cursor = Cursors.Hand;
+                    }
+                    else
+                    {
+                        elementConnectable = false;
+                        Cursor = Cursors.Default;
+
+                        IElement current = (sender as Control).Tag as IElement;
+
+                        if (connectableElement.Location.X < current.Location.X)
+                        {
+                            if (connectableElement is IOutputContainingElement outputting)
+                                if (current is IInputContainingElement inputting)
+                                    MessageBox.Show(outputting.Connect(inputting).ToString());
+                        }
+                        if(current.Location.X < connectableElement.Location.X)
+                        {
+                            if (current is IOutputContainingElement outputting)
+                                if (connectableElement is IInputContainingElement inputting)
+                                    MessageBox.Show(outputting.Connect(inputting).ToString());
+                        }
+
+                    }
+                };
+                panelCanvas.Controls.Add(connectButton);
+
             }
         }
 
@@ -118,11 +169,11 @@ namespace LogicCircuits
                 gateSelected = false;
                 Cursor = Cursors.Default;
                 for (int i = 0; i < panelGates.Controls.Count; i++)
-                    if (panelGates.Controls[i].Controls[0].Tag.ToString() == gateTag.ToString())
+                    if (panelGates.Controls[i].Controls[0].Tag.ToString() == selectedGate.ToString())
                     {
                         panelGates.Controls[i].BackColor = SystemColors.Control; break;
                     }
-                AddGate(gateTag);
+                AddGate(selectedGate);
             }
             if (elementMoveable)
             {
@@ -175,10 +226,13 @@ namespace LogicCircuits
         }
 
         private bool gateSelected = false;
-        private int gateTag = -1;
+        private int selectedGate = -1;
 
         private bool elementMoveable = false;
         private IElement moveableElement = null;
+
+        private bool elementConnectable = false;
+        private IElement connectableElement = null;
         private void GatesToolsClicked(object sender, EventArgs e)
         {
             int current = int.Parse((sender as Control).Tag.ToString());
@@ -186,13 +240,13 @@ namespace LogicCircuits
             if (!gateSelected)
             {
                 gateSelected = true;
-                gateTag = current;
+                selectedGate = current;
                 Cursor = Cursors.Cross;
                 (sender as Control).Parent.BackColor = Color.LightGray;
             }
             else
             {
-                if (current == gateTag)
+                if (current == selectedGate)
                 {
                     gateSelected = false;
                     Cursor = Cursors.Default;
@@ -201,11 +255,11 @@ namespace LogicCircuits
                 else
                 {
                     for (int i = 0; i < panelGates.Controls.Count; i++)
-                        if (panelGates.Controls[i].Controls[0].Tag.ToString() == gateTag.ToString())
+                        if (panelGates.Controls[i].Controls[0].Tag.ToString() == selectedGate.ToString())
                         {
                             panelGates.Controls[i].BackColor = SystemColors.Control; break;
                         }
-                    gateTag = current;
+                    selectedGate = current;
                     (sender as Control).Parent.BackColor = Color.LightGray;
                 }
             }
@@ -227,7 +281,7 @@ namespace LogicCircuits
 
         private void MenuButtonsMouseLeave(object sender, EventArgs e)
         {
-            if (!(gateSelected && (sender as Control).Tag.ToString() == gateTag.ToString()))
+            if (!(gateSelected && (sender as Control).Tag.ToString() == selectedGate.ToString()))
                 (sender as Control).Parent.BackColor = SystemColors.Control;
 
             labelGateName.Text = "<Назва вентиля>";
