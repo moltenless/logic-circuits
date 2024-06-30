@@ -107,7 +107,6 @@
             this.panelUpper = new System.Windows.Forms.Panel();
             this.panelGeneral = new System.Windows.Forms.Panel();
             this.panelCanvas = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
             this.panelLower.SuspendLayout();
             this.panelTools.SuspendLayout();
             this.panelGates.SuspendLayout();
@@ -157,7 +156,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
             this.panelUpper.SuspendLayout();
             this.panelGeneral.SuspendLayout();
-            this.panelCanvas.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelLower
@@ -1154,23 +1152,12 @@
             // panelCanvas
             // 
             this.panelCanvas.BackColor = System.Drawing.Color.LightGray;
-            this.panelCanvas.Controls.Add(this.button1);
             this.panelCanvas.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelCanvas.Location = new System.Drawing.Point(0, 82);
             this.panelCanvas.Name = "panelCanvas";
             this.panelCanvas.Size = new System.Drawing.Size(1393, 474);
             this.panelCanvas.TabIndex = 4;
             this.panelCanvas.Click += new System.EventHandler(this.PanelCanvasClick);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(569, 291);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // MainForm
             // 
@@ -1238,7 +1225,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
             this.panelUpper.ResumeLayout(false);
             this.panelGeneral.ResumeLayout(false);
-            this.panelCanvas.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1321,6 +1307,5 @@
         private System.Windows.Forms.Panel panelUpper;
         private System.Windows.Forms.Panel panelGeneral;
         private System.Windows.Forms.Panel panelCanvas;
-        private System.Windows.Forms.Button button1;
     }
 }
