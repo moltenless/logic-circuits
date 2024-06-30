@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace LogicCircuits.Elements
 {
-    internal class Output : IElement, IInputContainingElement
+    internal class Output : IInputContainingElement
     {
         public Point Location { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 

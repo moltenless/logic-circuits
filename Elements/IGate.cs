@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace LogicCircuits.Elements
 {
-    internal interface IGate : IElement, IOutputContainingElement, IInputContainingElement
+    internal interface IGate : IOutputContainingElement, IInputContainingElement
     {
     }
 }

@@ -5,8 +5,10 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -38,6 +40,8 @@ namespace LogicCircuits
 
             g.Clear(Color.LightGray);
             panelCanvas.Controls.Clear();
+
+            g.SmoothingMode = SmoothingMode.AntiAlias;
 
             int width = panelCanvas.Width, height = panelCanvas.Height;
 
@@ -146,19 +150,42 @@ namespace LogicCircuits
                         {
                             if (connectableElement is IOutputContainingElement outputting)
                                 if (current is IInputContainingElement inputting)
-                                    MessageBox.Show(outputting.Connect(inputting).ToString());
+                                    outputting.Connect(inputting).ToString();
+                            Render();
                         }
-                        if(current.Location.X < connectableElement.Location.X)
+                        if (current.Location.X <= connectableElement.Location.X)
                         {
                             if (current is IOutputContainingElement outputting)
                                 if (connectableElement is IInputContainingElement inputting)
-                                    MessageBox.Show(outputting.Connect(inputting).ToString());
+                                    outputting.Connect(inputting).ToString();
+                            Render();
                         }
-
                     }
                 };
                 panelCanvas.Controls.Add(connectButton);
 
+
+                if (draft[i] is IInputContainingElement element2)
+                {
+                    int inputs = element2.Inputs.Count;
+                    if (inputs != 0)
+                    {
+                        Point[] points1 = new Point[inputs];
+                        Point[] points2 = new Point[inputs];
+
+                        for (int k = 0; k < inputs; k++)
+                            points1[k] = new Point(element2.Inputs[k].Location.X + gateWidth / 2 - 1, element2.Inputs[k].Location.Y - 1);
+
+                        int inputsArea = gateHeight / 5 * 3;
+                        int gap = inputsArea / (inputs + 1);
+
+                        for (int k = 1; k < inputs + 1; k++)
+                            points2[k] = new Point(element2.Location.X - gateWidth / 2, element2.Location.Y - inputsArea / 2 + gap * k);
+
+                        for (int k = 0; k < inputs; k++)
+                            g.DrawLine(new Pen(Color.Black, 2f), points1[k], points2[k]);
+                    } 
+                }
             }
         }
 
@@ -294,6 +321,38 @@ namespace LogicCircuits
         {
             if (m.Msg == 0x128) return;
             base.WndProc(ref m);
+        }
+
+        private void MainForm_SizeChanged(object sender, EventArgs e)
+        {
+            Render();
+            MessageBox.Show(panelCanvas.Size.ToString());
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            int width = panelCanvas.Width, height = panelCanvas.Height;
+
+            for (int i = -2; i < height / 30 + 2; i++)
+            {
+                for (int j = -2; j < width / 30 + 2; j++)
+                {
+                    g.FillRectangle(Brushes.Black, j * 30 - 12, i * 30 - 18, 2, 1);
+                }
+            }
+
+             
+            string fileName = AppDomain.CurrentDomain.BaseDirectory + "background.png";
+            using (Image image = Image.FromFile(fileName))
+            {
+                using (Graphics graphic = Graphics.FromImage(image))
+                {
+                    // Crop and resize the image.
+                    Rectangle destination = new Rectangle(0, 0, 200, 120);
+                    graphic.DrawImage(image, destination, int.Parse(X1.Value), int.Parse(Y1.Value), int.Parse(Width.Value), int.Parse(Height.Value), GraphicsUnit.Pixel);
+                }
+                image.Save(fileName);
+            }
         }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LogicCircuits.Elements
 {
-    internal interface IInputContainingElement
+    internal interface IInputContainingElement : IElement
     {
         List<IOutputContainingElement> Inputs { get; }
         InputsMultiplicity InputsMultiplicity { get; }
