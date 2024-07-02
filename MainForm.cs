@@ -241,7 +241,8 @@ namespace LogicCircuits
             {
                 elementMoveable = false;
                 Cursor = Cursors.Default;
-                moveableElement.Location = panelCanvas.PointToClient(Cursor.Position);
+                Point newLoc = panelCanvas.PointToClient(Cursor.Position);
+                moveableElement.Location = newLoc.X < 37 ? new Point(37, newLoc.Y) : newLoc.Y < 33 ? new Point(newLoc.X, 33) : newLoc;
                 Render();
             }
         }
@@ -280,8 +281,8 @@ namespace LogicCircuits
                     break;
             }
 
-            int width = panelCanvas.Width, height = panelCanvas.Height;
-            gate.Location = panelCanvas.PointToClient(Cursor.Position);
+            Point newLoc = panelCanvas.PointToClient(Cursor.Position);
+            gate.Location = newLoc.X < 37 ? new Point(37, newLoc.Y) : newLoc.Y < 33 ? new Point(newLoc.X, 33) : newLoc;
 
             draft.Add(gate);
             Render();
