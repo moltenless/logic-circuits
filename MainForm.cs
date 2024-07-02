@@ -167,8 +167,6 @@ namespace LogicCircuits
 
                 if (draft[i] is IInputContainingElement element2)
                 {
-                    g.SmoothingMode = SmoothingMode.AntiAlias;
-
                     int inputs = element2.Inputs.Count;
                     if (inputs != 0)
                     {
@@ -181,7 +179,11 @@ namespace LogicCircuits
                         sortedList.Sort((IOutputContainingElement i1, IOutputContainingElement i2) => i1.Location.Y < i2.Location.Y ? -1 : 1);
 
                         for (int k = 0; k < inputs; k++)
-                            points1[k] = new Point(sortedList[k].Location.X + gateWidth / 2 - 1, sortedList[k].Location.Y - 1);
+                        {
+                            points1[k] = new Point(sortedList[k].Location.X + gateWidth / 2 - 1, sortedList[k].Location.Y);
+                            if (element2.Inputs[k] is NOT) points1[k].Y++;
+                            if (element2.Inputs[k] is AND) points1[k].X--;
+                        }
 
                         int inputsArea = gateHeight / 7 * 5;
                         int gap = inputsArea / (inputs + 1);
@@ -193,8 +195,30 @@ namespace LogicCircuits
                             for (int k = 0; k < inputs; k++)
                                 points2[k].X += 8;
 
+                        int maxX = points1[0].X;
+                        for (int k = 1; k < inputs; k++)
+                            if (points1[k].X > maxX)
+                                maxX = points1[k].X;
+
+                        int minY = points1[0].Y < points2[0].Y ? points1[0].Y : points2[0].Y;
+                        int maxY = points1[points1.Length - 1].Y > points2[points2.Length - 1].Y ? points1[points1.Length - 1].Y : points2[points2.Length - 1].Y;
+
+                        Pen pen = new Pen(Color.Black, 2f);
+                        g.DrawLine(pen, new Point(maxX, minY), new Point(maxX, maxY));
+
                         for (int k = 0; k < inputs; k++)
-                            g.DrawLine(new Pen(Color.Black, 2f), points1[k], points2[k]);
+                        {
+                            Point start = points1[k];
+                            Point end = points2[k];
+                            Point p1 = new Point(maxX, start.Y);
+                            Point p2 = new Point(maxX, end.Y);
+                            g.DrawLine(pen, start, new Point(maxX, start.Y));
+                            if (inputs < 8)
+                                g.DrawLine(pen, new Point(maxX, end.Y), end);
+                            else
+                                g.DrawLine(new Pen(Color.Black, 1f), new Point(maxX, end.Y), end);
+
+                        }
                     }
                 }
             }
