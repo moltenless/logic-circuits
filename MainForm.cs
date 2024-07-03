@@ -69,7 +69,24 @@ namespace LogicCircuits
                 toolTipMenu.SetToolTip(removeButton, "Видалити вентиль");
                 removeButton.Click += (sender, e) =>
                 {
-                    draft.Remove((sender as Control).Tag as IElement);
+                    IElement curr = (sender as Control).Tag as IElement;
+                    if (curr is IOutputContainingElement currOut)
+                    {
+                        if (currOut.Output != null)
+                        {
+                            currOut.Output.Inputs.Remove(currOut);
+                            currOut.Output = null;
+                        }
+                    }
+                    if (curr is IInputContainingElement currIn)
+                    {
+                        for (int k = 0; k < currIn.Inputs.Count; k++)
+                        {
+                            currIn.Inputs[k].Output = null;
+                            currIn.Inputs.Remove(currIn.Inputs[k]);
+                        }
+                    }
+                    draft.Remove(curr);
                     elementMoveable = false;
                     Cursor = Cursors.Default;
                     Render();
@@ -135,6 +152,16 @@ namespace LogicCircuits
                 {
                     if (!elementConnectable)
                     {
+                        if ((sender as Control).Tag is IOutputContainingElement curr)
+                        {
+                            if (curr.Output != null)
+                            {
+                                curr.Output.Inputs.Remove(curr);
+                                curr.Output = null;
+                                Render();
+                                return;
+                            }
+                        }
                         elementConnectable = true;
                         connectableElement = (sender as Control).Tag as IElement;
                         Cursor = Cursors.Hand;
