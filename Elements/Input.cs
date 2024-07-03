@@ -9,16 +9,23 @@ namespace LogicCircuits.Elements
 {
     internal class Input : IOutputContainingElement
     {
-        public Point Location { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public Point Location { get; set; }
 
-        public Image Diagram => throw new NotImplementedException();
+        public Image Diagram { get; } = Properties.Resources._input;
 
 
-        public IInputContainingElement Output { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public IInputContainingElement Output { get; set; } = null;
 
-        public bool Connect(IInputContainingElement elementForOutput)
+        public bool Connect(IInputContainingElement elementToConnectWith)
         {
-            throw new NotImplementedException();
+            if (Output != null) return false;
+
+            if (elementToConnectWith.InputsMultiplicity == InputsMultiplicity.Single && elementToConnectWith.Inputs.Count != 0) return false;
+            if (elementToConnectWith.InputsMultiplicity == InputsMultiplicity.Double && elementToConnectWith.Inputs.Count > 1) return false;
+
+            Output = elementToConnectWith;
+            elementToConnectWith.Inputs.Add(this);
+            return true;
         }
     }
 }

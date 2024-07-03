@@ -9,14 +9,14 @@ namespace LogicCircuits.Elements
 {
     internal class Output : IInputContainingElement
     {
-        public Point Location { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public Point Location { get; set; }
 
-        public Image Diagram => throw new NotImplementedException();
+        public Image Diagram { get; } = Properties.Resources._output;
 
 
 
-        public List<IOutputContainingElement> Inputs => throw new NotImplementedException();
+        public List<IOutputContainingElement> Inputs { get; set; } = new List<IOutputContainingElement>();
 
-        public InputsMultiplicity InputsMultiplicity => throw new NotImplementedException();
+        public InputsMultiplicity InputsMultiplicity => InputsMultiplicity.Single;
     }
 }

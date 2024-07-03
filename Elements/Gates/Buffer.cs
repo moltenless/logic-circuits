@@ -14,7 +14,7 @@ namespace LogicCircuits.Elements.Gates
 
         public List<IOutputContainingElement> Inputs { get; set; } = new List<IOutputContainingElement>();
         public InputsMultiplicity InputsMultiplicity { get; } = InputsMultiplicity.Single;
-        public IInputContainingElement Output { get; set; }
+        public IInputContainingElement Output { get; set; } = null;
 
         public bool Connect(IInputContainingElement elementToConnectWith)
         {

@@ -10,6 +10,7 @@ using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
 using System.Linq;
 using System.Reflection;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -42,7 +43,6 @@ namespace LogicCircuits
 
             g.Clear(Color.LightGray);
             panelCanvas.Controls.Clear();
-
             int width = panelCanvas.Width, height = panelCanvas.Height;
 
             for (int i = -2; i < height / 30 + 2; i++)
@@ -54,9 +54,13 @@ namespace LogicCircuits
             }
 
             int gateWidth = 70, gateHeight = 40;//coef 0.575
+            int signalWidth = 30, signalHeight = 30;
             for (int i = 0; i < draft.Count; i++)
             {
-                g.DrawImage(draft[i].Diagram, draft[i].Location.X - gateWidth / 2, draft[i].Location.Y - gateHeight / 2, gateWidth, gateHeight);
+                if (draft[i] is IGate)
+                    g.DrawImage(draft[i].Diagram, draft[i].Location.X - gateWidth / 2, draft[i].Location.Y - gateHeight / 2, gateWidth, gateHeight);
+                else
+                    g.DrawImage(draft[i].Diagram, draft[i].Location.X - signalWidth / 2, draft[i].Location.Y - signalHeight / 2, signalWidth, signalHeight);
 
                 PictureBox removeButton = new PictureBox
                 {
@@ -64,8 +68,9 @@ namespace LogicCircuits
                     Size = new Size(10, 10),
                     Image = Properties.Resources.close,
                     SizeMode = PictureBoxSizeMode.Zoom,
-                    Location = new Point(draft[i].Location.X - gateWidth / 4, draft[i].Location.Y - 4 * gateHeight / 5),
                 };
+                removeButton.Location = draft[i] is IGate ? new Point(draft[i].Location.X - gateWidth / 4, draft[i].Location.Y - 4 * gateHeight / 5)
+                    : new Point(draft[i].Location.X, draft[i].Location.Y - 7 * signalHeight / 8);
                 toolTipMenu.SetToolTip(removeButton, "Видалити вентиль");
                 removeButton.Click += (sender, e) =>
                 {
@@ -100,8 +105,9 @@ namespace LogicCircuits
                     Size = new Size(10, 10),
                     Image = Properties.Resources.move,
                     SizeMode = PictureBoxSizeMode.Zoom,
-                    Location = new Point(draft[i].Location.X - 2 * gateWidth / 5, draft[i].Location.Y - 4 * gateHeight / 5),
                 };
+                moveButton.Location = draft[i] is IGate ? new Point(draft[i].Location.X - 2 * gateWidth / 5, draft[i].Location.Y - 4 * gateHeight / 5)
+                    : new Point(draft[i].Location.X - signalWidth / 3, draft[i].Location.Y - 7 * signalHeight / 8);
                 toolTipMenu.SetToolTip(moveButton, "Перемістити вентиль");
                 moveButton.Click += (sender, e) =>
                 {
@@ -145,6 +151,11 @@ namespace LogicCircuits
                     connLocation = new Point(draft[i].Location.X - 2 * gateWidth / 8, draft[i].Location.Y - 1 * gateHeight / 5);
                 else if (draft[i] is Elements.Gates.Buffer || draft[i] is NOT)
                     connLocation = new Point(draft[i].Location.X - 2 * gateWidth / 5, draft[i].Location.Y - 1 * gateHeight / 5);
+                else if (draft[i] is Input)
+                    connLocation = new Point(draft[i].Location.X - 6 * signalWidth / 5, draft[i].Location.Y - 2 * signalHeight / 7);
+                else if (draft[i] is Output)
+                    connLocation = new Point(draft[i].Location.X - 2* signalWidth /7, draft[i].Location.Y + 2 * signalHeight / 3);
+
 
                 connectButton.Location = connLocation;
                 toolTipMenu.SetToolTip(connectButton, "Приєднати вентиль або вихідний сигнал");
@@ -207,20 +218,33 @@ namespace LogicCircuits
 
                         for (int k = 0; k < inputs; k++)
                         {
-                            points1[k] = new Point(sortedList[k].Location.X + gateWidth / 2 - 1, sortedList[k].Location.Y);
+                            if (element2.Inputs[k] is IGate)
+                                points1[k] = new Point(sortedList[k].Location.X + gateWidth / 2 - 1, sortedList[k].Location.Y);
+                            if (element2.Inputs[k] is Input)
+                                points1[k] = new Point(sortedList[k].Location.X + signalWidth / 2 - 1, sortedList[k].Location.Y);
+
                             if (element2.Inputs[k] is NOT) points1[k].Y++;
                             if (element2.Inputs[k] is AND) points1[k].X--;
                         }
 
-                        int inputsArea = gateHeight / 7 * 5;
-                        int gap = inputsArea / (inputs + 1);
+                        if (element2 is IGate)
+                        {
+                            int inputsArea = gateHeight / 7 * 5;
+                            int gap = inputsArea / (inputs + 1);
 
-                        for (int k = 1; k < inputs + 1; k++)
-                            points2[k - 1] = new Point(element2.Location.X - gateWidth / 2, element2.Location.Y - inputsArea / 2 + gap * k);
+                            for (int k = 1; k < inputs + 1; k++)
+                                points2[k - 1] = new Point(element2.Location.X - gateWidth / 2, element2.Location.Y - inputsArea / 2 + gap * k);
+                        }
+                        if (element2 is Output)
+                        {
+                            if (inputs != 1) throw new Exception("its bullshit");
+                            points2[0] = new Point(element2.Location.X - signalWidth / 2, element2.Location.Y);
+                        }
 
                         if (element2 is OR || element2 is NOR || element2 is XOR || element2 is XNOR || element2 is IMPLY)
                             for (int k = 0; k < inputs; k++)
                                 points2[k].X += 8;
+
 
                         int maxX = points1[0].X;
                         for (int k = 1; k < inputs; k++)
@@ -253,16 +277,21 @@ namespace LogicCircuits
 
         private void PanelCanvasClick(object sender, EventArgs e)
         {
-            if (gateSelected)
+            if (elementSelected)
             {
-                gateSelected = false;
+                elementSelected = false;
                 Cursor = Cursors.Default;
                 for (int i = 0; i < panelGates.Controls.Count; i++)
-                    if (panelGates.Controls[i].Controls[0].Tag.ToString() == selectedGate.ToString())
+                    if (panelGates.Controls[i].Controls[0].Tag.ToString() == selectedElement.ToString())
                     {
                         panelGates.Controls[i].BackColor = SystemColors.Control; break;
                     }
-                AddGate(selectedGate);
+                for (int i = 0; i < panelParams.Controls.Count; i++)
+                    if (panelParams.Controls[i].Controls[4].Tag.ToString() == selectedElement.ToString())
+                    {
+                        panelParams.Controls[i].BackColor = SystemColors.Control; break;
+                    }
+                AddElement(selectedElement);
             }
             if (elementMoveable)
             {
@@ -274,82 +303,93 @@ namespace LogicCircuits
             }
         }
 
-        private void AddGate(int tag)
+        private void AddElement(int tag)
         {
-            IGate gate = null;
+            IElement element = null;
             switch (tag)
             {
                 case 1:
-                    gate = new Elements.Gates.Buffer();
+                    element = new Elements.Gates.Buffer();
                     break;
                 case 2:
-                    gate = new NOT();
+                    element = new NOT();
                     break;
                 case 3:
-                    gate = new AND();
+                    element = new AND();
                     break;
                 case 4:
-                    gate = new OR();
+                    element = new OR();
                     break;
                 case 5:
-                    gate = new NAND();
+                    element = new NAND();
                     break;
                 case 6:
-                    gate = new NOR();
+                    element = new NOR();
                     break;
                 case 7:
-                    gate = new XOR();
+                    element = new XOR();
                     break;
                 case 8:
-                    gate = new XNOR();
+                    element = new XNOR();
                     break;
                 case 9:
-                    gate = new IMPLY();
+                    element = new IMPLY();
+                    break;
+                case 10:
+                    element = new Input();
+                    break;
+                case 11:
+                    element = new Output();
                     break;
             }
 
             Point newLoc = panelCanvas.PointToClient(Cursor.Position);
-            gate.Location = newLoc.X < 37 && newLoc.Y < 33 ? new Point(37, 33) : newLoc.X < 37 ? new Point(37, newLoc.Y) : newLoc.Y < 33 ? new Point(newLoc.X, 33) : newLoc;
+            element.Location = newLoc.X < 37 && newLoc.Y < 33 ? new Point(37, 33) : newLoc.X < 37 ? new Point(37, newLoc.Y) : newLoc.Y < 33 ? new Point(newLoc.X, 33) : newLoc;
 
-            draft.Add(gate);
+            draft.Add(element);
             Render();
         }
 
-        private bool gateSelected = false;
-        private int selectedGate = -1;
+        private bool elementSelected = false;
+        private int selectedElement = -1;
 
         private bool elementMoveable = false;
         private IElement moveableElement = null;
 
         private bool elementConnectable = false;
         private IElement connectableElement = null;
-        private void GatesToolsClicked(object sender, EventArgs e)
+        private void ElementsToolsClicked(object sender, EventArgs e)
         {
             int current = int.Parse((sender as Control).Tag.ToString());
 
-            if (!gateSelected)
+            if (!elementSelected)
             {
-                gateSelected = true;
-                selectedGate = current;
+                elementSelected = true;
+                selectedElement = current;
                 Cursor = Cursors.Cross;
                 (sender as Control).Parent.BackColor = Color.LightGray;
             }
             else
             {
-                if (current == selectedGate)
+                if (current == selectedElement)
                 {
-                    gateSelected = false;
+                    elementSelected = false;
                     Cursor = Cursors.Default;
                     (sender as Control).Parent.BackColor = SystemColors.Control;
                 }
                 else
                 {
                     for (int i = 0; i < panelGates.Controls.Count; i++)
-                        if (panelGates.Controls[i].Controls[0].Tag.ToString() == selectedGate.ToString())
+                        if (panelGates.Controls[i].Controls[0].Tag.ToString() == selectedElement.ToString())
                         {
                             panelGates.Controls[i].BackColor = SystemColors.Control; break;
                         }
-                    selectedGate = current;
+                    for (int i = 0; i < panelParams.Controls.Count; i++)
+                        if (panelParams.Controls[i].Controls[4].Tag.ToString() == selectedElement.ToString())
+                        {
+                            panelParams.Controls[i].BackColor = SystemColors.Control; break;
+                        }
+                    selectedElement = current;
                     (sender as Control).Parent.BackColor = Color.LightGray;
                 }
             }
@@ -360,7 +400,7 @@ namespace LogicCircuits
             (sender as Control).Parent.BackColor = Color.LightGray;
 
             object tag = (sender as Control).Tag;
-            if (tag != null && int.TryParse(tag.ToString(), out int gate))
+            if (tag != null && int.TryParse(tag.ToString(), out int gate) && gate <= 9)
             {
                 labelGateName.Text = gateInfos[gate - 1].Name;
                 pictureBoxFormula.Image = gateInfos[gate - 1].Formula;
@@ -371,7 +411,7 @@ namespace LogicCircuits
 
         private void MenuButtonsMouseLeave(object sender, EventArgs e)
         {
-            if (!(gateSelected && (sender as Control).Tag.ToString() == selectedGate.ToString()))
+            if (!(elementSelected && (sender as Control).Tag.ToString() == selectedElement.ToString()))
                 (sender as Control).Parent.BackColor = SystemColors.Control;
 
             labelGateName.Text = "<Назва вентиля>";
@@ -380,7 +420,7 @@ namespace LogicCircuits
             if (pictureBoxGateTable != null) pictureBoxGateTable.Image = null;
         }
 
-        protected override void WndProc(ref Message m) //prevents redrawing caused by alt
+        protected override void WndProc(ref Message m)
         {
             if (m.Msg == 0x128) return;
             base.WndProc(ref m);
