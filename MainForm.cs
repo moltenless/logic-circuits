@@ -154,7 +154,7 @@ namespace LogicCircuits
                 else if (draft[i] is Input)
                     connLocation = new Point(draft[i].Location.X - 6 * signalWidth / 5, draft[i].Location.Y - 2 * signalHeight / 7);
                 else if (draft[i] is Output)
-                    connLocation = new Point(draft[i].Location.X - 2* signalWidth /7, draft[i].Location.Y + 2 * signalHeight / 3);
+                    connLocation = new Point(draft[i].Location.X - 2 * signalWidth / 7, draft[i].Location.Y + 2 * signalHeight / 3);
 
 
                 connectButton.Location = connLocation;
@@ -218,13 +218,13 @@ namespace LogicCircuits
 
                         for (int k = 0; k < inputs; k++)
                         {
-                            if (element2.Inputs[k] is IGate)
+                            if (sortedList[k] is IGate)
                                 points1[k] = new Point(sortedList[k].Location.X + gateWidth / 2 - 1, sortedList[k].Location.Y);
-                            if (element2.Inputs[k] is Input)
-                                points1[k] = new Point(sortedList[k].Location.X + signalWidth / 2 - 1, sortedList[k].Location.Y);
+                            if (sortedList[k] is Input)
+                                points1[k] = new Point(sortedList[k].Location.X + 2 * signalWidth - 1, sortedList[k].Location.Y);
 
-                            if (element2.Inputs[k] is NOT) points1[k].Y++;
-                            if (element2.Inputs[k] is AND) points1[k].X--;
+                            if (sortedList[k] is NOT) points1[k].Y++;
+                            if (sortedList[k] is AND) points1[k].X--;
                         }
 
                         if (element2 is IGate)
@@ -237,7 +237,6 @@ namespace LogicCircuits
                         }
                         if (element2 is Output)
                         {
-                            if (inputs != 1) throw new Exception("its bullshit");
                             points2[0] = new Point(element2.Location.X - signalWidth / 2, element2.Location.Y);
                         }
 
@@ -250,6 +249,8 @@ namespace LogicCircuits
                         for (int k = 1; k < inputs; k++)
                             if (points1[k].X > maxX)
                                 maxX = points1[k].X;
+                        if (element2 is Output)
+                            maxX = (points1[0].X + points2[0].X) / 2;
 
                         int minY = points1[0].Y < points2[0].Y ? points1[0].Y : points2[0].Y;
                         int maxY = points1[points1.Length - 1].Y > points2[points2.Length - 1].Y ? points1[points1.Length - 1].Y : points2[points2.Length - 1].Y;
@@ -263,12 +264,13 @@ namespace LogicCircuits
                             Point end = points2[k];
                             Point p1 = new Point(maxX, start.Y);
                             Point p2 = new Point(maxX, end.Y);
+                            if (sortedList[k] is Input)
+                                g.DrawLine(pen, new Point(sortedList[k].Location.X + signalWidth / 2 - 1, sortedList[k].Location.Y), start);
                             g.DrawLine(pen, start, new Point(maxX, start.Y));
                             if (inputs < 8)
                                 g.DrawLine(pen, new Point(maxX, end.Y), end);
                             else
                                 g.DrawLine(new Pen(Color.Black, 1f), new Point(maxX, end.Y), end);
-
                         }
                     }
                 }
