@@ -64,8 +64,13 @@ namespace LogicCircuits
 
                 if (draft[i] is Input input)
                 {
-                    g.DrawString(input.Name, new Font(FontFamily.GenericSansSerif, 15, FontStyle.Italic, GraphicsUnit.Pixel), 
+                    g.DrawString(input.Name, new Font(FontFamily.GenericSansSerif, 15, FontStyle.Italic, GraphicsUnit.Pixel),
                         Brushes.Black, new Point(input.Location.X - 12, input.Location.Y - 3 * signalHeight / 2));
+                }
+                if (draft[i] is Output output)
+                {
+                    g.DrawString(output.Name, new Font(FontFamily.GenericSansSerif, 15, FontStyle.Italic, GraphicsUnit.Pixel),
+                        Brushes.Black, new Point(output.Location.X + 14, output.Location.Y - 8));
                 }
 
                 PictureBox removeButton = new PictureBox
@@ -345,33 +350,38 @@ namespace LogicCircuits
                     element = new IMPLY();
                     break;
                 case 10:
-                    string name = null;
+                    string prefix = null;
                     if (radioButtonInputAuto.Checked)
-                    {
-                        int indexer = 1;
-                        bool unique = false;
-                        while (!unique)
-                        {
-                            name = "X" + indexer;
-                            indexer++;
-                            unique = NameUnique(name);
-                        }
-                    }
+                        prefix = "X";
                     if (radioButtonInputCustom.Checked)
-                    {
+                        prefix = textBoxInput.Text;
 
+                    int indexer = 1;
+                    string name = prefix;
+                    bool unique = NameUnique(name);
+                    while (!unique)
+                    {
+                        name = prefix + indexer;
+                        indexer++;
+                        unique = NameUnique(name);
                     }
                     element = new Input(name);
                     break;
                 case 11:
-                    string name2 = null;
+                    string prefix2 = null;
                     if (radioButtonOutputAuto.Checked)
-                    {
-
-                    }
+                        prefix2 = "Y";
                     if (radioButtonOutputCustom.Checked)
-                    {
+                        prefix2 = textBoxOutput.Text;
 
+                    int indexer2 = 1;
+                    string name2 = prefix2;
+                    bool unique2 = NameUnique(name2);
+                    while (!unique2)
+                    {
+                        name2 = prefix2 + indexer2;
+                        indexer2++;
+                        unique2 = NameUnique(name2);
                     }
                     element = new Output(name2);
                     break;
