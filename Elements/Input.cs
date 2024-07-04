@@ -11,15 +11,18 @@ namespace LogicCircuits.Elements
     {
         public Point Location { get; set; }
 
-        public Image Diagram { get; } = Properties.Resources._input;
+        public Image Diagram { get; } = Properties.Resources._in;
+
         public string Name { get; } = null;
+
+        public IInputContainingElement Output { get; set; } = null;
+
+        public int Value { get; set; } = 0;
 
         public Input(string name)
         {
             Name = name;
         }
-
-        public IInputContainingElement Output { get; set; } = null;
 
         public bool Connect(IInputContainingElement elementToConnectWith)
         {

@@ -93,6 +93,16 @@ namespace LogicCircuits.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _in {
+            get {
+                object obj = ResourceManager.GetObject("_in", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _input {
             get {
                 object obj = ResourceManager.GetObject("_input", resourceCulture);
@@ -136,6 +146,16 @@ namespace LogicCircuits.Properties {
         internal static System.Drawing.Bitmap _or {
             get {
                 object obj = ResourceManager.GetObject("_or", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _out {
+            get {
+                object obj = ResourceManager.GetObject("_out", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

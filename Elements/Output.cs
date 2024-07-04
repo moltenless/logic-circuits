@@ -10,16 +10,19 @@ namespace LogicCircuits.Elements
     internal class Output : IInputContainingElement
     {
         public Point Location { get; set; }
-        public Image Diagram { get; } = Properties.Resources._output;
+
+        public Image Diagram { get; } = Properties.Resources._out;
 
         public string Name { get; } = null;
+
+        public List<IOutputContainingElement> Inputs { get; set; } = new List<IOutputContainingElement>();
+
+        public int? Result { get; set; } = null;
 
         public Output(string name)
         {
             Name = name;
         }
-
-        public List<IOutputContainingElement> Inputs { get; set; } = new List<IOutputContainingElement>();
 
         public InputsMultiplicity InputsMultiplicity => InputsMultiplicity.Single;
     }

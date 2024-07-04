@@ -167,8 +167,6 @@ namespace LogicCircuits
                     connLocation = new Point(draft[i].Location.X - 6 * signalWidth / 5, draft[i].Location.Y - 2 * signalHeight / 7);
                 else if (draft[i] is Output)
                     connLocation = new Point(draft[i].Location.X - 2 * signalWidth / 7, draft[i].Location.Y + 2 * signalHeight / 3);
-
-
                 connectButton.Location = connLocation;
                 toolTipMenu.SetToolTip(connectButton, "Приєднати вентиль або вихідний сигнал");
                 connectButton.Click += (sender, e) =>
@@ -213,6 +211,33 @@ namespace LogicCircuits
                     }
                 };
                 panelCanvas.Controls.Add(connectButton);
+
+                if (draft[i] is Input param)
+                {
+                    Label valueLabel = new Label
+                    {
+                        AutoSize = false,
+                        Size = new Size(23, 23),
+                        Font = new Font(FontFamily.GenericSansSerif, 20, FontStyle.Bold, GraphicsUnit.Pixel),
+                        Tag = param,
+                        Text = param.Value.ToString(),
+                        Location = new Point(param.Location.X - 11, param.Location.Y - 11)
+                    };
+                    if (param.Value == 0)
+                    {
+                        valueLabel.BackColor = Color.LightGoldenrodYellow;
+                    }
+                    if (param.Value == 1)
+                    {
+                        valueLabel.BackColor = Color.LightSteelBlue;
+                    }
+                    toolTipMenu.SetToolTip(valueLabel, "Перемикати значення вхідного сигнала 0/1");
+                    valueLabel.Click += (s, e) => {
+                        ((s as Control).Tag as Input).Value = ((s as Control).Tag as Input).Value == 0 ? 1 : 0;
+                        Render();
+                    };
+                    panelCanvas.Controls.Add(valueLabel);
+                }
 
 
                 if (draft[i] is IInputContainingElement element2)
