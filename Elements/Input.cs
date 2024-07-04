@@ -12,7 +12,12 @@ namespace LogicCircuits.Elements
         public Point Location { get; set; }
 
         public Image Diagram { get; } = Properties.Resources._input;
+        public string Name { get; } = null;
 
+        public Input(string name)
+        {
+            Name = name;
+        }
 
         public IInputContainingElement Output { get; set; } = null;
 

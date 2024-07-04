@@ -62,6 +62,12 @@ namespace LogicCircuits
                 else
                     g.DrawImage(draft[i].Diagram, draft[i].Location.X - signalWidth / 2, draft[i].Location.Y - signalHeight / 2, signalWidth, signalHeight);
 
+                if (draft[i] is Input input)
+                {
+                    g.DrawString(input.Name, new Font(FontFamily.GenericSansSerif, 15, FontStyle.Italic, GraphicsUnit.Pixel), 
+                        Brushes.Black, new Point(input.Location.X - 12, input.Location.Y - 3 * signalHeight / 2));
+                }
+
                 PictureBox removeButton = new PictureBox
                 {
                     Tag = draft[i],
@@ -92,6 +98,7 @@ namespace LogicCircuits
                         }
                     }
                     draft.Remove(curr);
+                    panelParams.Controls[0].Enabled = true;
                     elementMoveable = false;
                     Cursor = Cursors.Default;
                     Render();
@@ -338,10 +345,35 @@ namespace LogicCircuits
                     element = new IMPLY();
                     break;
                 case 10:
-                    element = new Input();
+                    string name = null;
+                    if (radioButtonInputAuto.Checked)
+                    {
+                        int indexer = 1;
+                        bool unique = false;
+                        while (!unique)
+                        {
+                            name = "X" + indexer;
+                            indexer++;
+                            unique = NameUnique(name);
+                        }
+                    }
+                    if (radioButtonInputCustom.Checked)
+                    {
+
+                    }
+                    element = new Input(name);
                     break;
                 case 11:
-                    element = new Output();
+                    string name2 = null;
+                    if (radioButtonOutputAuto.Checked)
+                    {
+
+                    }
+                    if (radioButtonOutputCustom.Checked)
+                    {
+
+                    }
+                    element = new Output(name2);
                     break;
             }
 
@@ -349,7 +381,25 @@ namespace LogicCircuits
             element.Location = newLoc.X < 37 && newLoc.Y < 33 ? new Point(37, 33) : newLoc.X < 37 ? new Point(37, newLoc.Y) : newLoc.Y < 33 ? new Point(newLoc.X, 33) : newLoc;
 
             draft.Add(element);
+            if (element is Output)
+                panelParams.Controls[0].Enabled = false;
             Render();
+        }
+
+        private bool NameUnique(string name)
+        {
+            for (int i = 0; i < draft.Count; i++)
+                if (draft[i] is Input input)
+                {
+                    if (input.Name == name)
+                        return false;
+                }
+                else if (draft[i] is Output output)
+                {
+                    if (output.Name == name)
+                        return false;
+                }
+            return true;
         }
 
         private bool elementSelected = false;
