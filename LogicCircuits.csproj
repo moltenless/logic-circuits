@@ -286,5 +286,11 @@
   <ItemGroup>
     <None Include="Resources\out.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\branching.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\additional_input.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

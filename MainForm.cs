@@ -62,16 +62,12 @@ namespace LogicCircuits
                 else
                     g.DrawImage(draft[i].Diagram, draft[i].Location.X - signalWidth / 2, draft[i].Location.Y - signalHeight / 2, signalWidth, signalHeight);
 
-                if (draft[i] is Input input)
-                {
+                if (draft[i] is Input input && !input.IsSlave)
                     g.DrawString(input.Name, new Font(FontFamily.GenericSansSerif, 15, FontStyle.Italic, GraphicsUnit.Pixel),
                         Brushes.Black, new Point(input.Location.X - 12, input.Location.Y - 3 * signalHeight / 2));
-                }
                 if (draft[i] is Output output)
-                {
                     g.DrawString(output.Name, new Font(FontFamily.GenericSansSerif, 15, FontStyle.Italic, GraphicsUnit.Pixel),
                         Brushes.Black, new Point(output.Location.X + 14, output.Location.Y - 8));
-                }
 
                 PictureBox removeButton = new PictureBox
                 {
@@ -81,7 +77,7 @@ namespace LogicCircuits
                     SizeMode = PictureBoxSizeMode.Zoom,
                 };
                 removeButton.Location = draft[i] is IGate ? new Point(draft[i].Location.X - gateWidth / 4, draft[i].Location.Y - 4 * gateHeight / 5)
-                    : new Point(draft[i].Location.X, draft[i].Location.Y - 7 * signalHeight / 8);
+                : new Point(draft[i].Location.X, draft[i].Location.Y - 7 * signalHeight / 8);
                 toolTipMenu.SetToolTip(removeButton, "Видалити вентиль");
                 removeButton.Click += (sender, e) =>
                 {
@@ -103,46 +99,80 @@ namespace LogicCircuits
                         }
                     }
                     draft.Remove(curr);
-                    panelParams.Controls[0].Enabled = true;
+                    if (curr is Output)
+                        panelParams.Controls[0].Enabled = true;
                     elementMoveable = false;
                     Cursor = Cursors.Default;
+
+                    if (curr is Input supervisor && supervisor.IsSupervisor)
+                    {
+                        for (int k = 0; k < supervisor.AdditionalOutputs.Count; k++)
+                        {
+                            if (supervisor.AdditionalOutputs[k].Output != null)
+                            {
+                                supervisor.AdditionalOutputs[k].Output.Inputs.Remove(supervisor.AdditionalOutputs[k]);
+                                supervisor.AdditionalOutputs[k].Output = null;
+                            }
+                            draft.Remove(supervisor.AdditionalOutputs[k]);
+                        }
+                    }
                     Render();
                 };
+
+                if (draft[i] is Input slave && slave.IsSlave)
+                {
+                    removeButton.Location = new Point(slave.Location.X + 15, slave.Location.Y - 16);
+                    toolTipMenu.SetToolTip(removeButton, "Видалити вентиль розгалуження");
+                    removeButton.Click += (s, e) =>
+                    {
+                        Input slave1 = (s as Control).Tag as Input;
+                        Input father = slave1.Supervisor;
+                        father.AdditionalOutputs.Remove(slave1);
+                        if (father.AdditionalOutputs.Count == 0)
+                            father.IsSupervisor = false;
+                        for (int k = 0; k < father.AdditionalOutputs.Count; k++)
+                            father.AdditionalOutputs[k].Location = new Point(father.Location.X, father.Location.Y + 33 * (k + 1));
+                        Render();
+                    };
+                }
+
                 panelCanvas.Controls.Add(removeButton);
 
-
-                PictureBox moveButton = new PictureBox
+                if (!(draft[i] is Input input1 && input1.IsSlave))
                 {
-                    Tag = draft[i],
-                    Size = new Size(10, 10),
-                    Image = Properties.Resources.move,
-                    SizeMode = PictureBoxSizeMode.Zoom,
-                };
-                moveButton.Location = draft[i] is IGate ? new Point(draft[i].Location.X - 2 * gateWidth / 5, draft[i].Location.Y - 4 * gateHeight / 5)
-                    : new Point(draft[i].Location.X - signalWidth / 3, draft[i].Location.Y - 7 * signalHeight / 8);
-                toolTipMenu.SetToolTip(moveButton, "Перемістити вентиль");
-                moveButton.Click += (sender, e) =>
-                {
-                    if (!elementMoveable)
+                    PictureBox moveButton = new PictureBox
                     {
-                        elementMoveable = true;
-                        moveableElement = (sender as Control).Tag as IElement;
-                        Cursor = Cursors.NoMove2D;
-                    }
-                    else
+                        Tag = draft[i],
+                        Size = new Size(10, 10),
+                        Image = Properties.Resources.move,
+                        SizeMode = PictureBoxSizeMode.Zoom,
+                    };
+                    moveButton.Location = draft[i] is IGate ? new Point(draft[i].Location.X - 2 * gateWidth / 5, draft[i].Location.Y - 4 * gateHeight / 5)
+                        : new Point(draft[i].Location.X - signalWidth / 3, draft[i].Location.Y - 7 * signalHeight / 8);
+                    toolTipMenu.SetToolTip(moveButton, "Перемістити вентиль");
+                    moveButton.Click += (sender, e) =>
                     {
-                        if ((sender as Control).Tag as IElement == moveableElement)
+                        if (!elementMoveable)
                         {
-                            elementMoveable = false;
-                            Cursor = Cursors.Default;
+                            elementMoveable = true;
+                            moveableElement = (sender as Control).Tag as IElement;
+                            Cursor = Cursors.NoMove2D;
                         }
                         else
                         {
-                            moveableElement = (sender as Control).Tag as IElement;
+                            if ((sender as Control).Tag as IElement == moveableElement)
+                            {
+                                elementMoveable = false;
+                                Cursor = Cursors.Default;
+                            }
+                            else
+                            {
+                                moveableElement = (sender as Control).Tag as IElement;
+                            }
                         }
-                    }
-                };
-                panelCanvas.Controls.Add(moveButton);
+                    };
+                    panelCanvas.Controls.Add(moveButton);
+                }
 
 
                 PictureBox connectButton = new PictureBox
@@ -163,8 +193,11 @@ namespace LogicCircuits
                     connLocation = new Point(draft[i].Location.X - 2 * gateWidth / 8, draft[i].Location.Y - 1 * gateHeight / 5);
                 else if (draft[i] is Elements.Gates.Buffer || draft[i] is NOT)
                     connLocation = new Point(draft[i].Location.X - 2 * gateWidth / 5, draft[i].Location.Y - 1 * gateHeight / 5);
-                else if (draft[i] is Input)
+                else if (draft[i] is Input ordinaryInput && !ordinaryInput.IsSlave)
                     connLocation = new Point(draft[i].Location.X - 6 * signalWidth / 5, draft[i].Location.Y - 2 * signalHeight / 7);
+                else if (draft[i] is Input child && child.IsSlave)
+                    connLocation = new Point(draft[i].Location.X - 7, draft[i].Location.Y - 7);
+
                 else if (draft[i] is Output)
                     connLocation = new Point(draft[i].Location.X - 2 * signalWidth / 7, draft[i].Location.Y + 2 * signalHeight / 3);
                 connectButton.Location = connLocation;
@@ -212,9 +245,9 @@ namespace LogicCircuits
                 };
                 panelCanvas.Controls.Add(connectButton);
 
-                if (draft[i] is Input param)
+                if (draft[i] is Input param && !param.IsSlave)
                 {
-                    Label valueLabel = new Label
+                    Label valueButton = new Label
                     {
                         AutoSize = false,
                         Size = new Size(23, 23),
@@ -224,19 +257,51 @@ namespace LogicCircuits
                         Location = new Point(param.Location.X - 11, param.Location.Y - 11)
                     };
                     if (param.Value == 0)
-                    {
-                        valueLabel.BackColor = Color.LightGoldenrodYellow;
-                    }
+                        valueButton.BackColor = Color.LightGoldenrodYellow;
                     if (param.Value == 1)
+                        valueButton.BackColor = Color.LightSteelBlue;
+                    toolTipMenu.SetToolTip(valueButton, "Перемикати значення вхідного сигнала 0/1");
+                    valueButton.Click += (s, e) =>
                     {
-                        valueLabel.BackColor = Color.LightSteelBlue;
-                    }
-                    toolTipMenu.SetToolTip(valueLabel, "Перемикати значення вхідного сигнала 0/1");
-                    valueLabel.Click += (s, e) => {
                         ((s as Control).Tag as Input).Value = ((s as Control).Tag as Input).Value == 0 ? 1 : 0;
+                        if ((s as Control).Tag is Input supervisor && supervisor.IsSupervisor)
+                        {
+                            for (int k = 0; k < supervisor.AdditionalOutputs.Count; k++)
+                                supervisor.AdditionalOutputs[k].Value = supervisor.Value;
+                        }
                         Render();
                     };
-                    panelCanvas.Controls.Add(valueLabel);
+                    panelCanvas.Controls.Add(valueButton);
+
+                    PictureBox branchingButton = new PictureBox
+                    {
+                        Tag = param,
+                        Size = new Size(25, 25),
+                        Image = Properties.Resources.branching,
+                        SizeMode = PictureBoxSizeMode.Zoom,
+                    };
+                    branchingButton.Location = new Point(param.Location.X - 42, param.Location.Y + 15);
+                    toolTipMenu.SetToolTip(branchingButton, "Додати ще один вхідний сигнал розгалуженням цього параметра");
+                    branchingButton.Click += (s, e) =>
+                    {
+                        Input super = (s as Control).Tag as Input;
+
+                        Input additional = new Input(super.Name);
+                        additional.IsSlave = true;
+                        additional.Supervisor = super;
+                        additional.NumberAsAdditional = super.AdditionalOutputs.Count + 1;
+
+                        additional.Location = new Point(super.Location.X, super.Location.Y + 33 * additional.NumberAsAdditional);
+                        additional.Diagram = Properties.Resources.additional_input;
+                        additional.Value = super.Value;
+
+                        super.IsSupervisor = true;
+                        super.AdditionalOutputs.Add(additional);
+
+                        draft.Add(additional);
+                        Render();
+                    };
+                    panelCanvas.Controls.Add(branchingButton);
                 }
 
 
@@ -258,7 +323,7 @@ namespace LogicCircuits
                             if (sortedList[k] is IGate)
                                 points1[k] = new Point(sortedList[k].Location.X + gateWidth / 2 - 1, sortedList[k].Location.Y);
                             if (sortedList[k] is Input)
-                                points1[k] = new Point(sortedList[k].Location.X + 2 * signalWidth - 1, sortedList[k].Location.Y);
+                                points1[k] = new Point(sortedList[k].Location.X + signalWidth - 1, sortedList[k].Location.Y);
 
                             if (sortedList[k] is NOT) points1[k].Y++;
                             if (sortedList[k] is AND) points1[k].X--;
@@ -337,7 +402,13 @@ namespace LogicCircuits
                 elementMoveable = false;
                 Cursor = Cursors.Default;
                 Point newLoc = panelCanvas.PointToClient(Cursor.Position);
-                moveableElement.Location = newLoc.X < 37 && newLoc.Y < 33 ? new Point(37, 33) : newLoc.X < 37 ? new Point(37, newLoc.Y) : newLoc.Y < 33 ? new Point(newLoc.X, 33) : newLoc;
+                moveableElement.Location = newLoc.X < 37 && newLoc.Y < 33 ? new Point(37, 33) : newLoc.X < 37 
+                    ? new Point(37, newLoc.Y) : newLoc.Y < 33 ? new Point(newLoc.X, 33) : newLoc;
+                if (moveableElement is Input input && input.IsSupervisor)
+                {
+                    for (int k = 0; k < input.AdditionalOutputs.Count; k++)
+                        input.AdditionalOutputs[k].Location = new Point(input.Location.X, input.Location.Y + 33 * (k + 1));
+                }
                 Render();
             }
         }
@@ -377,7 +448,7 @@ namespace LogicCircuits
                 case 10:
                     string prefix = null;
                     if (radioButtonInputAuto.Checked)
-                        prefix = "X";
+                        prefix = "X1";
                     if (radioButtonInputCustom.Checked)
                         prefix = textBoxInput.Text;
 
@@ -386,7 +457,11 @@ namespace LogicCircuits
                     bool unique = NameUnique(name);
                     while (!unique)
                     {
-                        name = prefix + indexer;
+                        if (radioButtonInputAuto.Checked)
+                            name = "X" + indexer;
+                        else
+                            name = prefix + indexer;
+
                         indexer++;
                         unique = NameUnique(name);
                     }

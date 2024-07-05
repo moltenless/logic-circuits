@@ -10,14 +10,18 @@ namespace LogicCircuits.Elements
     internal class Input : IOutputContainingElement
     {
         public Point Location { get; set; }
-
-        public Image Diagram { get; } = Properties.Resources._in;
-
+        public Image Diagram { get; set; } = Properties.Resources._in;
         public string Name { get; } = null;
-
         public IInputContainingElement Output { get; set; } = null;
-
         public int Value { get; set; } = 0;
+
+        public bool IsSupervisor { get; set; } = false;
+        public List<Input> AdditionalOutputs { get; set; } = new List<Input>();
+        public bool IsSlave { get; set; } = false;
+        public Input Supervisor { get; set; } = null;
+        public int NumberAsAdditional { get; set; }
+
+
 
         public Input(string name)
         {

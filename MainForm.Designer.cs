@@ -696,7 +696,7 @@
             this.textBoxInput.Name = "textBoxInput";
             this.textBoxInput.Size = new System.Drawing.Size(110, 18);
             this.textBoxInput.TabIndex = 4;
-            this.textBoxInput.Text = "X";
+            this.textBoxInput.Text = "X1";
             this.textBoxInput.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // radioButtonInputCustom
