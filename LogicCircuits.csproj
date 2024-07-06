@@ -66,15 +66,24 @@
     <Compile Include="Elements\InputMultiplicity.cs" />
     <Compile Include="Elements\IOutputContainingElement.cs" />
     <Compile Include="Elements\Output.cs" />
-    <Compile Include="MainForm.cs">
+    <Compile Include="Main Form\Circuit Status.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainForm.Designer.cs">
+    <Compile Include="Main Form\FormInteractions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main Form\MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main Form\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="MainForm.resx">
+    <Compile Include="Main Form\Render.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <EmbeddedResource Include="Main Form\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
