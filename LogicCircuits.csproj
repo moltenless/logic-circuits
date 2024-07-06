@@ -69,7 +69,7 @@
     <Compile Include="Main Form\Circuit Status.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Main Form\FormInteractions.cs">
+    <Compile Include="Main Form\Form Interactions.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Main Form\MainForm.cs">

@@ -91,8 +91,8 @@ namespace LogicCircuits
                             draft.Remove(supervisor.AdditionalOutputs[k]);
                         }
                     }
+                    UpdateStatus();
                     Render();
-                    CheckStatus();
                 };
 
                 if (draft[i] is Input slave && slave.IsSlave)
@@ -108,8 +108,8 @@ namespace LogicCircuits
                             father.IsSupervisor = false;
                         for (int k = 0; k < father.AdditionalOutputs.Count; k++)
                             father.AdditionalOutputs[k].Location = new Point(father.Location.X, father.Location.Y + 33 * (k + 1));
+                        UpdateStatus();
                         Render();
-                        CheckStatus();
                     };
                 }
 
@@ -189,8 +189,8 @@ namespace LogicCircuits
                             {
                                 curr.Output.Inputs.Remove(curr);
                                 curr.Output = null;
+                                UpdateStatus();
                                 Render();
-                                CheckStatus();
                                 return;
                             }
                         }
@@ -210,16 +210,16 @@ namespace LogicCircuits
                             if (connectableElement is IOutputContainingElement outputting)
                                 if (current is IInputContainingElement inputting)
                                     outputting.Connect(inputting).ToString();
+                            UpdateStatus();
                             Render();
-                            CheckStatus();
                         }
                         if (current.Location.X <= connectableElement.Location.X)
                         {
                             if (current is IOutputContainingElement outputting)
                                 if (connectableElement is IInputContainingElement inputting)
                                     outputting.Connect(inputting).ToString();
+                            UpdateStatus();
                             Render();
-                            CheckStatus();
                         }
                     }
                 };
@@ -249,8 +249,8 @@ namespace LogicCircuits
                             for (int k = 0; k < supervisor.AdditionalOutputs.Count; k++)
                                 supervisor.AdditionalOutputs[k].Value = supervisor.Value;
                         }
+                        UpdateStatus();
                         Render();
-                        CheckStatus();
                     };
                     panelCanvas.Controls.Add(valueButton);
 
@@ -358,7 +358,8 @@ namespace LogicCircuits
                     }
                 }
             }
-        }
 
+
+        }
     }
 }
