@@ -1,4 +1,5 @@
 ﻿using LogicCircuits.Elements;
+using LogicCircuits.Elements.Gates;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -12,30 +13,49 @@ namespace LogicCircuits
     public partial class MainForm : Form
     {
         bool ready = false;
+        List<(IElement, int outputResult)> registry = new List<(IElement, int outputResult)>();
+        int output; 
+
         private void UpdateStatus()
         {
-            bool containsOutput = ContainsOutput();
-            if (!containsOutput)
+            int outputs = OutputCount(out Output output);
+            if (outputs != 1)
             {
                 ready = false;
                 SetStatusLabel(ready);
                 return;
             }
 
-            ///code
+            registry.Clear();
+            this.output = output.CalculateOutput(registry);
 
+            if (this.output == -1)
+            {
+                ready = false;
+                SetStatusLabel(ready);
+                return;
+            }
+            else
+            {
+                ready = true;
+                SetStatusLabel(ready);
+                return;
+            }
         }
 
-        private bool ContainsOutput()
+        private int OutputCount(out Output lastOutput)
         {
+            int counter = 0;
+            lastOutput = null;
             for (int i = 0; i < draft.Count; i++)
             {
-                if (draft[i] is Output)
+                if (draft[i] is Output output)
                 {
-                    return true;
+                    counter++;
+                    lastOutput = output;
                 }
             }
-            return false;
+            return counter;
         }
 
         private void SetStatusLabel(bool status)

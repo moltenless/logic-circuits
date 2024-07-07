@@ -29,6 +29,35 @@ namespace LogicCircuits.Elements.Gates
             return true;
         }
 
+        public int CalculateOutput(List<(IElement, int outputResult)> register)
+        {
+            if (Inputs.Count < 2)
+            {
+                register.Add((this, -1));
+                return -1;
+            }
+
+            int[] inputs = new int[Inputs.Count];
+            for (int i = 0; i < Inputs.Count; i++)
+            {
+                inputs[i] = Inputs[i].CalculateOutput(register);
+                if (inputs[i] == -1)
+                {
+                    register.Add((this, -1));
+                    return -1;
+                }
+            }
+
+            for (int i = 0; i < inputs.Length; i++)
+                if (inputs[i] == 0)
+                {
+                    register.Add((this, 0));
+                    return 0;
+                }
+
+            register.Add((this, 1));
+            return 1;
+        }
 
         public static GateInfo GetInfo()
         {
@@ -36,8 +65,8 @@ namespace LogicCircuits.Elements.Gates
             {
                 Name = "AND",
                 Formula = Properties.Resources.formula3,
-                Diagram =     Properties.Resources.gate3,
-                TruthTable =  Properties.Resources.table3,
+                Diagram = Properties.Resources.gate3,
+                TruthTable = Properties.Resources.table3,
             };
         }
     }

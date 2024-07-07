@@ -62,10 +62,10 @@
     <Compile Include="Elements\IElement.cs" />
     <Compile Include="Elements\IGate.cs" />
     <Compile Include="Elements\IInputContainingElement.cs" />
-    <Compile Include="Elements\Input.cs" />
+    <Compile Include="Elements\Signals\Input.cs" />
     <Compile Include="Elements\InputMultiplicity.cs" />
     <Compile Include="Elements\IOutputContainingElement.cs" />
-    <Compile Include="Elements\Output.cs" />
+    <Compile Include="Elements\Signals\Output.cs" />
     <Compile Include="Main Form\Circuit Status.cs">
       <SubType>Form</SubType>
     </Compile>

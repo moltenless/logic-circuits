@@ -39,5 +39,11 @@ namespace LogicCircuits.Elements
             elementToConnectWith.Inputs.Add(this);
             return true;
         }
+
+        public int CalculateOutput(List<(IElement, int outputResult)> register)
+        {
+            register.Add((this, Value));
+            return Value;
+        }
     }
 }

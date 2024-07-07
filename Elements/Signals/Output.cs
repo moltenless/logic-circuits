@@ -19,11 +19,31 @@ namespace LogicCircuits.Elements
 
         public int? Result { get; set; } = null;
 
+        public InputsMultiplicity InputsMultiplicity => InputsMultiplicity.Single;
+
         public Output(string name)
         {
             Name = name;
         }
 
-        public InputsMultiplicity InputsMultiplicity => InputsMultiplicity.Single;
+        public int CalculateOutput(List<(IElement, int outputResult)> register)
+        {
+            if (Inputs.Count != 1)
+            {
+                register.Add((this, -1));
+                return -1;
+            }
+
+            int input = Inputs[0].CalculateOutput(register);
+            if (input == -1)
+            {
+                register.Add((this, -1));
+                return -1;
+            }
+
+            int output = input;
+            register.Add((this, output));
+            return output;
+        }
     }
 }

@@ -12,7 +12,6 @@ namespace LogicCircuits.Elements.Gates
         public Point Location { get; set; }
         public Image Diagram { get; } = Properties.Resources.xnor;
 
-
         public List<IOutputContainingElement> Inputs { get; set; } = new List<IOutputContainingElement>();
         public InputsMultiplicity InputsMultiplicity { get; } = InputsMultiplicity.Double;
         public IInputContainingElement Output { get; set; }
@@ -29,6 +28,27 @@ namespace LogicCircuits.Elements.Gates
             return true;
         }
 
+        public int CalculateOutput(List<(IElement, int outputResult)> register)
+        {
+            if (Inputs.Count != 2)
+            {
+                register.Add((this, -1));
+                return -1;
+            }
+
+            int input1 = Inputs[0].CalculateOutput(register);
+            int input2 = Inputs[1].CalculateOutput(register);
+            if (input1 == -1 || input2 == -1)
+            {
+                register.Add((this, -1));
+                return -1;
+            }
+
+            int output = input1 == input2 ? 1 : 0;
+
+            register.Add((this, output));
+            return output;
+        }
 
         public static GateInfo GetInfo()
         {

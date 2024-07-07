@@ -28,8 +28,25 @@ namespace LogicCircuits.Elements.Gates
             return true;
         }
 
+        public int CalculateOutput(List<(IElement, int outputResult)> register)
+        {
+            if (Inputs.Count != 1)
+            {
+                register.Add((this, -1));
+                return -1;
+            }
 
+            int input = Inputs[0].CalculateOutput(register);
+            if (input == -1)
+            {
+                register.Add((this, -1));
+                return -1;
+            }
 
+            int output = input == -1 ? -1 : input == 0 ? 1 : 0;
+            register.Add((this, output));
+            return output;
+        }
 
         public static GateInfo GetInfo()
         {

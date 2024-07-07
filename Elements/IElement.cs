@@ -11,5 +11,6 @@ namespace LogicCircuits.Elements
     {
         Point Location { get; set; }
         Image Diagram { get; }
+        int CalculateOutput(List<(IElement, int outputResult)> register);
     }
 }

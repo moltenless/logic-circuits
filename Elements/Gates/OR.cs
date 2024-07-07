@@ -12,8 +12,6 @@ namespace LogicCircuits.Elements.Gates
         public Point Location { get; set; }
         public Image Diagram { get; } = Properties.Resources.or;
 
-
-
         public List<IOutputContainingElement> Inputs { get; set; } = new List<IOutputContainingElement>();
         public InputsMultiplicity InputsMultiplicity { get; } = InputsMultiplicity.Multiple;
         public IInputContainingElement Output { get; set; }
@@ -30,6 +28,35 @@ namespace LogicCircuits.Elements.Gates
             return true;
         }
 
+        public int CalculateOutput(List<(IElement, int outputResult)> register)
+        {
+            if (Inputs.Count < 2)
+            {
+                register.Add((this, -1));
+                return -1;
+            }
+
+            int[] inputs = new int[Inputs.Count];
+            for (int i = 0; i < Inputs.Count; i++)
+            {
+                inputs[i] = Inputs[i].CalculateOutput(register);
+                if (inputs[i] == -1)
+                {
+                    register.Add((this, -1));
+                    return -1;
+                }
+            }
+
+            for (int i = 0; i < inputs.Length; i++)
+                if (inputs[i] == 1)
+                {
+                    register.Add((this, 1));
+                    return 1;
+                }
+
+            register.Add((this, 0));
+            return 0;
+        }
 
         public static GateInfo GetInfo()
         {
