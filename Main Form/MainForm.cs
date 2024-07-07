@@ -23,7 +23,7 @@ namespace LogicCircuits
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            Render();
+            RenderCompletely();
             SetStatusLabel(ready);
         }
 
@@ -107,7 +107,7 @@ namespace LogicCircuits
             draft.Add(element);
             if (element is Output)
                 panelParams.Controls[0].Enabled = false;
-            Render();
+            RenderCompletely();
         }
 
         private bool NameUnique(string name)
@@ -134,7 +134,7 @@ namespace LogicCircuits
 
         private void MainForm_SizeChanged(object sender, EventArgs e)
         {
-            Render();
+            RenderCompletely();
         }
     }
 }

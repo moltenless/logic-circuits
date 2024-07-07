@@ -41,7 +41,7 @@ namespace LogicCircuits
                     for (int k = 0; k < input.AdditionalOutputs.Count; k++)
                         input.AdditionalOutputs[k].Location = new Point(input.Location.X, input.Location.Y + 33 * (k + 1));
                 }
-                Render();
+                RenderCompletely();
             }
         }
 

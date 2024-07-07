@@ -29,16 +29,6 @@ namespace LogicCircuits
             registry.Clear();
             this.output = output.CalculateOutput(registry);
 
-            string text = "output is " + this.output.ToString() + "\n";
-            for (int i = 0; i < registry.Count; i++)
-                if (registry[i].Item1 is IGate)
-                    text += "gate " + $" has {(registry[i].Item1 as IInputContainingElement).Inputs.Count} inputs and have the output: {registry[i].outputResult}\n"; 
-            else if (registry[i].Item1 is Input)
-                    text += $"input {(registry[i].Item1 as Input).Name}" + $" has the output: {registry[i].outputResult}\n";
-            else if (registry[i].Item1 is Output)
-                    text += $"output {(registry[i].Item1 as Output).Name}" + $" has the output: {registry[i].outputResult}\n";
-            MessageBox.Show(text);
-
             if (this.output == -1)
             {
                 ready = false;
