@@ -88,15 +88,15 @@ namespace LogicCircuits
             List<IOutputContainingElement> sortedList = copy.ToList();
             sortedList.Sort((IOutputContainingElement i1, IOutputContainingElement i2) => i1.Location.Y < i2.Location.Y ? -1 : 1);
 
-            for (int k = 0; k < inputs; k++)
+            for (int i = 0; i < inputs; i++)
             {
-                if (sortedList[k] is IGate)
-                    points1[k] = new Point(sortedList[k].Location.X + gateWidth / 2 - 1, sortedList[k].Location.Y);
-                if (sortedList[k] is Input)
-                    points1[k] = new Point(sortedList[k].Location.X + signalWidth - 1, sortedList[k].Location.Y);
+                if (sortedList[i] is IGate)
+                    points1[i] = new Point(sortedList[i].Location.X + gateWidth / 2 - 1, sortedList[i].Location.Y);
+                if (sortedList[i] is Input)
+                    points1[i] = new Point(sortedList[i].Location.X + signalWidth - 1, sortedList[i].Location.Y);
 
-                if (sortedList[k] is NOT) points1[k].Y++;
-                if (sortedList[k] is AND) points1[k].X--;
+                if (sortedList[i] is NOT) points1[i].Y++;
+                if (sortedList[i] is AND) points1[i].X--;
             }
 
             if (element2 is IGate)
@@ -126,15 +126,23 @@ namespace LogicCircuits
 
             Pen pen = new Pen(Color.Black, 2f);
             g.DrawLine(pen, new Point(maxX, minY), new Point(maxX, maxY));
-
-            for (int k = 0; k < inputs; k++)
+            
+            for (int i = 0; i < inputs; i++)
             {
-                Point start = points1[k];
-                Point end = points2[k];
+                if (!ready) pen.Color = Color.Black;
+                else
+                    for (int j = 0; j < registry.Count; j++)
+                        if (registry[j].Item1 == sortedList[i])
+                            if (registry[j].outputResult == 1)
+                                pen.Color = Color.Blue;
+                            else if (registry[j].outputResult == 0)
+                                pen.Color = Color.Yellow;
+                Point start = points1[i];
+                Point end = points2[i];
                 Point p1 = new Point(maxX, start.Y);
                 Point p2 = new Point(maxX, end.Y);
-                if (sortedList[k] is Input)
-                    g.DrawLine(pen, new Point(sortedList[k].Location.X + signalWidth / 2 - 1, sortedList[k].Location.Y), start);
+                if (sortedList[i] is Input)
+                    g.DrawLine(pen, new Point(sortedList[i].Location.X + signalWidth / 2 - 1, sortedList[i].Location.Y), start);
                 g.DrawLine(pen, start, new Point(maxX, start.Y));
                 if (inputs < 8)
                     g.DrawLine(pen, new Point(maxX, end.Y), end);
