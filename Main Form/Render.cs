@@ -58,6 +58,11 @@ namespace LogicCircuits
                         DrawConnections(g, inputs, element2, gateWidth, gateHeight, signalWidth, signalHeight);
                 }
             }
+
+            if (ready)
+            {
+                AddOutputValue(g,)
+            }
         }
 
         private void DrawBackground(Graphics g)

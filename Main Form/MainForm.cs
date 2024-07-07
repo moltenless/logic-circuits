@@ -102,6 +102,8 @@ namespace LogicCircuits
             }
 
             Point newLoc = panelCanvas.PointToClient(Cursor.Position);
+            if (element is IGate)
+                newLoc.X += 15;
             element.Location = newLoc.X < 37 && newLoc.Y < 33 ? new Point(37, 33) : newLoc.X < 37 ? new Point(37, newLoc.Y) : newLoc.Y < 33 ? new Point(newLoc.X, 33) : newLoc;
 
             draft.Add(element);

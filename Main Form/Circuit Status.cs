@@ -14,7 +14,8 @@ namespace LogicCircuits
     {
         bool ready = false;
         List<(IElement, int outputResult)> registry = new List<(IElement, int outputResult)>();
-        int output; 
+        Output output = null;
+        int result; 
 
         private void UpdateStatus()
         {
@@ -27,9 +28,9 @@ namespace LogicCircuits
             }
 
             registry.Clear();
-            this.output = output.CalculateOutput(registry);
+            this.result = output.CalculateOutput(registry);
 
-            if (this.output == -1)
+            if (this.result == -1)
             {
                 ready = false;
                 SetStatusLabel(ready);
@@ -66,7 +67,7 @@ namespace LogicCircuits
             Bitmap bmp = new Bitmap(labelStatus.Width, labelStatus.Height);
             for (int i = 0; i < bmp.Width; i++)
                 for (int j = 0; j < bmp.Height; j++)
-                    bmp.SetPixel(i, j, Color.FromArgb((255 - (i > 255 ? 255 : i)) / 2, color));
+                    bmp.SetPixel(i, j, Color.FromArgb((255 - (i > 255 ? 255 : i)), color));
             labelStatus.Image = bmp;
         }
     }

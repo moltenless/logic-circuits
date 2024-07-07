@@ -267,5 +267,14 @@ namespace LogicCircuits
             };
             panelCanvas.Controls.Add(branchingButton);
         }
+
+        private void AddOutputValue(Graphics g, Output element, int signalWidth, int signalHeight)
+        {
+            Brush brush = this.result == 1 ? Brushes.LightSteelBlue : Brushes.LightGoldenrodYellow;
+            g.FillEllipse(brush, element.Location.X - signalWidth / 2, element.Location.Y - signalHeight / 2, signalWidth, signalHeight);
+
+            g.DrawString(this.result.ToString(), new Font(FontFamily.GenericSansSerif, 20, FontStyle.Bold, GraphicsUnit.Pixel),
+                        Brushes.Black, new Point(element.Location.X - 11, element.Location.Y - 11));
+        }
     }
 }
