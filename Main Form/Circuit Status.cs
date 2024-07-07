@@ -14,8 +14,6 @@ namespace LogicCircuits
     {
         bool ready = false;
         List<(IElement, int outputResult)> registry = new List<(IElement, int outputResult)>();
-        Output output = null;
-        int result; 
 
         private void UpdateStatus()
         {
@@ -28,9 +26,9 @@ namespace LogicCircuits
             }
 
             registry.Clear();
-            this.result = output.CalculateOutput(registry);
+            int result = output.CalculateOutput(registry);
 
-            if (this.result == -1)
+            if (result == -1)
             {
                 ready = false;
                 SetStatusLabel(ready);

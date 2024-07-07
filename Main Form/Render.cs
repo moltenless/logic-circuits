@@ -61,7 +61,7 @@ namespace LogicCircuits
 
             if (ready)
             {
-                AddOutputValue(g,)
+                AddOutputValue(g, signalWidth, signalHeight);
             }
         }
 
@@ -141,6 +141,17 @@ namespace LogicCircuits
                 else
                     g.DrawLine(new Pen(Color.Black, 1f), new Point(maxX, end.Y), end);
             }
+        }
+
+        private void AddOutputValue(Graphics g, int signalWidth, int signalHeight)
+        {
+            (IElement element, int result) = registry.Last();
+
+            Brush brush = result == 1 ? Brushes.LightSteelBlue : Brushes.LightGoldenrodYellow;
+            g.FillEllipse(brush, element.Location.X - signalWidth / 2 + 3, element.Location.Y - signalHeight / 2 + 3, signalWidth - 6, signalHeight - 6);
+
+            g.DrawString(result.ToString(), new Font(FontFamily.GenericSansSerif, 20, FontStyle.Bold, GraphicsUnit.Pixel),
+                        Brushes.Black, new Point(element.Location.X - 9, element.Location.Y - 12));
         }
     }
 }
