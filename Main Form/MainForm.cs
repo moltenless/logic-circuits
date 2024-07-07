@@ -24,6 +24,7 @@ namespace LogicCircuits
         private void MainForm_Load(object sender, EventArgs e)
         {
             Render();
+            SetStatusLabel(ready);
         }
 
         private void AddElement(int tag)
