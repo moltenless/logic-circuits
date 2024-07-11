@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace LogicCircuits.Elements.Gates
 {
@@ -15,6 +16,8 @@ namespace LogicCircuits.Elements.Gates
         public List<IOutputContainingElement> Inputs { get; set; } = new List<IOutputContainingElement>();
         public InputsMultiplicity InputsMultiplicity { get; } = InputsMultiplicity.Single;
         public IInputContainingElement Output { get; set; } = null;
+
+        public List<Control> Controls { get; set; } = new List<Control>();
 
         public bool Connect(IInputContainingElement elementToConnectWith)
         {

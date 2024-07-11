@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace LogicCircuits.Elements
 {
@@ -12,5 +13,6 @@ namespace LogicCircuits.Elements
         Point Location { get; set; }
         Image Diagram { get; }
         int CalculateOutput(List<(IElement, int outputResult)> register);
+        List<Control> Controls { get; set; }
     }
 }

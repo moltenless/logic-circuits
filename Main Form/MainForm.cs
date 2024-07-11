@@ -3,6 +3,7 @@ using LogicCircuits.Elements.Gates;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.Windows.Forms;
 
 
@@ -116,15 +117,11 @@ namespace LogicCircuits
         {
             for (int i = 0; i < draft.Count; i++)
                 if (draft[i] is Input input)
-                {
                     if (input.Name == name)
                         return false;
-                }
                 else if (draft[i] is Output output)
-                {
                     if (output.Name == name)
                         return false;
-                }
             return true;
         }
 

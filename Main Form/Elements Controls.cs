@@ -33,11 +33,14 @@ namespace LogicCircuits
                 removeButton.Click += RemoveSlaveButtonClick;
             }
 
+            element.Controls.Add(removeButton);
             panelCanvas.Controls.Add(removeButton);
         }
 
         private void RemoveButtonClick(object sender, EventArgs e)
         {
+            List<IElement> elementsToRemove = new List<IElement>(); 
+
             IElement curr = (sender as Control).Tag as IElement;
             if (curr is IOutputContainingElement currOut)
             {
@@ -61,6 +64,8 @@ namespace LogicCircuits
             elementMoveable = false;
             Cursor = Cursors.Default;
 
+            elementsToRemove.Add(curr);
+
             if (curr is Input supervisor && supervisor.IsSupervisor)
             {
                 for (int k = 0; k < supervisor.AdditionalOutputs.Count; k++)
@@ -71,10 +76,12 @@ namespace LogicCircuits
                         supervisor.AdditionalOutputs[k].Output = null;
                     }
                     draft.Remove(supervisor.AdditionalOutputs[k]);
+
+                    elementsToRemove.Add(supervisor.AdditionalOutputs[k]);
                 }
             }
             UpdateStatus();
-            RenderCompletely();
+            RenderAfterRemoval(elementsToRemove);
         }
 
         private void RemoveSlaveButtonClick(object sender, EventArgs e)
@@ -103,6 +110,7 @@ namespace LogicCircuits
                 : new Point(element.Location.X - signalWidth / 3, element.Location.Y - 7 * signalHeight / 8);
             toolTipMenu.SetToolTip(moveButton, "Перемістити вентиль");
             moveButton.Click += MoveButtonClick;
+            element.Controls.Add(moveButton);
             panelCanvas.Controls.Add(moveButton);
         }
 
@@ -157,6 +165,7 @@ namespace LogicCircuits
             connectButton.Location = connLocation;
             toolTipMenu.SetToolTip(connectButton, "Приєднати вентиль або вихідний сигнал");
             connectButton.Click += ConnectionButtonClick;
+            element.Controls.Add(connectButton);
             panelCanvas.Controls.Add(connectButton);
         }
 
@@ -232,6 +241,7 @@ namespace LogicCircuits
                 UpdateStatus();
                 RenderCompletely();
             };
+            param.Controls.Add(valueButton);
             panelCanvas.Controls.Add(valueButton);
         }
 
@@ -265,6 +275,7 @@ namespace LogicCircuits
                 draft.Add(additional);
                 RenderCompletely();
             };
+            param.Controls.Add(branchingButton);
             panelCanvas.Controls.Add(branchingButton);
         }
     }

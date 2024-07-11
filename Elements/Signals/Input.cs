@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace LogicCircuits.Elements
 {
@@ -21,6 +22,7 @@ namespace LogicCircuits.Elements
         public Input Supervisor { get; set; } = null;
         public int NumberAsAdditional { get; set; }
 
+        public List<Control> Controls { get; set; } = new List<Control>();
 
 
         public Input(string name)
