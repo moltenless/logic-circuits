@@ -20,11 +20,11 @@ namespace LogicCircuits
                 Size = new Size(10, 10),
                 Image = Properties.Resources.close,
                 SizeMode = PictureBoxSizeMode.Zoom,
+                Name = "remove"
             };
             removeButton.Location = element is IGate ? new Point(element.Location.X - gateWidth / 4, element.Location.Y - 4 * gateHeight / 5)
             : new Point(element.Location.X, element.Location.Y - 7 * signalHeight / 8);
             toolTipMenu.SetToolTip(removeButton, "Видалити вентиль");
-            removeButton.Click += RemoveButtonClick;
 
             if (element is Input slave && slave.IsSlave)
             {
@@ -32,6 +32,7 @@ namespace LogicCircuits
                 toolTipMenu.SetToolTip(removeButton, "Видалити вентиль розгалуження");
                 removeButton.Click += RemoveSlaveButtonClick;
             }
+            removeButton.Click += RemoveButtonClick;
 
             element.Controls.Add(removeButton);
             panelCanvas.Controls.Add(removeButton);
@@ -93,8 +94,7 @@ namespace LogicCircuits
                 father.IsSupervisor = false;
             for (int k = 0; k < father.AdditionalOutputs.Count; k++)
                 father.AdditionalOutputs[k].Location = new Point(father.Location.X, father.Location.Y + 33 * (k + 1));
-            UpdateStatus();
-            RenderCompletely();
+            RenderAfterRemovalSlave(father);
         }
 
         private void AddMoveButton(IElement element, int gateWidth, int gateHeight, int signalWidth, int signalHeight)
@@ -144,6 +144,7 @@ namespace LogicCircuits
                 Size = new Size(15, 15),
                 Image = Properties.Resources.connect,
                 SizeMode = PictureBoxSizeMode.Zoom,
+                Name = "connection"
             };
             Point connLocation = new Point();
             if (element is AND || element is NAND)

@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
+using static System.Windows.Forms.AxHost;
 
 namespace LogicCircuits
 {
@@ -103,6 +104,16 @@ namespace LogicCircuits
                 AddOutputValue(g, signalWidth, signalHeight);
         }
 
+        private void RenderAfterRemovalSlave(Input father)
+        {
+            for (int i = 0; i < father.AdditionalOutputs.Count; i++)
+                for (int j = 0; j < father.AdditionalOutputs[i].Controls.Count; j++)
+                    if (father.AdditionalOutputs[i].Controls[j].Name == "remove")
+                        father.AdditionalOutputs[i].Controls[j].Location = new Point(father.AdditionalOutputs[i].Location.X + 15, father.AdditionalOutputs[i].Location.Y - 16);
+                    else
+                        father.AdditionalOutputs[i].Controls[j].Location = new Point(father.AdditionalOutputs[i].Location.X - 7, father.AdditionalOutputs[i].Location.Y - 7);
+        }
+
         private void DrawBackground(Graphics g)
         {
             int width = panelCanvas.Width, height = panelCanvas.Height;
@@ -160,7 +171,7 @@ namespace LogicCircuits
 
             Pen pen = new Pen(Color.Black, 2f);
             g.DrawLine(pen, new Point(maxX, minY), new Point(maxX, maxY));
-            
+
             for (int i = 0; i < inputs; i++)
             {
                 if (!ready) pen.Color = Color.Black;
