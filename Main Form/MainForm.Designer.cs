@@ -106,7 +106,6 @@
             this.toolTipMenu = new System.Windows.Forms.ToolTip(this.components);
             this.panelUpper = new System.Windows.Forms.Panel();
             this.panelGeneral = new System.Windows.Forms.Panel();
-            this.panelBackground = new System.Windows.Forms.Panel();
             this.panelCanvas = new System.Windows.Forms.Panel();
             this.panelLower.SuspendLayout();
             this.panelTools.SuspendLayout();
@@ -157,7 +156,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
             this.panelUpper.SuspendLayout();
             this.panelGeneral.SuspendLayout();
-            this.panelBackground.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelLower
@@ -1150,7 +1148,7 @@
             // 
             // panelGeneral
             // 
-            this.panelGeneral.Controls.Add(this.panelBackground);
+            this.panelGeneral.Controls.Add(this.panelCanvas);
             this.panelGeneral.Controls.Add(this.panelLower);
             this.panelGeneral.Controls.Add(this.panelUpper);
             this.panelGeneral.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -1159,21 +1157,11 @@
             this.panelGeneral.Size = new System.Drawing.Size(1393, 715);
             this.panelGeneral.TabIndex = 4;
             // 
-            // panelBackground
-            // 
-            this.panelBackground.BackColor = System.Drawing.Color.LightGray;
-            this.panelBackground.Controls.Add(this.panelCanvas);
-            this.panelBackground.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelBackground.Location = new System.Drawing.Point(0, 82);
-            this.panelBackground.Name = "panelBackground";
-            this.panelBackground.Size = new System.Drawing.Size(1393, 474);
-            this.panelBackground.TabIndex = 4;
-            // 
             // panelCanvas
             // 
-            this.panelCanvas.BackColor = System.Drawing.Color.Transparent;
+            this.panelCanvas.BackColor = System.Drawing.Color.LightGray;
             this.panelCanvas.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelCanvas.Location = new System.Drawing.Point(0, 0);
+            this.panelCanvas.Location = new System.Drawing.Point(0, 82);
             this.panelCanvas.Name = "panelCanvas";
             this.panelCanvas.Size = new System.Drawing.Size(1393, 474);
             this.panelCanvas.TabIndex = 4;
@@ -1245,7 +1233,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
             this.panelUpper.ResumeLayout(false);
             this.panelGeneral.ResumeLayout(false);
-            this.panelBackground.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1328,6 +1315,5 @@
         private System.Windows.Forms.Panel panelUpper;
         private System.Windows.Forms.Panel panelGeneral;
         private System.Windows.Forms.Panel panelCanvas;
-        private System.Windows.Forms.Panel panelBackground;
     }
 }

@@ -114,6 +114,42 @@ namespace LogicCircuits
                         father.AdditionalOutputs[i].Controls[j].Location = new Point(father.AdditionalOutputs[i].Location.X - 7, father.AdditionalOutputs[i].Location.Y - 7);
         }
 
+        private void RenderOnlyGraphics()
+        {
+            Graphics g = panelCanvas.CreateGraphics();
+
+            g.Clear(Color.LightGray);
+
+            DrawBackground(g);
+
+            int gateWidth = 70, gateHeight = 40;//coef 0.575
+            int signalWidth = 30, signalHeight = 30;
+            for (int i = 0; i < draft.Count; i++)
+            {
+                if (draft[i] is IGate)
+                    g.DrawImage(draft[i].Diagram, draft[i].Location.X - gateWidth / 2, draft[i].Location.Y - gateHeight / 2, gateWidth, gateHeight);
+                else
+                    g.DrawImage(draft[i].Diagram, draft[i].Location.X - signalWidth / 2, draft[i].Location.Y - signalHeight / 2, signalWidth, signalHeight);
+
+                if (draft[i] is Input input && !input.IsSlave)
+                    g.DrawString(input.Name, new Font(FontFamily.GenericSansSerif, 15, FontStyle.Italic, GraphicsUnit.Pixel),
+                        Brushes.Black, new Point(input.Location.X - 12, input.Location.Y - 3 * signalHeight / 2));
+                if (draft[i] is Output output)
+                    g.DrawString(output.Name, new Font(FontFamily.GenericSansSerif, 15, FontStyle.Italic, GraphicsUnit.Pixel),
+                        Brushes.Black, new Point(output.Location.X + 14, output.Location.Y - 8));
+
+                if (draft[i] is IInputContainingElement element2)
+                {
+                    int inputs = element2.Inputs.Count;
+                    if (inputs != 0)
+                        DrawConnections(g, inputs, element2, gateWidth, gateHeight, signalWidth, signalHeight);
+                }
+            }
+
+            if (ready)
+                AddOutputValue(g, signalWidth, signalHeight);
+        }
+
         private void DrawBackground(Graphics g)
         {
             int width = panelCanvas.Width, height = panelCanvas.Height;

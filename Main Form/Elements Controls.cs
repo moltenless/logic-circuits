@@ -181,7 +181,7 @@ namespace LogicCircuits
                         curr.Output.Inputs.Remove(curr);
                         curr.Output = null;
                         UpdateStatus();
-                        RenderCompletely();
+                        RenderOnlyGraphics();
                         return;
                     }
                 }
@@ -202,7 +202,7 @@ namespace LogicCircuits
                         if (current is IInputContainingElement inputting)
                             outputting.Connect(inputting).ToString();
                     UpdateStatus();
-                    RenderCompletely();
+                    RenderOnlyGraphics();
                 }
                 if (current.Location.X <= connectableElement.Location.X)
                 {
@@ -210,7 +210,7 @@ namespace LogicCircuits
                         if (connectableElement is IInputContainingElement inputting)
                             outputting.Connect(inputting).ToString();
                     UpdateStatus();
-                    RenderCompletely();
+                    RenderOnlyGraphics();
                 }
             }
         }
