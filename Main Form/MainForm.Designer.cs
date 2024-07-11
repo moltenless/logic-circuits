@@ -106,8 +106,8 @@
             this.toolTipMenu = new System.Windows.Forms.ToolTip(this.components);
             this.panelUpper = new System.Windows.Forms.Panel();
             this.panelGeneral = new System.Windows.Forms.Panel();
-            this.panelCanvas = new System.Windows.Forms.Panel();
             this.panelBackground = new System.Windows.Forms.Panel();
+            this.panelCanvas = new System.Windows.Forms.Panel();
             this.panelLower.SuspendLayout();
             this.panelTools.SuspendLayout();
             this.panelGates.SuspendLayout();
@@ -1159,16 +1159,6 @@
             this.panelGeneral.Size = new System.Drawing.Size(1393, 715);
             this.panelGeneral.TabIndex = 4;
             // 
-            // panelCanvas
-            // 
-            this.panelCanvas.BackColor = System.Drawing.SystemColors.Control;
-            this.panelCanvas.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelCanvas.Location = new System.Drawing.Point(0, 0);
-            this.panelCanvas.Name = "panelCanvas";
-            this.panelCanvas.Size = new System.Drawing.Size(1393, 474);
-            this.panelCanvas.TabIndex = 4;
-            this.panelCanvas.Click += new System.EventHandler(this.PanelCanvasClick);
-            // 
             // panelBackground
             // 
             this.panelBackground.BackColor = System.Drawing.Color.LightGray;
@@ -1178,6 +1168,16 @@
             this.panelBackground.Name = "panelBackground";
             this.panelBackground.Size = new System.Drawing.Size(1393, 474);
             this.panelBackground.TabIndex = 4;
+            // 
+            // panelCanvas
+            // 
+            this.panelCanvas.BackColor = System.Drawing.Color.Transparent;
+            this.panelCanvas.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelCanvas.Location = new System.Drawing.Point(0, 0);
+            this.panelCanvas.Name = "panelCanvas";
+            this.panelCanvas.Size = new System.Drawing.Size(1393, 474);
+            this.panelCanvas.TabIndex = 4;
+            this.panelCanvas.Click += new System.EventHandler(this.PanelCanvasClick);
             // 
             // MainForm
             // 
