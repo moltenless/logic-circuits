@@ -150,6 +150,16 @@ namespace LogicCircuits
                 AddOutputValue(g, signalWidth, signalHeight);
         }
 
+        private void RenderAfterSwitchingValue(Control valueButton, Input input)
+        {
+            RenderOnlyGraphics();
+            valueButton.Text = input.Value.ToString();
+            if (input.Value == 0)
+                valueButton.BackColor = Color.LightGoldenrodYellow;
+            if (input.Value == 1)
+                valueButton.BackColor = Color.LightSteelBlue;
+        }
+
         private void DrawBackground(Graphics g)
         {
             int width = panelCanvas.Width, height = panelCanvas.Height;

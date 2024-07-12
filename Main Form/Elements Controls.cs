@@ -240,7 +240,7 @@ namespace LogicCircuits
                         supervisor.AdditionalOutputs[k].Value = supervisor.Value;
                 }
                 UpdateStatus();
-                RenderCompletely();
+                RenderAfterSwitchingValue(s as Control, (s as Control).Tag as Input);
             };
             param.Controls.Add(valueButton);
             panelCanvas.Controls.Add(valueButton);
