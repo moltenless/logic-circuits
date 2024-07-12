@@ -105,6 +105,7 @@ namespace LogicCircuits
                 Size = new Size(10, 10),
                 Image = Properties.Resources.move,
                 SizeMode = PictureBoxSizeMode.Zoom,
+                Name = "move"
             };
             moveButton.Location = element is IGate ? new Point(element.Location.X - 2 * gateWidth / 5, element.Location.Y - 4 * gateHeight / 5)
                 : new Point(element.Location.X - signalWidth / 3, element.Location.Y - 7 * signalHeight / 8);
@@ -224,7 +225,8 @@ namespace LogicCircuits
                 Font = new Font(FontFamily.GenericSansSerif, 20, FontStyle.Bold, GraphicsUnit.Pixel),
                 Tag = param,
                 Text = param.Value.ToString(),
-                Location = new Point(param.Location.X - 11, param.Location.Y - 12)
+                Location = new Point(param.Location.X - 11, param.Location.Y - 12),
+                Name = "value"
             };
             if (param.Value == 0)
                 valueButton.BackColor = Color.LightGoldenrodYellow;
@@ -254,6 +256,7 @@ namespace LogicCircuits
                 Size = new Size(25, 25),
                 Image = Properties.Resources.branching,
                 SizeMode = PictureBoxSizeMode.Zoom,
+                Name = "branching"
             };
             branchingButton.Location = new Point(param.Location.X - 42, param.Location.Y + 15);
             toolTipMenu.SetToolTip(branchingButton, "Додати ще один вхідний сигнал розгалуженням цього параметра");

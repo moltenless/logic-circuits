@@ -61,7 +61,7 @@ namespace LogicCircuits
             }
 
             if (ready)
-                AddOutputValue(g, signalWidth, signalHeight);
+                DrawOutputValue(g, signalWidth, signalHeight);
         }
 
         private void RenderAfterRemoval(List<IElement> elementsToRemove)
@@ -101,7 +101,7 @@ namespace LogicCircuits
             }
 
             if (ready)
-                AddOutputValue(g, signalWidth, signalHeight);
+                DrawOutputValue(g, signalWidth, signalHeight);
         }
 
         private void RenderAfterRemovalSlave(Input father)
@@ -110,7 +110,7 @@ namespace LogicCircuits
                 for (int j = 0; j < father.AdditionalOutputs[i].Controls.Count; j++)
                     if (father.AdditionalOutputs[i].Controls[j].Name == "remove")
                         father.AdditionalOutputs[i].Controls[j].Location = new Point(father.AdditionalOutputs[i].Location.X + 15, father.AdditionalOutputs[i].Location.Y - 16);
-                    else
+                    else if (father.AdditionalOutputs[i].Controls[j].Name == "connection")
                         father.AdditionalOutputs[i].Controls[j].Location = new Point(father.AdditionalOutputs[i].Location.X - 7, father.AdditionalOutputs[i].Location.Y - 7);
         }
 
@@ -147,7 +147,7 @@ namespace LogicCircuits
             }
 
             if (ready)
-                AddOutputValue(g, signalWidth, signalHeight);
+                DrawOutputValue(g, signalWidth, signalHeight);
         }
 
         private void RenderAfterSwitchingValue(Control valueButton, Input input)
@@ -170,6 +170,78 @@ namespace LogicCircuits
             g.DrawImage(additional.Diagram, additional.Location.X - signalWidth / 2, additional.Location.Y - signalHeight / 2, signalWidth, signalHeight);
             AddRemoveButton(additional, gateWidth, gateHeight, signalWidth, signalHeight);
             AddConnectionButton(additional, gateWidth, gateHeight, signalWidth, signalHeight);
+        }
+
+        private void RenderAfterMoving(IElement element)
+        {
+            int gateWidth = 70, gateHeight = 40;//coef 0.575
+            int signalWidth = 30, signalHeight = 30;
+
+            if (element is IGate)
+            {
+                for (int i = 0; i < element.Controls.Count; i++)
+                {
+                    if (element.Controls[i].Name == "remove")
+                        element.Controls[i].Location = new Point(element.Location.X - gateWidth / 4, element.Location.Y - 4 * gateHeight / 5);
+                    else if (element.Controls[i].Name == "move")
+                        element.Controls[i].Location = new Point(element.Location.X - 2 * gateWidth / 5, element.Location.Y - 4 * gateHeight / 5);
+                    else if (element.Controls[i].Name == "connection")
+                    {
+                        Point connLocation = new Point();
+                        if (element is AND || element is NAND)
+                            connLocation = new Point(element.Location.X - 2 * gateWidth / 6, element.Location.Y - 1 * gateHeight / 5);
+                        else if (element is OR || element is NOR)
+                            connLocation = new Point(element.Location.X - 2 * gateWidth / 7, element.Location.Y - 1 * gateHeight / 5);
+                        else if (element is XOR || element is XNOR)
+                            connLocation = new Point(element.Location.X - 2 * gateWidth / 9, element.Location.Y - 1 * gateHeight / 5);
+                        else if (element is IMPLY)
+                            connLocation = new Point(element.Location.X - 2 * gateWidth / 8, element.Location.Y - 1 * gateHeight / 5);
+                        else if (element is Elements.Gates.Buffer || element is NOT)
+                            connLocation = new Point(element.Location.X - 2 * gateWidth / 5, element.Location.Y - 1 * gateHeight / 5);
+                        element.Controls[i].Location = connLocation;
+                    }
+                }
+            }
+            if (element is Input)
+            {
+                for (int i = 0; i < element.Controls.Count; i++)
+                {
+                    if (element.Controls[i].Name == "remove")
+                        element.Controls[i].Location = new Point(element.Location.X, element.Location.Y - 7 * signalHeight / 8);
+                    else if (element.Controls[i].Name == "move")
+                        element.Controls[i].Location = new Point(element.Location.X - signalWidth / 3, element.Location.Y - 7 * signalHeight / 8);
+                    else if (element.Controls[i].Name == "connection")
+                        element.Controls[i].Location = new Point(element.Location.X - 6 * signalWidth / 5, element.Location.Y - 2 * signalHeight / 7);
+                    else if (element.Controls[i].Name == "value")
+                        element.Controls[i].Location = new Point(element.Location.X - 11, element.Location.Y - 12);
+                    else if (element.Controls[i].Name == "branching")
+                        element.Controls[i].Location = new Point(element.Location.X - 42, element.Location.Y + 15);
+
+                    if ((element as Input).IsSupervisor)
+                    {
+                        Input father = (Input)element;
+                        for (int j = 0; j < father.AdditionalOutputs.Count; j++)
+                            for (int k = 0; k < father.AdditionalOutputs[j].Controls.Count; k++)
+                                if (father.AdditionalOutputs[j].Controls[k].Name == "remove")
+                                    father.AdditionalOutputs[j].Controls[k].Location = new Point(father.AdditionalOutputs[j].Location.X + 15, father.AdditionalOutputs[j].Location.Y - 16);
+                                else if (father.AdditionalOutputs[j].Controls[k].Name == "connection")
+                                    father.AdditionalOutputs[j].Controls[k].Location = new Point(father.AdditionalOutputs[j].Location.X - 7, father.AdditionalOutputs[j].Location.Y - 7);
+                    }
+                }
+            }
+            if (element is Output)
+            {
+                for (int i = 0; i < element.Controls.Count; i++)
+                {
+                    if (element.Controls[i].Name == "remove")
+                        element.Controls[i].Location = new Point(element.Location.X, element.Location.Y - 7 * signalHeight / 8);
+                    else if (element.Controls[i].Name == "move")
+                        element.Controls[i].Location = new Point(element.Location.X - signalWidth / 3, element.Location.Y - 7 * signalHeight / 8);
+                    else if (element.Controls[i].Name == "connection")
+                        element.Controls[i].Location = new Point(element.Location.X - 2 * signalWidth / 7, element.Location.Y + 2 * signalHeight / 3);
+                }
+            }
+            RenderOnlyGraphics();
         }
 
         private void DrawBackground(Graphics g)
@@ -254,7 +326,7 @@ namespace LogicCircuits
             }
         }
 
-        private void AddOutputValue(Graphics g, int signalWidth, int signalHeight)
+        private void DrawOutputValue(Graphics g, int signalWidth, int signalHeight)
         {
             (IElement element, int result) = registry.Last();
 
