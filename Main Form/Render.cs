@@ -160,6 +160,18 @@ namespace LogicCircuits
                 valueButton.BackColor = Color.LightSteelBlue;
         }
 
+        private void RenderAfterAddingSlave(Input additional)
+        {
+            Graphics g = panelCanvas.CreateGraphics();
+
+            int gateWidth = 70, gateHeight = 40;//coef 0.575
+            int signalWidth = 30, signalHeight = 30;
+
+            g.DrawImage(additional.Diagram, additional.Location.X - signalWidth / 2, additional.Location.Y - signalHeight / 2, signalWidth, signalHeight);
+            AddRemoveButton(additional, gateWidth, gateHeight, signalWidth, signalHeight);
+            AddConnectionButton(additional, gateWidth, gateHeight, signalWidth, signalHeight);
+        }
+
         private void DrawBackground(Graphics g)
         {
             int width = panelCanvas.Width, height = panelCanvas.Height;

@@ -274,7 +274,7 @@ namespace LogicCircuits
                 super.AdditionalOutputs.Add(additional);
 
                 draft.Add(additional);
-                RenderCompletely();
+                RenderAfterAddingSlave(additional);
             };
             param.Controls.Add(branchingButton);
             panelCanvas.Controls.Add(branchingButton);
