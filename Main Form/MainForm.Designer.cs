@@ -81,6 +81,12 @@
             this.panelStatus = new System.Windows.Forms.Panel();
             this.labelStatus = new System.Windows.Forms.Label();
             this.panelMenu = new System.Windows.Forms.Panel();
+            this.panelErase = new System.Windows.Forms.Panel();
+            this.pictureBoxErase = new System.Windows.Forms.PictureBox();
+            this.labelErase = new System.Windows.Forms.Label();
+            this.panelMinimization = new System.Windows.Forms.Panel();
+            this.pictureBoxMinimization = new System.Windows.Forms.PictureBox();
+            this.labelMinimization = new System.Windows.Forms.Label();
             this.panelCnf = new System.Windows.Forms.Panel();
             this.pictureBoxCnf = new System.Windows.Forms.PictureBox();
             this.labelCnf = new System.Windows.Forms.Label();
@@ -90,12 +96,6 @@
             this.panelTable = new System.Windows.Forms.Panel();
             this.pictureBoxTable = new System.Windows.Forms.PictureBox();
             this.labelTable = new System.Windows.Forms.Label();
-            this.panelOutput = new System.Windows.Forms.Panel();
-            this.pictureBoxOutput = new System.Windows.Forms.PictureBox();
-            this.labelOutput = new System.Windows.Forms.Label();
-            this.panelInput = new System.Windows.Forms.Panel();
-            this.pictureBoxInput = new System.Windows.Forms.PictureBox();
-            this.labelInput = new System.Windows.Forms.Label();
             this.panelSave = new System.Windows.Forms.Panel();
             this.pictureBoxSave = new System.Windows.Forms.PictureBox();
             this.labelSave = new System.Windows.Forms.Label();
@@ -139,16 +139,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFormula)).BeginInit();
             this.panelStatus.SuspendLayout();
             this.panelMenu.SuspendLayout();
+            this.panelErase.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxErase)).BeginInit();
+            this.panelMinimization.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMinimization)).BeginInit();
             this.panelCnf.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCnf)).BeginInit();
             this.panelDnf.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDnf)).BeginInit();
             this.panelTable.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTable)).BeginInit();
-            this.panelOutput.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOutput)).BeginInit();
-            this.panelInput.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxInput)).BeginInit();
             this.panelSave.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSave)).BeginInit();
             this.panelOpen.SuspendLayout();
@@ -208,7 +208,7 @@
             this.panelImply.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelImply.Location = new System.Drawing.Point(1204, 10);
             this.panelImply.Name = "panelImply";
-            this.panelImply.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.panelImply.Padding = new System.Windows.Forms.Padding(0, 15, 0, 0);
             this.panelImply.Size = new System.Drawing.Size(163, 96);
             this.panelImply.TabIndex = 8;
             // 
@@ -216,7 +216,7 @@
             // 
             this.labelImply.Dock = System.Windows.Forms.DockStyle.Top;
             this.labelImply.Font = new System.Drawing.Font("Sans Serif Collection", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelImply.Location = new System.Drawing.Point(0, 67);
+            this.labelImply.Location = new System.Drawing.Point(0, 62);
             this.labelImply.Name = "labelImply";
             this.labelImply.Size = new System.Drawing.Size(161, 32);
             this.labelImply.TabIndex = 1;
@@ -231,9 +231,9 @@
             // 
             this.pictureBoxImply.Dock = System.Windows.Forms.DockStyle.Top;
             this.pictureBoxImply.Image = global::LogicCircuits.Properties.Resources._imply;
-            this.pictureBoxImply.Location = new System.Drawing.Point(0, 5);
+            this.pictureBoxImply.Location = new System.Drawing.Point(0, 15);
             this.pictureBoxImply.Name = "pictureBoxImply";
-            this.pictureBoxImply.Size = new System.Drawing.Size(161, 62);
+            this.pictureBoxImply.Size = new System.Drawing.Size(161, 47);
             this.pictureBoxImply.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxImply.TabIndex = 0;
             this.pictureBoxImply.TabStop = false;
@@ -250,7 +250,7 @@
             this.panelXnor.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelXnor.Location = new System.Drawing.Point(1045, 10);
             this.panelXnor.Name = "panelXnor";
-            this.panelXnor.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.panelXnor.Padding = new System.Windows.Forms.Padding(0, 15, 0, 0);
             this.panelXnor.Size = new System.Drawing.Size(159, 96);
             this.panelXnor.TabIndex = 7;
             // 
@@ -258,7 +258,7 @@
             // 
             this.labelXnor.Dock = System.Windows.Forms.DockStyle.Top;
             this.labelXnor.Font = new System.Drawing.Font("Sans Serif Collection", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelXnor.Location = new System.Drawing.Point(0, 67);
+            this.labelXnor.Location = new System.Drawing.Point(0, 62);
             this.labelXnor.Name = "labelXnor";
             this.labelXnor.Size = new System.Drawing.Size(157, 32);
             this.labelXnor.TabIndex = 1;
@@ -273,9 +273,9 @@
             // 
             this.pictureBoxXnor.Dock = System.Windows.Forms.DockStyle.Top;
             this.pictureBoxXnor.Image = global::LogicCircuits.Properties.Resources._xnor;
-            this.pictureBoxXnor.Location = new System.Drawing.Point(0, 5);
+            this.pictureBoxXnor.Location = new System.Drawing.Point(0, 15);
             this.pictureBoxXnor.Name = "pictureBoxXnor";
-            this.pictureBoxXnor.Size = new System.Drawing.Size(157, 62);
+            this.pictureBoxXnor.Size = new System.Drawing.Size(157, 47);
             this.pictureBoxXnor.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxXnor.TabIndex = 0;
             this.pictureBoxXnor.TabStop = false;
@@ -292,7 +292,7 @@
             this.panelXor.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelXor.Location = new System.Drawing.Point(886, 10);
             this.panelXor.Name = "panelXor";
-            this.panelXor.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.panelXor.Padding = new System.Windows.Forms.Padding(0, 15, 0, 0);
             this.panelXor.Size = new System.Drawing.Size(159, 96);
             this.panelXor.TabIndex = 6;
             // 
@@ -300,7 +300,7 @@
             // 
             this.labelXor.Dock = System.Windows.Forms.DockStyle.Top;
             this.labelXor.Font = new System.Drawing.Font("Sans Serif Collection", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelXor.Location = new System.Drawing.Point(0, 67);
+            this.labelXor.Location = new System.Drawing.Point(0, 62);
             this.labelXor.Name = "labelXor";
             this.labelXor.Size = new System.Drawing.Size(157, 32);
             this.labelXor.TabIndex = 1;
@@ -315,9 +315,9 @@
             // 
             this.pictureBoxXor.Dock = System.Windows.Forms.DockStyle.Top;
             this.pictureBoxXor.Image = global::LogicCircuits.Properties.Resources._xor;
-            this.pictureBoxXor.Location = new System.Drawing.Point(0, 5);
+            this.pictureBoxXor.Location = new System.Drawing.Point(0, 15);
             this.pictureBoxXor.Name = "pictureBoxXor";
-            this.pictureBoxXor.Size = new System.Drawing.Size(157, 62);
+            this.pictureBoxXor.Size = new System.Drawing.Size(157, 47);
             this.pictureBoxXor.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxXor.TabIndex = 0;
             this.pictureBoxXor.TabStop = false;
@@ -334,7 +334,7 @@
             this.panelNor.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelNor.Location = new System.Drawing.Point(726, 10);
             this.panelNor.Name = "panelNor";
-            this.panelNor.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.panelNor.Padding = new System.Windows.Forms.Padding(0, 15, 0, 0);
             this.panelNor.Size = new System.Drawing.Size(160, 96);
             this.panelNor.TabIndex = 5;
             // 
@@ -342,7 +342,7 @@
             // 
             this.labelNor.Dock = System.Windows.Forms.DockStyle.Top;
             this.labelNor.Font = new System.Drawing.Font("Sans Serif Collection", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNor.Location = new System.Drawing.Point(0, 67);
+            this.labelNor.Location = new System.Drawing.Point(0, 62);
             this.labelNor.Name = "labelNor";
             this.labelNor.Size = new System.Drawing.Size(158, 32);
             this.labelNor.TabIndex = 1;
@@ -357,9 +357,9 @@
             // 
             this.pictureBoxNor.Dock = System.Windows.Forms.DockStyle.Top;
             this.pictureBoxNor.Image = global::LogicCircuits.Properties.Resources._nor;
-            this.pictureBoxNor.Location = new System.Drawing.Point(0, 5);
+            this.pictureBoxNor.Location = new System.Drawing.Point(0, 15);
             this.pictureBoxNor.Name = "pictureBoxNor";
-            this.pictureBoxNor.Size = new System.Drawing.Size(158, 62);
+            this.pictureBoxNor.Size = new System.Drawing.Size(158, 47);
             this.pictureBoxNor.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxNor.TabIndex = 0;
             this.pictureBoxNor.TabStop = false;
@@ -376,7 +376,7 @@
             this.panelNand.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelNand.Location = new System.Drawing.Point(573, 10);
             this.panelNand.Name = "panelNand";
-            this.panelNand.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.panelNand.Padding = new System.Windows.Forms.Padding(0, 15, 0, 0);
             this.panelNand.Size = new System.Drawing.Size(153, 96);
             this.panelNand.TabIndex = 4;
             // 
@@ -384,7 +384,7 @@
             // 
             this.labelNand.Dock = System.Windows.Forms.DockStyle.Top;
             this.labelNand.Font = new System.Drawing.Font("Sans Serif Collection", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNand.Location = new System.Drawing.Point(0, 67);
+            this.labelNand.Location = new System.Drawing.Point(0, 62);
             this.labelNand.Name = "labelNand";
             this.labelNand.Size = new System.Drawing.Size(151, 33);
             this.labelNand.TabIndex = 1;
@@ -399,9 +399,9 @@
             // 
             this.pictureBoxNand.Dock = System.Windows.Forms.DockStyle.Top;
             this.pictureBoxNand.Image = global::LogicCircuits.Properties.Resources._nand;
-            this.pictureBoxNand.Location = new System.Drawing.Point(0, 5);
+            this.pictureBoxNand.Location = new System.Drawing.Point(0, 15);
             this.pictureBoxNand.Name = "pictureBoxNand";
-            this.pictureBoxNand.Size = new System.Drawing.Size(151, 62);
+            this.pictureBoxNand.Size = new System.Drawing.Size(151, 47);
             this.pictureBoxNand.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxNand.TabIndex = 0;
             this.pictureBoxNand.TabStop = false;
@@ -418,7 +418,7 @@
             this.panelOr.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelOr.Location = new System.Drawing.Point(416, 10);
             this.panelOr.Name = "panelOr";
-            this.panelOr.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.panelOr.Padding = new System.Windows.Forms.Padding(0, 15, 0, 0);
             this.panelOr.Size = new System.Drawing.Size(157, 96);
             this.panelOr.TabIndex = 3;
             // 
@@ -426,7 +426,7 @@
             // 
             this.labelOr.Dock = System.Windows.Forms.DockStyle.Top;
             this.labelOr.Font = new System.Drawing.Font("Sans Serif Collection", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelOr.Location = new System.Drawing.Point(0, 67);
+            this.labelOr.Location = new System.Drawing.Point(0, 62);
             this.labelOr.Name = "labelOr";
             this.labelOr.Size = new System.Drawing.Size(155, 31);
             this.labelOr.TabIndex = 1;
@@ -441,9 +441,9 @@
             // 
             this.pictureBoxOr.Dock = System.Windows.Forms.DockStyle.Top;
             this.pictureBoxOr.Image = global::LogicCircuits.Properties.Resources._or;
-            this.pictureBoxOr.Location = new System.Drawing.Point(0, 5);
+            this.pictureBoxOr.Location = new System.Drawing.Point(0, 15);
             this.pictureBoxOr.Name = "pictureBoxOr";
-            this.pictureBoxOr.Size = new System.Drawing.Size(155, 62);
+            this.pictureBoxOr.Size = new System.Drawing.Size(155, 47);
             this.pictureBoxOr.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxOr.TabIndex = 0;
             this.pictureBoxOr.TabStop = false;
@@ -460,7 +460,7 @@
             this.panelAnd.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelAnd.Location = new System.Drawing.Point(273, 10);
             this.panelAnd.Name = "panelAnd";
-            this.panelAnd.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.panelAnd.Padding = new System.Windows.Forms.Padding(0, 15, 0, 0);
             this.panelAnd.Size = new System.Drawing.Size(143, 96);
             this.panelAnd.TabIndex = 2;
             // 
@@ -468,7 +468,7 @@
             // 
             this.labelAnd.Dock = System.Windows.Forms.DockStyle.Top;
             this.labelAnd.Font = new System.Drawing.Font("Sans Serif Collection", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelAnd.Location = new System.Drawing.Point(0, 67);
+            this.labelAnd.Location = new System.Drawing.Point(0, 62);
             this.labelAnd.Name = "labelAnd";
             this.labelAnd.Size = new System.Drawing.Size(141, 31);
             this.labelAnd.TabIndex = 1;
@@ -483,9 +483,9 @@
             // 
             this.pictureBoxAnd.Dock = System.Windows.Forms.DockStyle.Top;
             this.pictureBoxAnd.Image = global::LogicCircuits.Properties.Resources._and;
-            this.pictureBoxAnd.Location = new System.Drawing.Point(0, 5);
+            this.pictureBoxAnd.Location = new System.Drawing.Point(0, 15);
             this.pictureBoxAnd.Name = "pictureBoxAnd";
-            this.pictureBoxAnd.Size = new System.Drawing.Size(141, 62);
+            this.pictureBoxAnd.Size = new System.Drawing.Size(141, 47);
             this.pictureBoxAnd.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxAnd.TabIndex = 0;
             this.pictureBoxAnd.TabStop = false;
@@ -502,7 +502,7 @@
             this.panelNot.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelNot.Location = new System.Drawing.Point(142, 10);
             this.panelNot.Name = "panelNot";
-            this.panelNot.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.panelNot.Padding = new System.Windows.Forms.Padding(0, 15, 0, 0);
             this.panelNot.Size = new System.Drawing.Size(131, 96);
             this.panelNot.TabIndex = 1;
             this.panelNot.Click += new System.EventHandler(this.ElementsToolsClicked);
@@ -511,7 +511,7 @@
             // 
             this.labelNot.Dock = System.Windows.Forms.DockStyle.Top;
             this.labelNot.Font = new System.Drawing.Font("Sans Serif Collection", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNot.Location = new System.Drawing.Point(0, 67);
+            this.labelNot.Location = new System.Drawing.Point(0, 62);
             this.labelNot.Name = "labelNot";
             this.labelNot.Size = new System.Drawing.Size(129, 32);
             this.labelNot.TabIndex = 1;
@@ -526,9 +526,9 @@
             // 
             this.pictureBoxNot.Dock = System.Windows.Forms.DockStyle.Top;
             this.pictureBoxNot.Image = global::LogicCircuits.Properties.Resources._not;
-            this.pictureBoxNot.Location = new System.Drawing.Point(0, 5);
+            this.pictureBoxNot.Location = new System.Drawing.Point(0, 15);
             this.pictureBoxNot.Name = "pictureBoxNot";
-            this.pictureBoxNot.Size = new System.Drawing.Size(129, 62);
+            this.pictureBoxNot.Size = new System.Drawing.Size(129, 47);
             this.pictureBoxNot.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxNot.TabIndex = 0;
             this.pictureBoxNot.TabStop = false;
@@ -545,7 +545,7 @@
             this.panelBuffer.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelBuffer.Location = new System.Drawing.Point(10, 10);
             this.panelBuffer.Name = "panelBuffer";
-            this.panelBuffer.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.panelBuffer.Padding = new System.Windows.Forms.Padding(0, 15, 0, 0);
             this.panelBuffer.Size = new System.Drawing.Size(132, 96);
             this.panelBuffer.TabIndex = 0;
             // 
@@ -553,7 +553,7 @@
             // 
             this.labelBuffer.Dock = System.Windows.Forms.DockStyle.Top;
             this.labelBuffer.Font = new System.Drawing.Font("Sans Serif Collection", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelBuffer.Location = new System.Drawing.Point(0, 67);
+            this.labelBuffer.Location = new System.Drawing.Point(0, 62);
             this.labelBuffer.Name = "labelBuffer";
             this.labelBuffer.Size = new System.Drawing.Size(130, 32);
             this.labelBuffer.TabIndex = 1;
@@ -568,9 +568,9 @@
             // 
             this.pictureBoxBuffer.Dock = System.Windows.Forms.DockStyle.Top;
             this.pictureBoxBuffer.Image = global::LogicCircuits.Properties.Resources._buffer;
-            this.pictureBoxBuffer.Location = new System.Drawing.Point(0, 5);
+            this.pictureBoxBuffer.Location = new System.Drawing.Point(0, 15);
             this.pictureBoxBuffer.Name = "pictureBoxBuffer";
-            this.pictureBoxBuffer.Size = new System.Drawing.Size(130, 62);
+            this.pictureBoxBuffer.Size = new System.Drawing.Size(130, 47);
             this.pictureBoxBuffer.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxBuffer.TabIndex = 0;
             this.pictureBoxBuffer.TabStop = false;
@@ -602,6 +602,7 @@
             this.panelOutput_.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelOutput_.Location = new System.Drawing.Point(122, 10);
             this.panelOutput_.Name = "panelOutput_";
+            this.panelOutput_.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
             this.panelOutput_.Size = new System.Drawing.Size(123, 113);
             this.panelOutput_.TabIndex = 1;
             // 
@@ -609,7 +610,7 @@
             // 
             this.textBoxOutput.Dock = System.Windows.Forms.DockStyle.Top;
             this.textBoxOutput.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxOutput.Location = new System.Drawing.Point(0, 95);
+            this.textBoxOutput.Location = new System.Drawing.Point(0, 94);
             this.textBoxOutput.Name = "textBoxOutput";
             this.textBoxOutput.Size = new System.Drawing.Size(121, 18);
             this.textBoxOutput.TabIndex = 4;
@@ -620,7 +621,7 @@
             // 
             this.radioButtonOutputCustom.Dock = System.Windows.Forms.DockStyle.Top;
             this.radioButtonOutputCustom.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButtonOutputCustom.Location = new System.Drawing.Point(0, 80);
+            this.radioButtonOutputCustom.Location = new System.Drawing.Point(0, 79);
             this.radioButtonOutputCustom.Name = "radioButtonOutputCustom";
             this.radioButtonOutputCustom.Size = new System.Drawing.Size(121, 15);
             this.radioButtonOutputCustom.TabIndex = 3;
@@ -635,7 +636,7 @@
             this.radioButtonOutputAuto.Checked = true;
             this.radioButtonOutputAuto.Dock = System.Windows.Forms.DockStyle.Top;
             this.radioButtonOutputAuto.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButtonOutputAuto.Location = new System.Drawing.Point(0, 62);
+            this.radioButtonOutputAuto.Location = new System.Drawing.Point(0, 61);
             this.radioButtonOutputAuto.Name = "radioButtonOutputAuto";
             this.radioButtonOutputAuto.Size = new System.Drawing.Size(121, 18);
             this.radioButtonOutputAuto.TabIndex = 2;
@@ -648,9 +649,9 @@
             // 
             this.labelOutput_.Dock = System.Windows.Forms.DockStyle.Top;
             this.labelOutput_.Font = new System.Drawing.Font("Sans Serif Collection", 6.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelOutput_.Location = new System.Drawing.Point(0, 38);
+            this.labelOutput_.Location = new System.Drawing.Point(0, 45);
             this.labelOutput_.Name = "labelOutput_";
-            this.labelOutput_.Size = new System.Drawing.Size(121, 24);
+            this.labelOutput_.Size = new System.Drawing.Size(121, 16);
             this.labelOutput_.TabIndex = 1;
             this.labelOutput_.Tag = "11";
             this.labelOutput_.Text = "Вихідний сигнал";
@@ -663,9 +664,9 @@
             // 
             this.pictureBoxOutput_.Dock = System.Windows.Forms.DockStyle.Top;
             this.pictureBoxOutput_.Image = global::LogicCircuits.Properties.Resources._output;
-            this.pictureBoxOutput_.Location = new System.Drawing.Point(0, 0);
+            this.pictureBoxOutput_.Location = new System.Drawing.Point(0, 10);
             this.pictureBoxOutput_.Name = "pictureBoxOutput_";
-            this.pictureBoxOutput_.Size = new System.Drawing.Size(121, 38);
+            this.pictureBoxOutput_.Size = new System.Drawing.Size(121, 35);
             this.pictureBoxOutput_.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxOutput_.TabIndex = 0;
             this.pictureBoxOutput_.TabStop = false;
@@ -685,6 +686,7 @@
             this.panelInput_.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelInput_.Location = new System.Drawing.Point(10, 10);
             this.panelInput_.Name = "panelInput_";
+            this.panelInput_.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
             this.panelInput_.Size = new System.Drawing.Size(112, 113);
             this.panelInput_.TabIndex = 0;
             // 
@@ -692,7 +694,7 @@
             // 
             this.textBoxInput.Dock = System.Windows.Forms.DockStyle.Top;
             this.textBoxInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxInput.Location = new System.Drawing.Point(0, 95);
+            this.textBoxInput.Location = new System.Drawing.Point(0, 94);
             this.textBoxInput.Name = "textBoxInput";
             this.textBoxInput.Size = new System.Drawing.Size(110, 18);
             this.textBoxInput.TabIndex = 4;
@@ -703,7 +705,7 @@
             // 
             this.radioButtonInputCustom.Dock = System.Windows.Forms.DockStyle.Top;
             this.radioButtonInputCustom.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButtonInputCustom.Location = new System.Drawing.Point(0, 80);
+            this.radioButtonInputCustom.Location = new System.Drawing.Point(0, 79);
             this.radioButtonInputCustom.Name = "radioButtonInputCustom";
             this.radioButtonInputCustom.Size = new System.Drawing.Size(110, 15);
             this.radioButtonInputCustom.TabIndex = 3;
@@ -717,7 +719,7 @@
             this.radioButtonInputAuto.Checked = true;
             this.radioButtonInputAuto.Dock = System.Windows.Forms.DockStyle.Top;
             this.radioButtonInputAuto.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButtonInputAuto.Location = new System.Drawing.Point(0, 62);
+            this.radioButtonInputAuto.Location = new System.Drawing.Point(0, 61);
             this.radioButtonInputAuto.Name = "radioButtonInputAuto";
             this.radioButtonInputAuto.Size = new System.Drawing.Size(110, 18);
             this.radioButtonInputAuto.TabIndex = 2;
@@ -730,9 +732,9 @@
             // 
             this.labelInput_.Dock = System.Windows.Forms.DockStyle.Top;
             this.labelInput_.Font = new System.Drawing.Font("Sans Serif Collection", 6.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelInput_.Location = new System.Drawing.Point(0, 38);
+            this.labelInput_.Location = new System.Drawing.Point(0, 45);
             this.labelInput_.Name = "labelInput_";
-            this.labelInput_.Size = new System.Drawing.Size(110, 24);
+            this.labelInput_.Size = new System.Drawing.Size(110, 16);
             this.labelInput_.TabIndex = 1;
             this.labelInput_.Tag = "10";
             this.labelInput_.Text = "Вхідний сигнал";
@@ -745,9 +747,9 @@
             // 
             this.pictureBoxInput_.Dock = System.Windows.Forms.DockStyle.Top;
             this.pictureBoxInput_.Image = global::LogicCircuits.Properties.Resources._input;
-            this.pictureBoxInput_.Location = new System.Drawing.Point(0, 0);
+            this.pictureBoxInput_.Location = new System.Drawing.Point(0, 10);
             this.pictureBoxInput_.Name = "pictureBoxInput_";
-            this.pictureBoxInput_.Size = new System.Drawing.Size(110, 38);
+            this.pictureBoxInput_.Size = new System.Drawing.Size(110, 35);
             this.pictureBoxInput_.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxInput_.TabIndex = 0;
             this.pictureBoxInput_.TabStop = false;
@@ -830,20 +832,108 @@
             // 
             // panelMenu
             // 
-            this.panelMenu.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panelMenu.BackColor = System.Drawing.SystemColors.Control;
+            this.panelMenu.Controls.Add(this.panelErase);
+            this.panelMenu.Controls.Add(this.panelMinimization);
             this.panelMenu.Controls.Add(this.panelCnf);
             this.panelMenu.Controls.Add(this.panelDnf);
             this.panelMenu.Controls.Add(this.panelTable);
-            this.panelMenu.Controls.Add(this.panelOutput);
-            this.panelMenu.Controls.Add(this.panelInput);
             this.panelMenu.Controls.Add(this.panelSave);
             this.panelMenu.Controls.Add(this.panelOpen);
-            this.panelMenu.Location = new System.Drawing.Point(270, 0);
+            this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panelMenu.Location = new System.Drawing.Point(0, 0);
             this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Padding = new System.Windows.Forms.Padding(0, 0, 0, 7);
-            this.panelMenu.Size = new System.Drawing.Size(721, 82);
+            this.panelMenu.Padding = new System.Windows.Forms.Padding(12, 7, 0, 7);
+            this.panelMenu.Size = new System.Drawing.Size(705, 82);
             this.panelMenu.TabIndex = 0;
+            // 
+            // panelErase
+            // 
+            this.panelErase.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelErase.Controls.Add(this.pictureBoxErase);
+            this.panelErase.Controls.Add(this.labelErase);
+            this.panelErase.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panelErase.Location = new System.Drawing.Point(599, 7);
+            this.panelErase.Name = "panelErase";
+            this.panelErase.Padding = new System.Windows.Forms.Padding(3);
+            this.panelErase.Size = new System.Drawing.Size(94, 68);
+            this.panelErase.TabIndex = 9;
+            // 
+            // pictureBoxErase
+            // 
+            this.pictureBoxErase.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBoxErase.Image = global::LogicCircuits.Properties.Resources.erase;
+            this.pictureBoxErase.Location = new System.Drawing.Point(3, 3);
+            this.pictureBoxErase.Name = "pictureBoxErase";
+            this.pictureBoxErase.Size = new System.Drawing.Size(86, 39);
+            this.pictureBoxErase.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxErase.TabIndex = 1;
+            this.pictureBoxErase.TabStop = false;
+            this.pictureBoxErase.Tag = "7";
+            this.toolTipMenu.SetToolTip(this.pictureBoxErase, "Стерти схему");
+            this.pictureBoxErase.Click += new System.EventHandler(this.MenuClick);
+            this.pictureBoxErase.MouseEnter += new System.EventHandler(this.MenuButtonsMouseEnter);
+            this.pictureBoxErase.MouseLeave += new System.EventHandler(this.MenuButtonsMouseLeave);
+            // 
+            // labelErase
+            // 
+            this.labelErase.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.labelErase.Font = new System.Drawing.Font("Sans Serif Collection", 6.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelErase.Location = new System.Drawing.Point(3, 42);
+            this.labelErase.Name = "labelErase";
+            this.labelErase.Size = new System.Drawing.Size(86, 21);
+            this.labelErase.TabIndex = 0;
+            this.labelErase.Tag = "7";
+            this.labelErase.Text = "Стерти";
+            this.labelErase.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.toolTipMenu.SetToolTip(this.labelErase, "Стерти схему");
+            this.labelErase.Click += new System.EventHandler(this.MenuClick);
+            this.labelErase.MouseEnter += new System.EventHandler(this.MenuButtonsMouseEnter);
+            this.labelErase.MouseLeave += new System.EventHandler(this.MenuButtonsMouseLeave);
+            // 
+            // panelMinimization
+            // 
+            this.panelMinimization.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelMinimization.Controls.Add(this.pictureBoxMinimization);
+            this.panelMinimization.Controls.Add(this.labelMinimization);
+            this.panelMinimization.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panelMinimization.Location = new System.Drawing.Point(487, 7);
+            this.panelMinimization.Name = "panelMinimization";
+            this.panelMinimization.Padding = new System.Windows.Forms.Padding(3);
+            this.panelMinimization.Size = new System.Drawing.Size(112, 68);
+            this.panelMinimization.TabIndex = 8;
+            // 
+            // pictureBoxMinimization
+            // 
+            this.pictureBoxMinimization.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBoxMinimization.Image = global::LogicCircuits.Properties.Resources.minimize;
+            this.pictureBoxMinimization.Location = new System.Drawing.Point(3, 3);
+            this.pictureBoxMinimization.Name = "pictureBoxMinimization";
+            this.pictureBoxMinimization.Size = new System.Drawing.Size(104, 39);
+            this.pictureBoxMinimization.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxMinimization.TabIndex = 1;
+            this.pictureBoxMinimization.TabStop = false;
+            this.pictureBoxMinimization.Tag = "6";
+            this.toolTipMenu.SetToolTip(this.pictureBoxMinimization, "Мінімізувати булеву функцію, представлену даною схемою");
+            this.pictureBoxMinimization.Click += new System.EventHandler(this.MenuClick);
+            this.pictureBoxMinimization.MouseEnter += new System.EventHandler(this.MenuButtonsMouseEnter);
+            this.pictureBoxMinimization.MouseLeave += new System.EventHandler(this.MenuButtonsMouseLeave);
+            // 
+            // labelMinimization
+            // 
+            this.labelMinimization.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.labelMinimization.Font = new System.Drawing.Font("Sans Serif Collection", 6.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelMinimization.Location = new System.Drawing.Point(3, 42);
+            this.labelMinimization.Name = "labelMinimization";
+            this.labelMinimization.Size = new System.Drawing.Size(104, 21);
+            this.labelMinimization.TabIndex = 0;
+            this.labelMinimization.Tag = "6";
+            this.labelMinimization.Text = "Мінімізувати";
+            this.labelMinimization.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.toolTipMenu.SetToolTip(this.labelMinimization, "Мінімізувати булеву функцію, представлену даною схемою");
+            this.labelMinimization.Click += new System.EventHandler(this.MenuClick);
+            this.labelMinimization.MouseEnter += new System.EventHandler(this.MenuButtonsMouseEnter);
+            this.labelMinimization.MouseLeave += new System.EventHandler(this.MenuButtonsMouseLeave);
             // 
             // panelCnf
             // 
@@ -851,10 +941,10 @@
             this.panelCnf.Controls.Add(this.pictureBoxCnf);
             this.panelCnf.Controls.Add(this.labelCnf);
             this.panelCnf.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelCnf.Location = new System.Drawing.Point(635, 0);
+            this.panelCnf.Location = new System.Drawing.Point(403, 7);
             this.panelCnf.Name = "panelCnf";
             this.panelCnf.Padding = new System.Windows.Forms.Padding(3);
-            this.panelCnf.Size = new System.Drawing.Size(84, 75);
+            this.panelCnf.Size = new System.Drawing.Size(84, 68);
             this.panelCnf.TabIndex = 7;
             // 
             // pictureBoxCnf
@@ -863,11 +953,13 @@
             this.pictureBoxCnf.Image = global::LogicCircuits.Properties.Resources.CNF;
             this.pictureBoxCnf.Location = new System.Drawing.Point(3, 3);
             this.pictureBoxCnf.Name = "pictureBoxCnf";
-            this.pictureBoxCnf.Size = new System.Drawing.Size(76, 46);
+            this.pictureBoxCnf.Size = new System.Drawing.Size(76, 39);
             this.pictureBoxCnf.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxCnf.TabIndex = 1;
             this.pictureBoxCnf.TabStop = false;
+            this.pictureBoxCnf.Tag = "5";
             this.toolTipMenu.SetToolTip(this.pictureBoxCnf, "Отримати ДКНФ виразу вказаної схеми");
+            this.pictureBoxCnf.Click += new System.EventHandler(this.MenuClick);
             this.pictureBoxCnf.MouseEnter += new System.EventHandler(this.MenuButtonsMouseEnter);
             this.pictureBoxCnf.MouseLeave += new System.EventHandler(this.MenuButtonsMouseLeave);
             // 
@@ -875,13 +967,15 @@
             // 
             this.labelCnf.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.labelCnf.Font = new System.Drawing.Font("Sans Serif Collection", 6.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelCnf.Location = new System.Drawing.Point(3, 49);
+            this.labelCnf.Location = new System.Drawing.Point(3, 42);
             this.labelCnf.Name = "labelCnf";
             this.labelCnf.Size = new System.Drawing.Size(76, 21);
             this.labelCnf.TabIndex = 0;
+            this.labelCnf.Tag = "5";
             this.labelCnf.Text = "ДКНФ";
             this.labelCnf.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.toolTipMenu.SetToolTip(this.labelCnf, "Отримати ДКНФ виразу вказаної схеми");
+            this.labelCnf.Click += new System.EventHandler(this.MenuClick);
             this.labelCnf.MouseEnter += new System.EventHandler(this.MenuButtonsMouseEnter);
             this.labelCnf.MouseLeave += new System.EventHandler(this.MenuButtonsMouseLeave);
             // 
@@ -891,10 +985,10 @@
             this.panelDnf.Controls.Add(this.pictureBoxDnf);
             this.panelDnf.Controls.Add(this.labelDnf);
             this.panelDnf.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelDnf.Location = new System.Drawing.Point(552, 0);
+            this.panelDnf.Location = new System.Drawing.Point(320, 7);
             this.panelDnf.Name = "panelDnf";
             this.panelDnf.Padding = new System.Windows.Forms.Padding(3);
-            this.panelDnf.Size = new System.Drawing.Size(83, 75);
+            this.panelDnf.Size = new System.Drawing.Size(83, 68);
             this.panelDnf.TabIndex = 6;
             // 
             // pictureBoxDnf
@@ -903,11 +997,13 @@
             this.pictureBoxDnf.Image = global::LogicCircuits.Properties.Resources.DNF;
             this.pictureBoxDnf.Location = new System.Drawing.Point(3, 3);
             this.pictureBoxDnf.Name = "pictureBoxDnf";
-            this.pictureBoxDnf.Size = new System.Drawing.Size(75, 46);
+            this.pictureBoxDnf.Size = new System.Drawing.Size(75, 39);
             this.pictureBoxDnf.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxDnf.TabIndex = 1;
             this.pictureBoxDnf.TabStop = false;
+            this.pictureBoxDnf.Tag = "4";
             this.toolTipMenu.SetToolTip(this.pictureBoxDnf, "Отримати ДДНФ виразу вказаної схеми");
+            this.pictureBoxDnf.Click += new System.EventHandler(this.MenuClick);
             this.pictureBoxDnf.MouseEnter += new System.EventHandler(this.MenuButtonsMouseEnter);
             this.pictureBoxDnf.MouseLeave += new System.EventHandler(this.MenuButtonsMouseLeave);
             // 
@@ -915,13 +1011,15 @@
             // 
             this.labelDnf.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.labelDnf.Font = new System.Drawing.Font("Sans Serif Collection", 6.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelDnf.Location = new System.Drawing.Point(3, 49);
+            this.labelDnf.Location = new System.Drawing.Point(3, 42);
             this.labelDnf.Name = "labelDnf";
             this.labelDnf.Size = new System.Drawing.Size(75, 21);
             this.labelDnf.TabIndex = 0;
+            this.labelDnf.Tag = "4";
             this.labelDnf.Text = "ДДНФ";
             this.labelDnf.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.toolTipMenu.SetToolTip(this.labelDnf, "Отримати ДДНФ виразу вказаної схеми");
+            this.labelDnf.Click += new System.EventHandler(this.MenuClick);
             this.labelDnf.MouseEnter += new System.EventHandler(this.MenuButtonsMouseEnter);
             this.labelDnf.MouseLeave += new System.EventHandler(this.MenuButtonsMouseLeave);
             // 
@@ -931,10 +1029,10 @@
             this.panelTable.Controls.Add(this.pictureBoxTable);
             this.panelTable.Controls.Add(this.labelTable);
             this.panelTable.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelTable.Location = new System.Drawing.Point(399, 0);
+            this.panelTable.Location = new System.Drawing.Point(167, 7);
             this.panelTable.Name = "panelTable";
             this.panelTable.Padding = new System.Windows.Forms.Padding(3);
-            this.panelTable.Size = new System.Drawing.Size(153, 75);
+            this.panelTable.Size = new System.Drawing.Size(153, 68);
             this.panelTable.TabIndex = 5;
             // 
             // pictureBoxTable
@@ -943,11 +1041,13 @@
             this.pictureBoxTable.Image = global::LogicCircuits.Properties.Resources.table;
             this.pictureBoxTable.Location = new System.Drawing.Point(3, 3);
             this.pictureBoxTable.Name = "pictureBoxTable";
-            this.pictureBoxTable.Size = new System.Drawing.Size(145, 46);
+            this.pictureBoxTable.Size = new System.Drawing.Size(145, 39);
             this.pictureBoxTable.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxTable.TabIndex = 1;
             this.pictureBoxTable.TabStop = false;
+            this.pictureBoxTable.Tag = "3";
             this.toolTipMenu.SetToolTip(this.pictureBoxTable, "Побудувати таблицю істинності за вказаною схемою");
+            this.pictureBoxTable.Click += new System.EventHandler(this.MenuClick);
             this.pictureBoxTable.MouseEnter += new System.EventHandler(this.MenuButtonsMouseEnter);
             this.pictureBoxTable.MouseLeave += new System.EventHandler(this.MenuButtonsMouseLeave);
             // 
@@ -955,95 +1055,17 @@
             // 
             this.labelTable.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.labelTable.Font = new System.Drawing.Font("Sans Serif Collection", 6.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTable.Location = new System.Drawing.Point(3, 49);
+            this.labelTable.Location = new System.Drawing.Point(3, 42);
             this.labelTable.Name = "labelTable";
             this.labelTable.Size = new System.Drawing.Size(145, 21);
             this.labelTable.TabIndex = 0;
+            this.labelTable.Tag = "3";
             this.labelTable.Text = "Таблиця істинності";
             this.labelTable.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.toolTipMenu.SetToolTip(this.labelTable, "Побудувати таблицю істинності за вказаною схемою");
+            this.labelTable.Click += new System.EventHandler(this.MenuClick);
             this.labelTable.MouseEnter += new System.EventHandler(this.MenuButtonsMouseEnter);
             this.labelTable.MouseLeave += new System.EventHandler(this.MenuButtonsMouseLeave);
-            // 
-            // panelOutput
-            // 
-            this.panelOutput.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelOutput.Controls.Add(this.pictureBoxOutput);
-            this.panelOutput.Controls.Add(this.labelOutput);
-            this.panelOutput.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelOutput.Location = new System.Drawing.Point(299, 0);
-            this.panelOutput.Name = "panelOutput";
-            this.panelOutput.Padding = new System.Windows.Forms.Padding(3);
-            this.panelOutput.Size = new System.Drawing.Size(100, 75);
-            this.panelOutput.TabIndex = 4;
-            // 
-            // pictureBoxOutput
-            // 
-            this.pictureBoxOutput.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBoxOutput.Image = global::LogicCircuits.Properties.Resources.output;
-            this.pictureBoxOutput.Location = new System.Drawing.Point(3, 3);
-            this.pictureBoxOutput.Name = "pictureBoxOutput";
-            this.pictureBoxOutput.Size = new System.Drawing.Size(92, 47);
-            this.pictureBoxOutput.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBoxOutput.TabIndex = 1;
-            this.pictureBoxOutput.TabStop = false;
-            this.toolTipMenu.SetToolTip(this.pictureBoxOutput, "Отримати рядок виразу, що грунтуєтсья на створенній схемі");
-            this.pictureBoxOutput.MouseEnter += new System.EventHandler(this.MenuButtonsMouseEnter);
-            this.pictureBoxOutput.MouseLeave += new System.EventHandler(this.MenuButtonsMouseLeave);
-            // 
-            // labelOutput
-            // 
-            this.labelOutput.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.labelOutput.Font = new System.Drawing.Font("Sans Serif Collection", 6.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelOutput.Location = new System.Drawing.Point(3, 50);
-            this.labelOutput.Name = "labelOutput";
-            this.labelOutput.Size = new System.Drawing.Size(92, 20);
-            this.labelOutput.TabIndex = 0;
-            this.labelOutput.Text = "Вираз схеми";
-            this.labelOutput.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.toolTipMenu.SetToolTip(this.labelOutput, "Отримати рядок виразу, що грунтуєтсья на створенній схемі");
-            this.labelOutput.MouseEnter += new System.EventHandler(this.MenuButtonsMouseEnter);
-            this.labelOutput.MouseLeave += new System.EventHandler(this.MenuButtonsMouseLeave);
-            // 
-            // panelInput
-            // 
-            this.panelInput.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelInput.Controls.Add(this.pictureBoxInput);
-            this.panelInput.Controls.Add(this.labelInput);
-            this.panelInput.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelInput.Location = new System.Drawing.Point(155, 0);
-            this.panelInput.Name = "panelInput";
-            this.panelInput.Padding = new System.Windows.Forms.Padding(3);
-            this.panelInput.Size = new System.Drawing.Size(144, 75);
-            this.panelInput.TabIndex = 3;
-            // 
-            // pictureBoxInput
-            // 
-            this.pictureBoxInput.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBoxInput.Image = global::LogicCircuits.Properties.Resources.input;
-            this.pictureBoxInput.Location = new System.Drawing.Point(3, 3);
-            this.pictureBoxInput.Name = "pictureBoxInput";
-            this.pictureBoxInput.Size = new System.Drawing.Size(136, 46);
-            this.pictureBoxInput.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBoxInput.TabIndex = 1;
-            this.pictureBoxInput.TabStop = false;
-            this.toolTipMenu.SetToolTip(this.pictureBoxInput, "Побудувати схему за вказаним рядком виразу");
-            this.pictureBoxInput.MouseEnter += new System.EventHandler(this.MenuButtonsMouseEnter);
-            this.pictureBoxInput.MouseLeave += new System.EventHandler(this.MenuButtonsMouseLeave);
-            // 
-            // labelInput
-            // 
-            this.labelInput.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.labelInput.Font = new System.Drawing.Font("Sans Serif Collection", 6.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelInput.Location = new System.Drawing.Point(3, 49);
-            this.labelInput.Name = "labelInput";
-            this.labelInput.Size = new System.Drawing.Size(136, 21);
-            this.labelInput.TabIndex = 0;
-            this.labelInput.Text = "Побудувати схему";
-            this.labelInput.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.toolTipMenu.SetToolTip(this.labelInput, "Побудувати схему за вказаним рядком виразу");
-            this.labelInput.MouseEnter += new System.EventHandler(this.MenuButtonsMouseEnter);
-            this.labelInput.MouseLeave += new System.EventHandler(this.MenuButtonsMouseLeave);
             // 
             // panelSave
             // 
@@ -1051,10 +1073,10 @@
             this.panelSave.Controls.Add(this.pictureBoxSave);
             this.panelSave.Controls.Add(this.labelSave);
             this.panelSave.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelSave.Location = new System.Drawing.Point(76, 0);
+            this.panelSave.Location = new System.Drawing.Point(88, 7);
             this.panelSave.Name = "panelSave";
             this.panelSave.Padding = new System.Windows.Forms.Padding(3);
-            this.panelSave.Size = new System.Drawing.Size(79, 75);
+            this.panelSave.Size = new System.Drawing.Size(79, 68);
             this.panelSave.TabIndex = 2;
             // 
             // pictureBoxSave
@@ -1063,11 +1085,13 @@
             this.pictureBoxSave.Image = global::LogicCircuits.Properties.Resources.save;
             this.pictureBoxSave.Location = new System.Drawing.Point(3, 3);
             this.pictureBoxSave.Name = "pictureBoxSave";
-            this.pictureBoxSave.Size = new System.Drawing.Size(71, 46);
+            this.pictureBoxSave.Size = new System.Drawing.Size(71, 39);
             this.pictureBoxSave.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxSave.TabIndex = 0;
             this.pictureBoxSave.TabStop = false;
+            this.pictureBoxSave.Tag = "2";
             this.toolTipMenu.SetToolTip(this.pictureBoxSave, "Зберегти цю схему в базу даних");
+            this.pictureBoxSave.Click += new System.EventHandler(this.MenuClick);
             this.pictureBoxSave.MouseEnter += new System.EventHandler(this.MenuButtonsMouseEnter);
             this.pictureBoxSave.MouseLeave += new System.EventHandler(this.MenuButtonsMouseLeave);
             // 
@@ -1075,13 +1099,15 @@
             // 
             this.labelSave.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.labelSave.Font = new System.Drawing.Font("Sans Serif Collection", 6.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelSave.Location = new System.Drawing.Point(3, 49);
+            this.labelSave.Location = new System.Drawing.Point(3, 42);
             this.labelSave.Name = "labelSave";
             this.labelSave.Size = new System.Drawing.Size(71, 21);
             this.labelSave.TabIndex = 1;
+            this.labelSave.Tag = "2";
             this.labelSave.Text = "Зберегти";
             this.labelSave.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.toolTipMenu.SetToolTip(this.labelSave, "Зберегти цю схему в базу даних");
+            this.labelSave.Click += new System.EventHandler(this.MenuClick);
             this.labelSave.MouseEnter += new System.EventHandler(this.MenuButtonsMouseEnter);
             this.labelSave.MouseLeave += new System.EventHandler(this.MenuButtonsMouseLeave);
             // 
@@ -1091,10 +1117,10 @@
             this.panelOpen.Controls.Add(this.pictureBoxOpen);
             this.panelOpen.Controls.Add(this.labelOpen);
             this.panelOpen.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelOpen.Location = new System.Drawing.Point(0, 0);
+            this.panelOpen.Location = new System.Drawing.Point(12, 7);
             this.panelOpen.Name = "panelOpen";
             this.panelOpen.Padding = new System.Windows.Forms.Padding(3);
-            this.panelOpen.Size = new System.Drawing.Size(76, 75);
+            this.panelOpen.Size = new System.Drawing.Size(76, 68);
             this.panelOpen.TabIndex = 1;
             // 
             // pictureBoxOpen
@@ -1103,11 +1129,13 @@
             this.pictureBoxOpen.Image = global::LogicCircuits.Properties.Resources.open;
             this.pictureBoxOpen.Location = new System.Drawing.Point(3, 3);
             this.pictureBoxOpen.Name = "pictureBoxOpen";
-            this.pictureBoxOpen.Size = new System.Drawing.Size(68, 46);
+            this.pictureBoxOpen.Size = new System.Drawing.Size(68, 39);
             this.pictureBoxOpen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxOpen.TabIndex = 1;
             this.pictureBoxOpen.TabStop = false;
+            this.pictureBoxOpen.Tag = "1";
             this.toolTipMenu.SetToolTip(this.pictureBoxOpen, "Відкрити збережену схему з бази даних");
+            this.pictureBoxOpen.Click += new System.EventHandler(this.MenuClick);
             this.pictureBoxOpen.MouseEnter += new System.EventHandler(this.MenuButtonsMouseEnter);
             this.pictureBoxOpen.MouseLeave += new System.EventHandler(this.MenuButtonsMouseLeave);
             // 
@@ -1115,23 +1143,25 @@
             // 
             this.labelOpen.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.labelOpen.Font = new System.Drawing.Font("Sans Serif Collection", 6.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelOpen.Location = new System.Drawing.Point(3, 49);
+            this.labelOpen.Location = new System.Drawing.Point(3, 42);
             this.labelOpen.Name = "labelOpen";
             this.labelOpen.Size = new System.Drawing.Size(68, 21);
             this.labelOpen.TabIndex = 0;
+            this.labelOpen.Tag = "1";
             this.labelOpen.Text = "Відкрити";
             this.labelOpen.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.toolTipMenu.SetToolTip(this.labelOpen, "Відкрити збережену схему з бази даних");
+            this.labelOpen.Click += new System.EventHandler(this.MenuClick);
             this.labelOpen.MouseEnter += new System.EventHandler(this.MenuButtonsMouseEnter);
             this.labelOpen.MouseLeave += new System.EventHandler(this.MenuButtonsMouseLeave);
             // 
             // pictureBoxLogo
             // 
-            this.pictureBoxLogo.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pictureBoxLogo.Dock = System.Windows.Forms.DockStyle.Right;
             this.pictureBoxLogo.Image = global::LogicCircuits.Properties.Resources.diagram1;
-            this.pictureBoxLogo.Location = new System.Drawing.Point(0, 0);
+            this.pictureBoxLogo.Location = new System.Drawing.Point(1282, 0);
             this.pictureBoxLogo.Name = "pictureBoxLogo";
-            this.pictureBoxLogo.Size = new System.Drawing.Size(122, 82);
+            this.pictureBoxLogo.Size = new System.Drawing.Size(101, 82);
             this.pictureBoxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxLogo.TabIndex = 0;
             this.pictureBoxLogo.TabStop = false;
@@ -1143,6 +1173,7 @@
             this.panelUpper.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelUpper.Location = new System.Drawing.Point(0, 0);
             this.panelUpper.Name = "panelUpper";
+            this.panelUpper.Padding = new System.Windows.Forms.Padding(0, 0, 10, 0);
             this.panelUpper.Size = new System.Drawing.Size(1393, 82);
             this.panelUpper.TabIndex = 3;
             // 
@@ -1216,16 +1247,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFormula)).EndInit();
             this.panelStatus.ResumeLayout(false);
             this.panelMenu.ResumeLayout(false);
+            this.panelErase.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxErase)).EndInit();
+            this.panelMinimization.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMinimization)).EndInit();
             this.panelCnf.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCnf)).EndInit();
             this.panelDnf.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDnf)).EndInit();
             this.panelTable.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTable)).EndInit();
-            this.panelOutput.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOutput)).EndInit();
-            this.panelInput.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxInput)).EndInit();
             this.panelSave.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSave)).EndInit();
             this.panelOpen.ResumeLayout(false);
@@ -1249,14 +1280,8 @@
         private System.Windows.Forms.Panel panelSave;
         private System.Windows.Forms.PictureBox pictureBoxSave;
         private System.Windows.Forms.Label labelSave;
-        private System.Windows.Forms.Panel panelInput;
-        private System.Windows.Forms.PictureBox pictureBoxInput;
-        private System.Windows.Forms.Label labelInput;
         private System.Windows.Forms.Panel panelTable;
         private System.Windows.Forms.Label labelTable;
-        private System.Windows.Forms.Panel panelOutput;
-        private System.Windows.Forms.PictureBox pictureBoxOutput;
-        private System.Windows.Forms.Label labelOutput;
         private System.Windows.Forms.PictureBox pictureBoxTable;
         private System.Windows.Forms.Panel panelDnf;
         private System.Windows.Forms.Label labelDnf;
@@ -1315,5 +1340,11 @@
         private System.Windows.Forms.Panel panelUpper;
         private System.Windows.Forms.Panel panelGeneral;
         private System.Windows.Forms.Panel panelCanvas;
+        private System.Windows.Forms.Panel panelMinimization;
+        private System.Windows.Forms.Label labelMinimization;
+        private System.Windows.Forms.PictureBox pictureBoxMinimization;
+        private System.Windows.Forms.Panel panelErase;
+        private System.Windows.Forms.PictureBox pictureBoxErase;
+        private System.Windows.Forms.Label labelErase;
     }
 }

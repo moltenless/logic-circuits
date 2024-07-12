@@ -90,6 +90,11 @@ namespace LogicCircuits
             }
         }
 
+        private void MenuClick(object sender, EventArgs e)
+        {
+
+        }
+
         private void MenuButtonsMouseEnter(object sender, EventArgs e)
         {
             (sender as Control).Parent.BackColor = Color.LightGray;
