@@ -110,7 +110,7 @@ namespace LogicCircuits
             draft.Add(element);
             if (element is Output)
                 panelParams.Controls[0].Enabled = false;
-            RenderCompletely();
+            RenderNewElement(element);
         }
 
         private bool NameUnique(string name)

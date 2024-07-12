@@ -244,6 +244,38 @@ namespace LogicCircuits
             RenderOnlyGraphics();
         }
 
+        private void RenderNewElement(IElement element)
+        {
+            Graphics g = panelCanvas.CreateGraphics();
+
+            int gateWidth = 70, gateHeight = 40;//coef 0.575
+            int signalWidth = 30, signalHeight = 30;
+
+            if (element is IGate)
+                g.DrawImage(element.Diagram, element.Location.X - gateWidth / 2, element.Location.Y - gateHeight / 2, gateWidth, gateHeight);
+            else
+                g.DrawImage(element.Diagram, element.Location.X - signalWidth / 2, element.Location.Y - signalHeight / 2, signalWidth, signalHeight);
+
+            if (element is Input input)
+                g.DrawString(input.Name, new Font(FontFamily.GenericSansSerif, 15, FontStyle.Italic, GraphicsUnit.Pixel),
+                    Brushes.Black, new Point(input.Location.X - 12, input.Location.Y - 3 * signalHeight / 2));
+            if (element is Output output)
+                g.DrawString(output.Name, new Font(FontFamily.GenericSansSerif, 15, FontStyle.Italic, GraphicsUnit.Pixel),
+                    Brushes.Black, new Point(output.Location.X + 14, output.Location.Y - 8));
+
+            AddRemoveButton(element, gateWidth, gateHeight, signalWidth, signalHeight);
+
+            AddMoveButton(element, gateWidth, gateHeight, signalWidth, signalHeight);
+
+            AddConnectionButton(element, gateWidth, gateHeight, signalWidth, signalHeight);
+
+            if (element is Input param)
+            {
+                AddValueButton(param);
+                AddBranchingButton(param);
+            }
+        }
+
         private void DrawBackground(Graphics g)
         {
             int width = panelCanvas.Width, height = panelCanvas.Height;
