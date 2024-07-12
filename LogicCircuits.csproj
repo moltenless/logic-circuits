@@ -179,9 +179,6 @@
     <None Include="Resources\buffer.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\imply.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\nand.png" />
   </ItemGroup>
   <ItemGroup>
@@ -303,6 +300,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\additional_input.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imply.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
