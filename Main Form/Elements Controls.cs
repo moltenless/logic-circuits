@@ -61,7 +61,7 @@ namespace LogicCircuits
             }
             draft.Remove(curr);
             if (curr is Output)
-                panelParams.Controls[0].Enabled = true;
+                panelParams.Controls[0].Enabled = true; 
             elementMoveable = false;
             Cursor = Cursors.Default;
 

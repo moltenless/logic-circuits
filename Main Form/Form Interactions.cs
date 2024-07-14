@@ -92,7 +92,18 @@ namespace LogicCircuits
 
         private void MenuClick(object sender, EventArgs e)
         {
-
+            int tag = int.Parse((sender as Control).Tag.ToString());
+            if (tag == 7)
+            {
+                draft.Clear();
+                elementSelected = false;
+                elementMoveable = false;
+                elementConnectable = false;
+                panelParams.Controls[0].Enabled = true;
+                Cursor = Cursors.Default;
+                UpdateStatus();
+                RenderCompletely();
+            }
         }
 
         private void MenuButtonsMouseEnter(object sender, EventArgs e)
