@@ -62,6 +62,10 @@ namespace LogicCircuits.Forms
                 }
             }
 
+            int[] inputsHistory = new int[inputsCount];
+            for (int i = 0; i < inputsCount; i++)
+                inputsHistory[i] = inputs[i].Value;
+
             bool[,] parameters = new bool[(int)Math.Pow(2, inputsCount), inputsCount];
 
             for (int i = 0; i < inputsCount; i++)
@@ -72,12 +76,10 @@ namespace LogicCircuits.Forms
                 for (int j = 0; j < groups; j++)
                 {
                     for (int k = 0; k < groupsBy; k++)
-                    {
                         if (j % 2 == 1)
                             parameters[j * groupsBy + k, i] = true;
                         else if (j % 2 == 1)
                             parameters[j * groupsBy + k, i] = false;
-                    }
                 }
             }
 
@@ -87,9 +89,7 @@ namespace LogicCircuits.Forms
             for (int i = 0; i < results.Length; i++)
             {
                 for (int j = 0; j < inputsCount; j++)
-                {
                     inputs[j].Value = parameters[i, j] ? 1 : 0;
-                }
 
                 bufferRegistry.Clear();
                 int result = output.CalculateOutput(bufferRegistry);
@@ -103,6 +103,9 @@ namespace LogicCircuits.Forms
                     truthTable[i, j] = parameters[i, j] ? 1 : 0;
                 truthTable[i, inputsCount] = results[i];
             }
+
+            for (int i = 0; i < inputsCount; i++)
+                inputs[i].Value = inputsHistory[i];
 
             return truthTable;
         }
