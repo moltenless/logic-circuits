@@ -18,7 +18,28 @@ namespace LogicCircuits.Forms
             };
 
             int[,] truthTable = GetTruthTable(registry);
-            
+
+            DataGridView grid = new DataGridView();
+
+            int cols = truthTable.GetLength(1);
+            int rows = truthTable.GetLength(0);
+            grid.ColumnCount = cols;
+            grid.RowCount = rows;
+
+            for (int i = 0; i < rows; i++)
+            {
+                DataGridViewRow row = new DataGridViewRow();
+                row.CreateCells(grid);
+
+                for (int j = 0; j < cols; j++)
+                {
+                    row.Cells[j].Value = truthTable[i, j];
+                }
+
+                grid.Rows.Add(row);
+            }
+
+            form.Controls.Add(grid);
 
             return form;
         }
