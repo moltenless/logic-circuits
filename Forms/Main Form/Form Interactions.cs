@@ -1,4 +1,5 @@
 ﻿using LogicCircuits.Elements;
+using LogicCircuits.Forms;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -103,6 +104,15 @@ namespace LogicCircuits
                 Cursor = Cursors.Default;
                 UpdateStatus();
                 RenderCompletely();
+            }
+            if (tag == 3)
+            {
+                UpdateStatus();
+                if (ready)
+                {
+                    Form truthTableForm = FormsBuilder.GetTruthTableForm(registry);
+                    truthTableForm.ShowDialog();
+                }
             }
         }
 

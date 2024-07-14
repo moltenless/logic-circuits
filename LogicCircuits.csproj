@@ -66,27 +66,28 @@
     <Compile Include="Elements\InputMultiplicity.cs" />
     <Compile Include="Elements\IOutputContainingElement.cs" />
     <Compile Include="Elements\Signals\Output.cs" />
-    <Compile Include="Main Form\Circuit Status.cs">
+    <Compile Include="Forms\Main Form\Circuit Status.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Main Form\Elements Controls.cs">
+    <Compile Include="Forms\Main Form\Elements Controls.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Main Form\Form Interactions.cs">
+    <Compile Include="Forms\Main Form\Form Interactions.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Main Form\MainForm.cs">
+    <Compile Include="Forms\Main Form\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Main Form\MainForm.Designer.cs">
+    <Compile Include="Forms\Main Form\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\TruthTableForm.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Main Form\Render.cs">
+    <Compile Include="Forms\Main Form\Render.cs">
       <SubType>Form</SubType>
     </Compile>
-    <EmbeddedResource Include="Main Form\MainForm.resx">
+    <EmbeddedResource Include="Forms\Main Form\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">

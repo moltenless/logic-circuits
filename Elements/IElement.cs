@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace LogicCircuits.Elements
 {
-    internal interface IElement
+    public interface IElement
     {
         Point Location { get; set; }
         Image Diagram { get; }
