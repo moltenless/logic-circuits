@@ -113,6 +113,10 @@ namespace LogicCircuits
                     Form truthTableForm = FormsBuilder.GetTruthTableForm(registry);
                     truthTableForm.ShowDialog();
                 }
+                else
+                {
+                    MessageBox.Show("Скласти таблицю істинності неможливо, бо схема неповна.", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
             }
         }
 

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LogicCircuits.Elements
 {
-    internal enum InputsMultiplicity
+    public enum InputsMultiplicity
     {
         Single, Double, Multiple
     }

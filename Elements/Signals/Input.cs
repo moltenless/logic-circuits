@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace LogicCircuits.Elements
 {
-    internal class Input : IOutputContainingElement
+    public class Input : IOutputContainingElement
     {
         public Point Location { get; set; }
         public Image Diagram { get; set; } = Properties.Resources._in;

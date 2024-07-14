@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LogicCircuits.Elements
 {
-    internal interface IOutputContainingElement : IElement
+    public interface IOutputContainingElement : IElement
     {
         IInputContainingElement Output { get; set; }
         bool Connect(IInputContainingElement elementToConnectWith);
