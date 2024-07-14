@@ -17,20 +17,27 @@ namespace LogicCircuits.Forms
 
             };
 
+            int[,] truthTable = GetTruthTable(registry);
+            
 
+            return form;
+        }
+
+        private static int[,] GetTruthTable(List<(IElement, int outputResult)> registry)
+        {
             (IElement, int outputResult)[] copiedRegistry = new (IElement, int outputResult)[registry.Count];
             registry.CopyTo(copiedRegistry);
 
             int inputsCount = 0;
-            List<(Input input, int value)> inputs = new List<(Input, int)>();
-            (Output output, int result) output = (copiedRegistry.Last().Item1 as Output, copiedRegistry.Last().outputResult);
+            List<Input> inputs = new List<Input>();
+            Output output = copiedRegistry.Last().Item1 as Output;
 
             for (int i = 0; i < copiedRegistry.Length; i++)
             {
                 if (copiedRegistry[i].Item1 is Input)
                 {
                     inputsCount++;
-                    inputs.Add(((Input)copiedRegistry[i].Item1, copiedRegistry[i].outputResult));
+                    inputs.Add((Input)copiedRegistry[i].Item1);
                 }
             }
 
@@ -53,17 +60,30 @@ namespace LogicCircuits.Forms
                 }
             }
 
-            string text = string.Empty;
+            List<(IElement, int outputResult)> bufferRegistry = new List<(IElement, int outputResult)>();
+            int[] results = new int[(int)Math.Pow(2, inputsCount)];
+
+            for (int i = 0; i < results.Length; i++)
+            {
+                for (int j = 0; j < inputsCount; j++)
+                {
+                    inputs[j].Value = parameters[i, j] ? 1 : 0;
+                }
+
+                bufferRegistry.Clear();
+                int result = output.CalculateOutput(bufferRegistry);
+                results[i] = result;
+            }
+
+            int[,] truthTable = new int[(int)Math.Pow(2, inputsCount), inputsCount + 1];
             for (int i = 0; i < (int)Math.Pow(2, inputsCount); i++)
             {
                 for (int j = 0; j < inputsCount; j++)
-                    text += parameters[i, j] ? "1\t" : "0\t";
-                text += "\n";
+                    truthTable[i, j] = parameters[i, j] ? 1 : 0;
+                truthTable[i, inputsCount] = results[i];
             }
 
-            MessageBox.Show(text);
-
-            return form;
+            return truthTable;
         }
     }
 }
