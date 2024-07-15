@@ -14,7 +14,6 @@ namespace LogicCircuits.Elements
         public Image Diagram { get; } = Properties.Resources._out;
         public string Name { get; } = null;
         public List<IOutputContainingElement> Inputs { get; set; } = new List<IOutputContainingElement>();
-        public int? Result { get; set; } = null;
         public InputsMultiplicity InputsMultiplicity => InputsMultiplicity.Single;
 
         public List<Control> Controls { get; set; } = new List<Control>();

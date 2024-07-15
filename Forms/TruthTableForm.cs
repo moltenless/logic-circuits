@@ -22,7 +22,7 @@ namespace LogicCircuits.Forms
                 Font = new Font(FontFamily.GenericSansSerif, 14, FontStyle.Bold),
             };
 
-            int[,] truthTable = GetTruthTable(registry, out string[] columnNames);
+            List<List<int>> truthTable = GetTruthTable(registry, out List<string> columnNames);
 
             DataGridView grid = GetFilledGridView(truthTable, columnNames);
             form.Controls.Add(grid);
@@ -32,44 +32,37 @@ namespace LogicCircuits.Forms
             return form;
         }
 
-        private static int[,] GetTruthTable(List<(IElement, int outputResult)> registry, out string[] columnNames)
+        private static List<List<int>> GetTruthTable(List<(IElement, int outputResult)> registry, out List<string> columnNames)
         {
-            RetrieveDataFromRegistry(registry, out int inputsCount, out List<Input> inputs, out Output output);
+            RetrieveDataFromRegistry(registry, out int inputsCount, out List<(Input input, bool slave)> inputs, out Output output);
 
             int[] inputsHistory = new int[inputsCount];
             for (int i = 0; i < inputsCount; i++)
-                inputsHistory[i] = inputs[i].Value;
+                inputsHistory[i] = inputs[i].input.Value;
 
-            bool[,] parameters = GetAllParametersSets(inputsCount);
+            bool[,] parameters = GetAllParametersSetsWithSlaves(inputsCount);
 
-            int[] results = LookOverEachSet(inputsCount, inputs, parameters, output);
-
-            int[,] truthTable = new int[(int)Math.Pow(2, inputsCount), inputsCount + 1];
-            for (int i = 0; i < (int)Math.Pow(2, inputsCount); i++)
-            {
-                for (int j = 0; j < inputsCount; j++)
-                    truthTable[i, j] = parameters[i, j] ? 1 : 0;
-                truthTable[i, inputsCount] = results[i];
-            }
+            List<List<int>> truthTable = LookOverEachSet(inputsCount, inputs, parameters, output);
 
             for (int i = 0; i < inputsCount; i++)
-                inputs[i].Value = inputsHistory[i];
+                inputs[i].input.Value = inputsHistory[i];
 
-            columnNames = new string[inputsCount + 1];
-            for (int i = 0; i < inputsCount; i++)
-                columnNames[i] = inputs[i].Name;
-            columnNames[inputsCount] = output.Name;
+            columnNames = new List<string>();
+            for (int j = 0; j < inputsCount; j++)
+                if (!inputs[j].slave)
+                    columnNames.Add(inputs[j].input.Name);
+            columnNames.Add(output.Name);
 
             return truthTable;
         }
 
-        public static void RetrieveDataFromRegistry(List<(IElement, int outputResult)> registry, out int inputsCount, out List<Input> inputs, out Output output)
+        public static void RetrieveDataFromRegistry(List<(IElement, int outputResult)> registry, out int inputsCount, out List<(Input input, bool slave)> inputs, out Output output)
         {
             (IElement, int outputResult)[] copiedRegistry = new (IElement, int outputResult)[registry.Count];
             registry.CopyTo(copiedRegistry);
 
             inputsCount = 0;
-            inputs = new List<Input>();
+            inputs = new List<(Input input, bool slave)>();
             output = copiedRegistry.Last().Item1 as Output;
 
             for (int i = 0; i < copiedRegistry.Length; i++)
@@ -77,12 +70,12 @@ namespace LogicCircuits.Forms
                 if (copiedRegistry[i].Item1 is Input)
                 {
                     inputsCount++;
-                    inputs.Add((Input)copiedRegistry[i].Item1);
+                    inputs.Add(((Input)copiedRegistry[i].Item1, (copiedRegistry[i].Item1 as Input).IsSlave));
                 }
             }
         }
 
-        public static bool[,] GetAllParametersSets(int inputsCount)
+        public static bool[,] GetAllParametersSetsWithSlaves(int inputsCount)
         {
             bool[,] parameters = new bool[(int)Math.Pow(2, inputsCount), inputsCount];
 
@@ -96,7 +89,7 @@ namespace LogicCircuits.Forms
                     for (int k = 0; k < groupsBy; k++)
                         if (j % 2 == 1)
                             parameters[j * groupsBy + k, i] = true;
-                        else if (j % 2 == 1)
+                        else if (j % 2 == 0)
                             parameters[j * groupsBy + k, i] = false;
                 }
             }
@@ -104,31 +97,41 @@ namespace LogicCircuits.Forms
             return parameters;
         }
 
-        public static int[] LookOverEachSet(int inputsCount, List<Input> inputs, bool[,] parameters, Output output)
+        public static List<List<int>> LookOverEachSet(int inputsCount, List<(Input input, bool slave)> inputs, bool[,] parameters, Output output)
         {
             List<(IElement, int outputResult)> bufferRegistry = new List<(IElement, int outputResult)>();
-            int[] results = new int[(int)Math.Pow(2, inputsCount)];
+            List<List<int>> table = new List<List<int>>();
 
-            for (int i = 0; i < results.Length; i++)
+            for (int i = 0; i < (int)Math.Pow(2, inputs.Count(inp => { return !inp.slave; })); i++)
             {
+                table.Add(new List<int>());
+
                 for (int j = 0; j < inputsCount; j++)
-                    inputs[j].Value = parameters[i, j] ? 1 : 0;
+                    if (!inputs[j].slave)
+                    {
+                        inputs[j].input.Value = parameters[i, j] ? 1 : 0;
+                        table.Last().Add(inputs[j].input.Value);
+                    }
+
+                for (int j = 0; j < inputsCount; j++)
+                    if (inputs[j].slave)
+                        inputs[j].input.Value = inputs[j].input.Supervisor.Value;
 
                 bufferRegistry.Clear();
                 int result = output.CalculateOutput(bufferRegistry);
-                results[i] = result;
+                table.Last().Add(result);
             }
 
-            return results;
+            return table;
         }
 
-        public static DataGridView GetFilledGridView(int[,] truthTable, string[] columnNames)
+        public static DataGridView GetFilledGridView(List<List<int>> truthTable, List<string> columnNames)
         {
             DataGridView grid = new DataGridView();
             grid.Dock = DockStyle.Fill;
 
-            int cols = truthTable.GetLength(1);
-            int rows = truthTable.GetLength(0);
+            int cols = truthTable[0].Count;
+            int rows = truthTable.Count;
             grid.ColumnCount = cols;
 
             for (int i = 0; i < rows; i++)
@@ -137,17 +140,51 @@ namespace LogicCircuits.Forms
                 row.CreateCells(grid);
 
                 for (int j = 0; j < cols; j++)
-                    row.Cells[j].Value = truthTable[i, j];
+                {
+                    row.Cells[j].Value = truthTable[i][j];
+                    if (truthTable[i][j] == 0)
+                        if (j == cols - 1)
+                        {
+                            row.Cells[j].Style.BackColor = Color.Yellow;
+                            row.Cells[j].Style.ForeColor = Color.Blue;
+                        }
+                        else
+                        {
+                            row.Cells[j].Style.BackColor = Color.LightGoldenrodYellow;
+                            row.Cells[j].Style.ForeColor = Color.Yellow;
+                        }
+                    else if (truthTable[i][j] == 1)
+                        if (j == cols - 1)
+                        {
+                            row.Cells[j].Style.BackColor = Color.Blue;
+                            row.Cells[j].Style.ForeColor = Color.Yellow;
+                        }
+                        else
+                        {
+                            row.Cells[j].Style.BackColor = Color.LightSteelBlue;
+                            row.Cells[j].Style.ForeColor = Color.DarkBlue;
+                        }
+                    row.Cells[j].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                }
 
                 grid.Rows.Add(row);
             }
 
             grid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             grid.ColumnHeadersHeight = 35;
-            
 
+
+            grid.EnableHeadersVisualStyles = false;
             for (int i = 0; i < cols; i++)
+            {
                 grid.Columns[i].Name = columnNames[i];
+                grid.Columns[i].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                if (i == cols - 1)
+                {
+                    grid.Columns[i].HeaderCell.Style.BackColor = Color.Black;
+                    grid.Columns[i].HeaderCell.Style.ForeColor = Color.White;
+                }
+            }
 
             return grid;
         }
