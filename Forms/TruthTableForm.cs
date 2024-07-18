@@ -32,6 +32,70 @@ namespace LogicCircuits.Forms
             return form;
         }
 
+        public static DataGridView GetFilledGridView(List<List<int>> truthTable, List<string> columnNames)
+        {
+            DataGridView grid = new DataGridView();
+            grid.Dock = DockStyle.Fill;
+
+            int cols = truthTable[0].Count;
+            int rows = truthTable.Count;
+            grid.ColumnCount = cols;
+
+            for (int i = 0; i < rows; i++)
+            {
+                DataGridViewRow row = new DataGridViewRow();
+                row.CreateCells(grid);
+
+                for (int j = 0; j < cols; j++)
+                {
+                    row.Cells[j].Value = truthTable[i][j];
+                    if (truthTable[i][j] == 0)
+                        if (j == cols - 1)
+                        {
+                            row.Cells[j].Style.BackColor = Color.Yellow;
+                            row.Cells[j].Style.ForeColor = Color.Blue;
+                        }
+                        else
+                        {
+                            row.Cells[j].Style.BackColor = Color.LightGoldenrodYellow;
+                            row.Cells[j].Style.ForeColor = Color.Yellow;
+                        }
+                    else if (truthTable[i][j] == 1)
+                        if (j == cols - 1)
+                        {
+                            row.Cells[j].Style.BackColor = Color.Blue;
+                            row.Cells[j].Style.ForeColor = Color.Yellow;
+                        }
+                        else
+                        {
+                            row.Cells[j].Style.BackColor = Color.LightSteelBlue;
+                            row.Cells[j].Style.ForeColor = Color.DarkBlue;
+                        }
+                    row.Cells[j].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                }
+
+                grid.Rows.Add(row);
+            }
+
+            grid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            grid.ColumnHeadersHeight = 35;
+
+
+            grid.EnableHeadersVisualStyles = false;
+            for (int i = 0; i < cols; i++)
+            {
+                grid.Columns[i].Name = columnNames[i];
+                grid.Columns[i].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                if (i == cols - 1)
+                {
+                    grid.Columns[i].HeaderCell.Style.BackColor = Color.Black;
+                    grid.Columns[i].HeaderCell.Style.ForeColor = Color.White;
+                }
+            }
+
+            return grid;
+        }
+
         private static List<List<int>> GetTruthTable(List<(IElement, int outputResult)> registry, out List<string> columnNames)
         {
             RetrieveDataFromRegistry(registry, out List<Input> allInputs, out List<Input> notSlaveInputs, out Output output);
@@ -122,70 +186,6 @@ namespace LogicCircuits.Forms
             }
 
             return table;
-        }
-
-        public static DataGridView GetFilledGridView(List<List<int>> truthTable, List<string> columnNames)
-        {
-            DataGridView grid = new DataGridView();
-            grid.Dock = DockStyle.Fill;
-
-            int cols = truthTable[0].Count;
-            int rows = truthTable.Count;
-            grid.ColumnCount = cols;
-
-            for (int i = 0; i < rows; i++)
-            {
-                DataGridViewRow row = new DataGridViewRow();
-                row.CreateCells(grid);
-
-                for (int j = 0; j < cols; j++)
-                {
-                    row.Cells[j].Value = truthTable[i][j];
-                    if (truthTable[i][j] == 0)
-                        if (j == cols - 1)
-                        {
-                            row.Cells[j].Style.BackColor = Color.Yellow;
-                            row.Cells[j].Style.ForeColor = Color.Blue;
-                        }
-                        else
-                        {
-                            row.Cells[j].Style.BackColor = Color.LightGoldenrodYellow;
-                            row.Cells[j].Style.ForeColor = Color.Yellow;
-                        }
-                    else if (truthTable[i][j] == 1)
-                        if (j == cols - 1)
-                        {
-                            row.Cells[j].Style.BackColor = Color.Blue;
-                            row.Cells[j].Style.ForeColor = Color.Yellow;
-                        }
-                        else
-                        {
-                            row.Cells[j].Style.BackColor = Color.LightSteelBlue;
-                            row.Cells[j].Style.ForeColor = Color.DarkBlue;
-                        }
-                    row.Cells[j].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                }
-
-                grid.Rows.Add(row);
-            }
-
-            grid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            grid.ColumnHeadersHeight = 35;
-
-
-            grid.EnableHeadersVisualStyles = false;
-            for (int i = 0; i < cols; i++)
-            {
-                grid.Columns[i].Name = columnNames[i];
-                grid.Columns[i].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                if (i == cols - 1)
-                {
-                    grid.Columns[i].HeaderCell.Style.BackColor = Color.Black;
-                    grid.Columns[i].HeaderCell.Style.ForeColor = Color.White;
-                }
-            }
-
-            return grid;
         }
     }
 }
