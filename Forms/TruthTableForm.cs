@@ -34,45 +34,45 @@ namespace LogicCircuits.Forms
 
         private static List<List<int>> GetTruthTable(List<(IElement, int outputResult)> registry, out List<string> columnNames)
         {
-            RetrieveDataFromRegistry(registry, out int inputsCount, out List<(Input input, bool slave)> inputs, out Output output);
+            RetrieveDataFromRegistry(registry, out List<Input> allInputs, out List<Input> notSlaveInputs, out Output output);
 
-            int[] inputsHistory = new int[inputsCount];
-            for (int i = 0; i < inputsCount; i++)
-                inputsHistory[i] = inputs[i].input.Value;
+            int[] inputsHistory = new int[allInputs.Count];
+            for (int i = 0; i < allInputs.Count; i++)
+                inputsHistory[i] = allInputs[i].Value;
 
-            bool[,] parameters = GetAllParametersSetsWithSlaves(inputsCount);
+            bool[,] parameters = GetAllParametersSetsWithSlaves(notSlaveInputs.Count);
 
-            List<List<int>> truthTable = LookOverEachSet(inputsCount, inputs, parameters, output);
+            List<List<int>> truthTable = LookOverEachSet(allInputs, notSlaveInputs, parameters, output);
 
-            for (int i = 0; i < inputsCount; i++)
-                inputs[i].input.Value = inputsHistory[i];
+            for (int i = 0; i < allInputs.Count; i++)
+                allInputs[i].Value = inputsHistory[i];
 
             columnNames = new List<string>();
-            for (int j = 0; j < inputsCount; j++)
-                if (!inputs[j].slave)
-                    columnNames.Add(inputs[j].input.Name);
+            for (int j = 0; j < allInputs.Count; j++)
+                if (!allInputs[j].IsSlave)
+                    columnNames.Add(allInputs[j].Name);
             columnNames.Add(output.Name);
 
             return truthTable;
         }
 
-        public static void RetrieveDataFromRegistry(List<(IElement, int outputResult)> registry, out int inputsCount, out List<(Input input, bool slave)> inputs, out Output output)
+        public static void RetrieveDataFromRegistry(List<(IElement, int outputResult)> registry, out List<Input> allInputs, out List<Input> notSlaveInputs, out Output output)
         {
             (IElement, int outputResult)[] copiedRegistry = new (IElement, int outputResult)[registry.Count];
             registry.CopyTo(copiedRegistry);
 
-            inputsCount = 0;
-            inputs = new List<(Input input, bool slave)>();
+            allInputs = new List<Input>();
+            notSlaveInputs = new List<Input>();
             output = copiedRegistry.Last().Item1 as Output;
 
             for (int i = 0; i < copiedRegistry.Length; i++)
-            {
-                if (copiedRegistry[i].Item1 is Input)
+                if (copiedRegistry[i].Item1 is Input input)
                 {
-                    inputsCount++;
-                    inputs.Add(((Input)copiedRegistry[i].Item1, (copiedRegistry[i].Item1 as Input).IsSlave));
+                    allInputs.Add(input);
+
+                    if (!input.IsSlave)
+                        notSlaveInputs.Add(input);
                 }
-            }
         }
 
         public static bool[,] GetAllParametersSetsWithSlaves(int inputsCount)
@@ -97,25 +97,24 @@ namespace LogicCircuits.Forms
             return parameters;
         }
 
-        public static List<List<int>> LookOverEachSet(int inputsCount, List<(Input input, bool slave)> inputs, bool[,] parameters, Output output)
+        public static List<List<int>> LookOverEachSet(List<Input> allInputs, List<Input> notSlaveInputs, bool[,] parameters, Output output)
         {
             List<(IElement, int outputResult)> bufferRegistry = new List<(IElement, int outputResult)>();
             List<List<int>> table = new List<List<int>>();
 
-            for (int i = 0; i < (int)Math.Pow(2, inputs.Count(inp => { return !inp.slave; })); i++)
+            for (int i = 0; i < (int)Math.Pow(2, notSlaveInputs.Count); i++)
             {
                 table.Add(new List<int>());
 
-                for (int j = 0; j < inputsCount; j++)
-                    if (!inputs[j].slave)
-                    {
-                        inputs[j].input.Value = parameters[i, j] ? 1 : 0;
-                        table.Last().Add(inputs[j].input.Value);
-                    }
+                for (int j = 0; j < notSlaveInputs.Count; j++)
+                {
+                    notSlaveInputs[j].Value = parameters[i, j] ? 1 : 0;
+                    table.Last().Add(notSlaveInputs[j].Value);
+                }
 
-                for (int j = 0; j < inputsCount; j++)
-                    if (inputs[j].slave)
-                        inputs[j].input.Value = inputs[j].input.Supervisor.Value;
+                for (int j = 0; j < allInputs.Count; j++)
+                    if (allInputs[j].IsSlave)
+                        allInputs[j].Value = allInputs[j].Supervisor.Value;
 
                 bufferRegistry.Clear();
                 int result = output.CalculateOutput(bufferRegistry);
