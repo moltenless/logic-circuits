@@ -106,22 +106,28 @@ namespace LogicCircuits.Forms
                             if ((int)panelButton.Controls[j].Tag == selectedColumn)
                                 firstSwitcher = (Button)panelButton.Controls[j];
 
-                        (List<List<int>> table, List<string> names) table = ((List<List<int>>, List<string>))but.FindForm().Tag;
+                        Form form = but.FindForm();
+
+                        (List<List<int>> table, List<string> names) table = ((List<List<int>>, List<string>))form.Tag;
                         for (int i = 0; i < table.table.Count; i++)
                         {
                             int buffer = table.table[i][selectedColumn];
                             table.table[i][selectedColumn] = table.table[i][curr];
-                            table.table[i][curr] = buffer;    
+                            table.table[i][curr] = buffer;
                         }
                         string buffer2 = table.names[selectedColumn];
                         table.names[selectedColumn] = table.names[curr];
                         table.names[curr] = buffer2;
 
-                        but.FindForm().Tag = table;
+                        form.Tag = table;
                         DataGridView grid = GetFilledGridView(table.table, table.names);
-                        for (int i = 0; i < but.FindForm().Controls.Count; i++)
-                            if (but.FindForm().Controls[i] is DataGridView view)
-                                view = grid;
+
+                        form.Controls.Remove(panelButton.Parent);
+                        for (int i = 0; i < form.Controls.Count; i++)
+                            if (form.Controls[i] is DataGridView view)
+                                form.Controls.Remove(view);
+                        form.Controls.Add(grid);
+                        form.Controls.Add(panelButton.Parent);
 
                         columnSelected = false;
                         string buff = firstSwitcher.Text;
