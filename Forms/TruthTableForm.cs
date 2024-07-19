@@ -1,11 +1,8 @@
 ﻿using LogicCircuits.Elements;
-using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace LogicCircuits.Forms
@@ -23,19 +20,126 @@ namespace LogicCircuits.Forms
             };
 
             List<List<int>> truthTable = GetTruthTable(registry, out List<string> columnNames);
+            form.Tag = (truthTable, columnNames);
 
             DataGridView grid = GetFilledGridView(truthTable, columnNames);
             form.Controls.Add(grid);
 
-            form.Size = grid.Size;
+            Panel panel = GetLowerPanel(truthTable, columnNames);
+            form.Controls.Add(panel);
 
             return form;
         }
 
+        static bool columnSelected = false;
+        static int selectedColumn = -1;
+        private static Panel GetLowerPanel(List<List<int>> truthTable, List<string> columnNames)
+        {
+            Panel panel = new Panel
+            {
+                Padding = new Padding(40, 0, 0, 0),
+                Dock = DockStyle.Bottom,
+                Height = 50,
+            };
+
+            Label label = new Label
+            {
+                AutoSize = false,
+                Dock = DockStyle.Top,
+                Height = 18,
+                Text = "Виберіть порядок змінних",
+                TextAlign = ContentAlignment.MiddleLeft,
+                Font = new Font(FontFamily.GenericSansSerif, 10)
+            };
+
+            Panel panelButton = new Panel
+            {
+                Dock = DockStyle.Fill,
+                Padding = new Padding(0, 2, 0, 0),
+            };
+            panel.Controls.Add(panelButton);
+            panel.Controls.Add(label);
+
+            for (int i = 0; i < columnNames.Count - 1; i++)
+            {
+                Button button = new Button
+                {
+                    Width = 40,
+                    Dock = DockStyle.Left,
+                    Text = columnNames[columnNames.Count - 2 - i],
+                    TextAlign = ContentAlignment.MiddleCenter,
+                    Font = new Font(FontFamily.GenericSerif, 10, FontStyle.Bold),
+                    ForeColor = Color.Black,
+                    FlatStyle = FlatStyle.Flat,
+                    Tag = columnNames.Count - 2 - i,
+                };
+                button.Click += SwitchClick;
+                panelButton.Controls.Add(button);
+            }
+            return panel;
+        }
+
+        private static void SwitchClick(object sender, EventArgs e)
+        {
+            Panel panelButton = (Panel)(sender as Control).Parent;
+
+            if (sender is Button but)
+            {
+                int curr = (int)but.Tag;
+                if (!columnSelected)
+                {
+                    columnSelected = true;
+                    selectedColumn = curr;
+                    but.BackColor = Color.Gray;
+                }
+                else
+                {
+                    if (curr == selectedColumn)
+                    {
+                        columnSelected = false;
+                        but.BackColor = SystemColors.Control;
+                    }
+                    else
+                    {
+                        Button firstSwitcher = null;
+                        for (int j = 0; j < panelButton.Controls.Count; j++)
+                            if ((int)panelButton.Controls[j].Tag == selectedColumn)
+                                firstSwitcher = (Button)panelButton.Controls[j];
+
+                        (List<List<int>> table, List<string> names) table = ((List<List<int>>, List<string>))but.FindForm().Tag;
+                        for (int i = 0; i < table.table.Count; i++)
+                        {
+                            int buffer = table.table[i][selectedColumn];
+                            table.table[i][selectedColumn] = table.table[i][curr];
+                            table.table[i][curr] = buffer;    
+                        }
+                        string buffer2 = table.names[selectedColumn];
+                        table.names[selectedColumn] = table.names[curr];
+                        table.names[curr] = buffer2;
+
+                        but.FindForm().Tag = table;
+                        DataGridView grid = GetFilledGridView(table.table, table.names);
+                        for (int i = 0; i < but.FindForm().Controls.Count; i++)
+                            if (but.FindForm().Controls[i] is DataGridView view)
+                                view = grid;
+
+                        columnSelected = false;
+                        string buff = firstSwitcher.Text;
+                        firstSwitcher.Text = but.Text;
+                        but.Text = buff;
+
+                        firstSwitcher.BackColor = SystemColors.Control;
+                    }
+                }
+            }
+        }
+
         public static DataGridView GetFilledGridView(List<List<int>> truthTable, List<string> columnNames)
         {
-            DataGridView grid = new DataGridView();
-            grid.Dock = DockStyle.Fill;
+            DataGridView grid = new DataGridView
+            {
+                Dock = DockStyle.Fill,
+            };
 
             int cols = truthTable[0].Count;
             int rows = truthTable.Count;
