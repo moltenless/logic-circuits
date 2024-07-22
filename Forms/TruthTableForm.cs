@@ -11,22 +11,27 @@ namespace LogicCircuits.Forms
     {
         public static Form GetTruthTableForm(List<(IElement, int outputResult)> registry)
         {
+            List<List<int>> truthTable = GetTruthTable(registry, out List<string> columnNames);
+            int cols = truthTable[0].Count;
+            int rows = truthTable.Count;
+
             Form form = new Form
             {
                 StartPosition = FormStartPosition.CenterScreen,
                 Icon = Properties.Resources.diagram,
                 Text = "Таблиця істинності",
                 Font = new Font(FontFamily.GenericSansSerif, 14, FontStyle.Bold),
+                Tag = (truthTable, columnNames),
             };
-
-            List<List<int>> truthTable = GetTruthTable(registry, out List<string> columnNames);
-            form.Tag = (truthTable, columnNames);
 
             DataGridView grid = GetFilledGridView(truthTable, columnNames);
             form.Controls.Add(grid);
 
             Panel panel = GetLowerPanel(truthTable, columnNames);
             form.Controls.Add(panel);
+
+            form.Height = (rows * 23) + panel.Height > Screen.PrimaryScreen.WorkingArea.Height ? Screen.PrimaryScreen.WorkingArea.Height : (rows * 35) + 200;
+            form.Width = (cols + 1) * 55;
 
             return form;
         }
@@ -142,14 +147,13 @@ namespace LogicCircuits.Forms
 
         public static DataGridView GetFilledGridView(List<List<int>> truthTable, List<string> columnNames)
         {
+            int cols = truthTable[0].Count;
+            int rows = truthTable.Count;
             DataGridView grid = new DataGridView
             {
                 Dock = DockStyle.Fill,
+                ColumnCount = cols,
             };
-
-            int cols = truthTable[0].Count;
-            int rows = truthTable.Count;
-            grid.ColumnCount = cols;
 
             for (int i = 0; i < rows; i++)
             {
@@ -163,30 +167,29 @@ namespace LogicCircuits.Forms
                         if (j == cols - 1)
                         {
                             row.Cells[j].Style.BackColor = Color.Yellow;
-                            row.Cells[j].Style.ForeColor = Color.Blue;
+                            row.Cells[j].Style.ForeColor = Color.Black;
                         }
                         else
                         {
                             row.Cells[j].Style.BackColor = Color.LightGoldenrodYellow;
-                            row.Cells[j].Style.ForeColor = Color.Yellow;
+                            row.Cells[j].Style.ForeColor = Color.Black;
                         }
                     else if (truthTable[i][j] == 1)
                         if (j == cols - 1)
                         {
                             row.Cells[j].Style.BackColor = Color.Blue;
-                            row.Cells[j].Style.ForeColor = Color.Yellow;
+                            row.Cells[j].Style.ForeColor = Color.White;
                         }
                         else
                         {
                             row.Cells[j].Style.BackColor = Color.LightSteelBlue;
-                            row.Cells[j].Style.ForeColor = Color.DarkBlue;
+                            row.Cells[j].Style.ForeColor = Color.White;
                         }
                     row.Cells[j].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
                 }
 
                 grid.Rows.Add(row);
             }
-
             grid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             grid.ColumnHeadersHeight = 35;
 
@@ -202,6 +205,7 @@ namespace LogicCircuits.Forms
                     grid.Columns[i].HeaderCell.Style.ForeColor = Color.White;
                 }
             }
+            grid.CurrentCell = grid.Rows[rows].Cells[0];
 
             return grid;
         }
