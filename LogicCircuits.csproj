@@ -66,6 +66,7 @@
     <Compile Include="Elements\InputMultiplicity.cs" />
     <Compile Include="Elements\IOutputContainingElement.cs" />
     <Compile Include="Elements\Signals\Output.cs" />
+    <Compile Include="Forms\DNFForm.cs" />
     <Compile Include="Forms\Main Form\Circuit Status.cs">
       <SubType>Form</SubType>
     </Compile>

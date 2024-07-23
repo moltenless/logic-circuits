@@ -94,6 +94,33 @@ namespace LogicCircuits
         private void MenuClick(object sender, EventArgs e)
         {
             int tag = int.Parse((sender as Control).Tag.ToString());
+            
+            if (tag == 3)
+            {
+                UpdateStatus();
+                if (ready)
+                {
+                    Form truthTableForm = FormsBuilder.GetTruthTableForm(registry);
+                    truthTableForm.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show("Скласти таблицю істинності неможливо, бо схема неповна.", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+             if (tag == 4)
+            {
+                UpdateStatus();
+                if (ready)
+                {
+                    Form dnfForm = FormsBuilder.GetDNFForm(registry);
+                    dnfForm.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show("Скласти ДДНФ неможливо, бо схема неповна.", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
             if (tag == 7)
             {
                 DialogResult res = MessageBox.Show("Ви впевнені, що хочете видалити схему?", "Увага", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
@@ -107,19 +134,6 @@ namespace LogicCircuits
                     Cursor = Cursors.Default;
                     UpdateStatus();
                     RenderCompletely();
-                }
-            }
-            if (tag == 3)
-            {
-                UpdateStatus();
-                if (ready)
-                {
-                    Form truthTableForm = FormsBuilder.GetTruthTableForm(registry);
-                    truthTableForm.ShowDialog();
-                }
-                else
-                {
-                    MessageBox.Show("Скласти таблицю істинності неможливо, бо схема неповна.", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
