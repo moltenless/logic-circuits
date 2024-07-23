@@ -30,7 +30,7 @@ namespace LogicCircuits.Forms
             Panel panel = GetLowerPanel(truthTable, columnNames);
             form.Controls.Add(panel);
 
-            form.Height = (rows * 23) + panel.Height > Screen.PrimaryScreen.WorkingArea.Height ? Screen.PrimaryScreen.WorkingArea.Height : (rows * 35) + 200;
+            form.Height = (rows + 7) * 22 > Screen.PrimaryScreen.WorkingArea.Height ? Screen.PrimaryScreen.WorkingArea.Height : (rows + 7) * 22;
             form.Width = (cols + 1) * 55;
 
             return form;
