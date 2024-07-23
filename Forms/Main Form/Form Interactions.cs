@@ -96,14 +96,18 @@ namespace LogicCircuits
             int tag = int.Parse((sender as Control).Tag.ToString());
             if (tag == 7)
             {
-                draft.Clear();
-                elementSelected = false;
-                elementMoveable = false;
-                elementConnectable = false;
-                panelParams.Controls[0].Enabled = true;
-                Cursor = Cursors.Default;
-                UpdateStatus();
-                RenderCompletely();
+                DialogResult res = MessageBox.Show("Ви впевнені, що хочете видалити схему?", "Увага", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+                if (res == DialogResult.Yes)
+                {
+                    draft.Clear();
+                    elementSelected = false;
+                    elementMoveable = false;
+                    elementConnectable = false;
+                    panelParams.Controls[0].Enabled = true;
+                    Cursor = Cursors.Default;
+                    UpdateStatus();
+                    RenderCompletely();
+                }
             }
             if (tag == 3)
             {
@@ -115,7 +119,7 @@ namespace LogicCircuits
                 }
                 else
                 {
-                    MessageBox.Show("Скласти таблицю істинності неможливо, бо схема неповна.", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show("Скласти таблицю істинності неможливо, бо схема неповна.", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
