@@ -121,6 +121,19 @@ namespace LogicCircuits
                     MessageBox.Show("Скласти ДДНФ неможливо, бо схема неповна.", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+            if (tag == 5)
+            {
+                UpdateStatus();
+                if (ready)
+                {
+                    Form cnfForm = FormsBuilder.GetCNFForm(registry);
+                    cnfForm.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show("Скласти ДКНФ неможливо, бо схема неповна.", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
             if (tag == 7)
             {
                 DialogResult res = MessageBox.Show("Ви впевнені, що хочете видалити схему?", "Увага", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
