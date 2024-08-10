@@ -18,14 +18,14 @@ namespace LogicCircuits
 
             List<List<int>> truthTable = new List<List<int>>
             {
-                new List<int> { 0, 0, 0, 1 },
+                new List<int> { 0, 0, 0, 0 },
                 new List<int> { 0, 0, 1, 1 },
                 new List<int> { 0, 1, 0, 1 },
-                new List<int> { 0, 1, 1, 1 },
+                new List<int> { 0, 1, 1, 0 },
                 new List<int> { 1, 0, 0, 1 },
-                new List<int> { 1, 0, 1, 1 },
+                new List<int> { 1, 0, 1, 0 },
                 new List<int> { 1, 1, 0, 0 },
-                new List<int> { 1, 1, 1, 0 }
+                new List<int> { 1, 1, 1, 1 }
             };
             List<string> columnNames = new List<string>
             {
@@ -58,7 +58,7 @@ namespace LogicCircuits
             List<List<int>> primeImplicants = new List<List<int>>();
 
             int termsLength = currentImplicants[0].Count;
-            List<List<int>> coveredNextImplicants = new List<List<int>>();
+            List<List<int>> coveringNextImplicants = new List<List<int>>();
             for (int k = 0; k < currentImplicants.Count - 1; k++)
             {
                 int[] compared = currentImplicants[k].ToArray();
@@ -79,17 +79,31 @@ namespace LogicCircuits
 
                     if (differentValuesCounter == 1)
                     {
-                        coveredNextImplicants.Add(new List<int>());
+                        coveringNextImplicants.Add(new List<int>());
                         for (int h = 0; h < termsLength; h++)
                             if (compared[h] == comparing[h])
-                                coveredNextImplicants[coveredNextImplicants.Count - 1].Add(compared[h]);
+                                coveringNextImplicants[coveringNextImplicants.Count - 1].Add(compared[h]);
                             else
-                                coveredNextImplicants[coveredNextImplicants.Count - 1].Add(-1);
+                                coveringNextImplicants[coveringNextImplicants.Count - 1].Add(-1);
                     }
                 }
             }
 
+            for (int k = 0; k < currentImplicants.Count; k++)
+            {
+                bool prime = true;
+                for (int g = 0; g < coveringNextImplicants.Count; g++)
+                {
+                    if (Covers(coveringNextImplicants[g], currentImplicants[k]))
+                    {
+                        prime = false;
+                        break;
+                    }
+                }
 
+                if (prime) 
+                    primeImplicants.Add(currentImplicants[k]);
+            }
 
 
             string result = "";
@@ -101,10 +115,17 @@ namespace LogicCircuits
                 result += "\n";
             }
             result += "\n";
-            for (int i = 0; i < coveredNextImplicants.Count; i++)
+            for (int i = 0; i < coveringNextImplicants.Count; i++)
             {
-                for (int j = 0; j < coveredNextImplicants[i].Count; j++)
-                    result += coveredNextImplicants[i][j] + "\t";
+                for (int j = 0; j < coveringNextImplicants[i].Count; j++)
+                    result += coveringNextImplicants[i][j] + "\t";
+                result += "\n";
+            }
+            result += "\n";
+            for (int i= 0; i < primeImplicants.Count; i++)
+            {
+                for (int j = 0; j < primeImplicants[i].Count; j++)
+                    result += primeImplicants[i][j] + "\t";
                 result += "\n";
             }
             System.Windows.Forms.MessageBox.Show(result);
@@ -112,6 +133,16 @@ namespace LogicCircuits
             return result;
         }
 
-
+        public static bool Covers(List<int> implicant, List<int> targetTerm)
+        {
+            for (int i = 0; i < implicant.Count; i++)
+            {
+                if (implicant[i] == -1 || targetTerm[i] == -1)
+                    continue;
+                if (implicant[i] != targetTerm[i])
+                    return false;
+            }
+            return true;
+        }
     }
 }
