@@ -210,7 +210,7 @@ namespace LogicCircuits.Forms
             return grid;
         }
 
-        private static List<List<int>> GetTruthTable(List<(IElement, int outputResult)> registry, out List<string> columnNames)
+        public static List<List<int>> GetTruthTable(List<(IElement, int outputResult)> registry, out List<string> columnNames)
         {
             RetrieveDataFromRegistry(registry, out List<Input> allInputs, out List<Input> notSlaveInputs, out Output output);
 

@@ -872,8 +872,8 @@
             this.pictureBoxErase.Tag = "7";
             this.toolTipMenu.SetToolTip(this.pictureBoxErase, "Стерти схему");
             this.pictureBoxErase.Click += new System.EventHandler(this.MenuClick);
-            this.pictureBoxErase.MouseEnter += new System.EventHandler(this.MenuButtonsMouseEnter);
-            this.pictureBoxErase.MouseLeave += new System.EventHandler(this.MenuButtonsMouseLeave);
+            this.pictureBoxErase.MouseEnter += new System.EventHandler(this.UpperMenuButtonsMouseEnter);
+            this.pictureBoxErase.MouseLeave += new System.EventHandler(this.UpperMenuButtonsMouseLeave);
             // 
             // labelErase
             // 
@@ -888,8 +888,8 @@
             this.labelErase.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.toolTipMenu.SetToolTip(this.labelErase, "Стерти схему");
             this.labelErase.Click += new System.EventHandler(this.MenuClick);
-            this.labelErase.MouseEnter += new System.EventHandler(this.MenuButtonsMouseEnter);
-            this.labelErase.MouseLeave += new System.EventHandler(this.MenuButtonsMouseLeave);
+            this.labelErase.MouseEnter += new System.EventHandler(this.UpperMenuButtonsMouseEnter);
+            this.labelErase.MouseLeave += new System.EventHandler(this.UpperMenuButtonsMouseLeave);
             // 
             // panelMinimization
             // 
@@ -916,8 +916,8 @@
             this.pictureBoxMinimization.Tag = "6";
             this.toolTipMenu.SetToolTip(this.pictureBoxMinimization, "Мінімізувати булеву функцію, представлену даною схемою");
             this.pictureBoxMinimization.Click += new System.EventHandler(this.MenuClick);
-            this.pictureBoxMinimization.MouseEnter += new System.EventHandler(this.MenuButtonsMouseEnter);
-            this.pictureBoxMinimization.MouseLeave += new System.EventHandler(this.MenuButtonsMouseLeave);
+            this.pictureBoxMinimization.MouseEnter += new System.EventHandler(this.UpperMenuButtonsMouseEnter);
+            this.pictureBoxMinimization.MouseLeave += new System.EventHandler(this.UpperMenuButtonsMouseLeave);
             // 
             // labelMinimization
             // 
@@ -932,8 +932,8 @@
             this.labelMinimization.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.toolTipMenu.SetToolTip(this.labelMinimization, "Мінімізувати булеву функцію, представлену даною схемою");
             this.labelMinimization.Click += new System.EventHandler(this.MenuClick);
-            this.labelMinimization.MouseEnter += new System.EventHandler(this.MenuButtonsMouseEnter);
-            this.labelMinimization.MouseLeave += new System.EventHandler(this.MenuButtonsMouseLeave);
+            this.labelMinimization.MouseEnter += new System.EventHandler(this.UpperMenuButtonsMouseEnter);
+            this.labelMinimization.MouseLeave += new System.EventHandler(this.UpperMenuButtonsMouseLeave);
             // 
             // panelCnf
             // 
@@ -960,8 +960,8 @@
             this.pictureBoxCnf.Tag = "5";
             this.toolTipMenu.SetToolTip(this.pictureBoxCnf, "Отримати ДКНФ виразу вказаної схеми");
             this.pictureBoxCnf.Click += new System.EventHandler(this.MenuClick);
-            this.pictureBoxCnf.MouseEnter += new System.EventHandler(this.MenuButtonsMouseEnter);
-            this.pictureBoxCnf.MouseLeave += new System.EventHandler(this.MenuButtonsMouseLeave);
+            this.pictureBoxCnf.MouseEnter += new System.EventHandler(this.UpperMenuButtonsMouseEnter);
+            this.pictureBoxCnf.MouseLeave += new System.EventHandler(this.UpperMenuButtonsMouseLeave);
             // 
             // labelCnf
             // 
@@ -976,8 +976,8 @@
             this.labelCnf.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.toolTipMenu.SetToolTip(this.labelCnf, "Отримати ДКНФ виразу вказаної схеми");
             this.labelCnf.Click += new System.EventHandler(this.MenuClick);
-            this.labelCnf.MouseEnter += new System.EventHandler(this.MenuButtonsMouseEnter);
-            this.labelCnf.MouseLeave += new System.EventHandler(this.MenuButtonsMouseLeave);
+            this.labelCnf.MouseEnter += new System.EventHandler(this.UpperMenuButtonsMouseEnter);
+            this.labelCnf.MouseLeave += new System.EventHandler(this.UpperMenuButtonsMouseLeave);
             // 
             // panelDnf
             // 
@@ -1004,8 +1004,8 @@
             this.pictureBoxDnf.Tag = "4";
             this.toolTipMenu.SetToolTip(this.pictureBoxDnf, "Отримати ДДНФ виразу вказаної схеми");
             this.pictureBoxDnf.Click += new System.EventHandler(this.MenuClick);
-            this.pictureBoxDnf.MouseEnter += new System.EventHandler(this.MenuButtonsMouseEnter);
-            this.pictureBoxDnf.MouseLeave += new System.EventHandler(this.MenuButtonsMouseLeave);
+            this.pictureBoxDnf.MouseEnter += new System.EventHandler(this.UpperMenuButtonsMouseEnter);
+            this.pictureBoxDnf.MouseLeave += new System.EventHandler(this.UpperMenuButtonsMouseLeave);
             // 
             // labelDnf
             // 
@@ -1020,8 +1020,8 @@
             this.labelDnf.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.toolTipMenu.SetToolTip(this.labelDnf, "Отримати ДДНФ виразу вказаної схеми");
             this.labelDnf.Click += new System.EventHandler(this.MenuClick);
-            this.labelDnf.MouseEnter += new System.EventHandler(this.MenuButtonsMouseEnter);
-            this.labelDnf.MouseLeave += new System.EventHandler(this.MenuButtonsMouseLeave);
+            this.labelDnf.MouseEnter += new System.EventHandler(this.UpperMenuButtonsMouseEnter);
+            this.labelDnf.MouseLeave += new System.EventHandler(this.UpperMenuButtonsMouseLeave);
             // 
             // panelTable
             // 
@@ -1048,8 +1048,8 @@
             this.pictureBoxTable.Tag = "3";
             this.toolTipMenu.SetToolTip(this.pictureBoxTable, "Побудувати таблицю істинності за вказаною схемою");
             this.pictureBoxTable.Click += new System.EventHandler(this.MenuClick);
-            this.pictureBoxTable.MouseEnter += new System.EventHandler(this.MenuButtonsMouseEnter);
-            this.pictureBoxTable.MouseLeave += new System.EventHandler(this.MenuButtonsMouseLeave);
+            this.pictureBoxTable.MouseEnter += new System.EventHandler(this.UpperMenuButtonsMouseEnter);
+            this.pictureBoxTable.MouseLeave += new System.EventHandler(this.UpperMenuButtonsMouseLeave);
             // 
             // labelTable
             // 
@@ -1064,8 +1064,8 @@
             this.labelTable.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.toolTipMenu.SetToolTip(this.labelTable, "Побудувати таблицю істинності за вказаною схемою");
             this.labelTable.Click += new System.EventHandler(this.MenuClick);
-            this.labelTable.MouseEnter += new System.EventHandler(this.MenuButtonsMouseEnter);
-            this.labelTable.MouseLeave += new System.EventHandler(this.MenuButtonsMouseLeave);
+            this.labelTable.MouseEnter += new System.EventHandler(this.UpperMenuButtonsMouseEnter);
+            this.labelTable.MouseLeave += new System.EventHandler(this.UpperMenuButtonsMouseLeave);
             // 
             // panelSave
             // 
@@ -1092,8 +1092,8 @@
             this.pictureBoxSave.Tag = "2";
             this.toolTipMenu.SetToolTip(this.pictureBoxSave, "Зберегти цю схему в базу даних");
             this.pictureBoxSave.Click += new System.EventHandler(this.MenuClick);
-            this.pictureBoxSave.MouseEnter += new System.EventHandler(this.MenuButtonsMouseEnter);
-            this.pictureBoxSave.MouseLeave += new System.EventHandler(this.MenuButtonsMouseLeave);
+            this.pictureBoxSave.MouseEnter += new System.EventHandler(this.UpperMenuButtonsMouseEnter);
+            this.pictureBoxSave.MouseLeave += new System.EventHandler(this.UpperMenuButtonsMouseLeave);
             // 
             // labelSave
             // 
@@ -1108,8 +1108,8 @@
             this.labelSave.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.toolTipMenu.SetToolTip(this.labelSave, "Зберегти цю схему в базу даних");
             this.labelSave.Click += new System.EventHandler(this.MenuClick);
-            this.labelSave.MouseEnter += new System.EventHandler(this.MenuButtonsMouseEnter);
-            this.labelSave.MouseLeave += new System.EventHandler(this.MenuButtonsMouseLeave);
+            this.labelSave.MouseEnter += new System.EventHandler(this.UpperMenuButtonsMouseEnter);
+            this.labelSave.MouseLeave += new System.EventHandler(this.UpperMenuButtonsMouseLeave);
             // 
             // panelOpen
             // 
@@ -1136,8 +1136,8 @@
             this.pictureBoxOpen.Tag = "1";
             this.toolTipMenu.SetToolTip(this.pictureBoxOpen, "Відкрити збережену схему з бази даних");
             this.pictureBoxOpen.Click += new System.EventHandler(this.MenuClick);
-            this.pictureBoxOpen.MouseEnter += new System.EventHandler(this.MenuButtonsMouseEnter);
-            this.pictureBoxOpen.MouseLeave += new System.EventHandler(this.MenuButtonsMouseLeave);
+            this.pictureBoxOpen.MouseEnter += new System.EventHandler(this.UpperMenuButtonsMouseEnter);
+            this.pictureBoxOpen.MouseLeave += new System.EventHandler(this.UpperMenuButtonsMouseLeave);
             // 
             // labelOpen
             // 
@@ -1152,8 +1152,8 @@
             this.labelOpen.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.toolTipMenu.SetToolTip(this.labelOpen, "Відкрити збережену схему з бази даних");
             this.labelOpen.Click += new System.EventHandler(this.MenuClick);
-            this.labelOpen.MouseEnter += new System.EventHandler(this.MenuButtonsMouseEnter);
-            this.labelOpen.MouseLeave += new System.EventHandler(this.MenuButtonsMouseLeave);
+            this.labelOpen.MouseEnter += new System.EventHandler(this.UpperMenuButtonsMouseEnter);
+            this.labelOpen.MouseLeave += new System.EventHandler(this.UpperMenuButtonsMouseLeave);
             // 
             // pictureBoxLogo
             // 

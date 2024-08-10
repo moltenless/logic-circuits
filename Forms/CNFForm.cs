@@ -41,11 +41,12 @@ namespace LogicCircuits.Forms
             };
             form.Controls.Add(textBox);
 
-            string function = $"{columnNames[cols - 1]}({columnNames[0]}";
+            string prefix = $"{columnNames[cols - 1]}({columnNames[0]}";
             for (int i = 1; i < cols - 1; i++)
-                function += $",{columnNames[i]}";
-            function += ") = (";
+                prefix += $",{columnNames[i]}";
+            prefix += ") = ";
 
+            string function = "(";
             bool firstconj = true;
             for (int i = 0; i < rows; i++)
             {
@@ -75,7 +76,15 @@ namespace LogicCircuits.Forms
             }
             function += ")";
 
-            textBox.Text = function;
+            List<List<int>> minterms = new List<List<int>>();
+            for (int i = 0; i < rows; i++)
+                if (truthTable[i][cols - 1] == 1)
+                    minterms.Add(truthTable[i]);
+
+            if (minterms.Count == 0) textBox.Text = prefix + "0";
+            else if (minterms.Count == rows) textBox.Text = prefix + "1";
+            else
+                textBox.Text = prefix + function;
             textBox.Select(0, 0);
 
             return form;

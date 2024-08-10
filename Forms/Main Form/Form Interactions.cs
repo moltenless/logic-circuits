@@ -134,6 +134,19 @@ namespace LogicCircuits
                     MessageBox.Show("Скласти ДКНФ неможливо, бо схема неповна.", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+            if (tag == 6)
+            {
+                Minimization.MinimizeQuineMcCluskey(null);
+                UpdateStatus();
+                if (ready)
+                {
+                    Minimization.MinimizeQuineMcCluskey(registry);
+                }
+                else
+                {
+                    MessageBox.Show("Скласти ДКНФ неможливо, бо схема неповна.", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
             if (tag == 7)
             {
                 DialogResult res = MessageBox.Show("Ви впевнені, що хочете видалити схему?", "Увага", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
@@ -174,6 +187,16 @@ namespace LogicCircuits
             if (pictureBoxFormula.Image != null) pictureBoxFormula.Image = null;
             if (pictureBoxDiagram != null) pictureBoxDiagram.Image = null;
             if (pictureBoxGateTable != null) pictureBoxGateTable.Image = null;
+        }
+
+        private void UpperMenuButtonsMouseEnter(object sender, EventArgs e)
+        {
+            (sender as Control).Parent.BackColor = Color.LightGray;
+        }
+
+        private void UpperMenuButtonsMouseLeave(object sender, EventArgs e)
+        {
+            (sender as Control).Parent.BackColor = SystemColors.Control;
         }
     }
 }
