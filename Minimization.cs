@@ -108,6 +108,17 @@ namespace LogicCircuits
                         primeImplicants.Add(currentImplicants[k]);
                 }
 
+                for (int k = 0; k < coveringNextImplicants.Count - 1; k++)
+                {
+                    for (int g = k + 1; g < coveringNextImplicants.Count; g++)
+                    {
+                        if (Equals(coveringNextImplicants[k], coveringNextImplicants[g]))
+                            coveringNextImplicants.RemoveAt(g);
+                    }
+                }
+
+
+
                 string result = "";
 
                 for (int i = 0; i < currentImplicants.Count; i++)
@@ -132,6 +143,11 @@ namespace LogicCircuits
                 }
                 System.Windows.Forms.MessageBox.Show(result);
 
+
+
+
+
+
                 currentImplicants = coveringNextImplicants;
             }
 
@@ -151,6 +167,13 @@ namespace LogicCircuits
                 if (implicant[i] == 1 && targetTerm[i] != 1)
                     return false;
             }
+            return true;
+        }
+
+        public static bool Equals(List<int> term1, List<int> term2)
+        {
+            for (int i = 0; i < term1.Count; i++)
+                if (term1[i] != term2[i]) return false;
             return true;
         }
     }
