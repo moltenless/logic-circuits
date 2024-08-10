@@ -18,12 +18,12 @@ namespace LogicCircuits
 
             List<List<int>> truthTable = new List<List<int>>
             {
-                new List<int> { 0, 0, 0, 0 },
+                new List<int> { 0, 0, 0, 1 },
                 new List<int> { 0, 0, 1, 1 },
                 new List<int> { 0, 1, 0, 1 },
                 new List<int> { 0, 1, 1, 0 },
                 new List<int> { 1, 0, 0, 1 },
-                new List<int> { 1, 0, 1, 0 },
+                new List<int> { 1, 0, 1, 1 },
                 new List<int> { 1, 1, 0, 0 },
                 new List<int> { 1, 1, 1, 1 }
             };
@@ -56,90 +56,99 @@ namespace LogicCircuits
             }
 
             List<List<int>> primeImplicants = new List<List<int>>();
-
             int termsLength = currentImplicants[0].Count;
-            List<List<int>> coveringNextImplicants = new List<List<int>>();
-            for (int k = 0; k < currentImplicants.Count - 1; k++)
-            {
-                int[] compared = currentImplicants[k].ToArray();
-                for (int g = k + 1; g < currentImplicants.Count; g++)
-                {
-                    int[] comparing = currentImplicants[g].ToArray();
-                    int differentValuesCounter = 0;
-                    bool dontCaresMisplaced = false;
-                    for (int h = 0; h < termsLength; h++)
-                    {
-                        if (compared[h] == 0 && comparing[h] == 1 || compared[h] == 1 && comparing[h] == 0)
-                            differentValuesCounter++;
-                        if (compared[h] == -1 && comparing[h] != -1 || compared[h] != -1 && comparing[h] == -1)
-                            dontCaresMisplaced = true;
-                    }
-                    if (dontCaresMisplaced)
-                        continue;
 
-                    if (differentValuesCounter == 1)
+            for (int j = 0; j < 5; j++)
+            {
+                List<List<int>> coveringNextImplicants = new List<List<int>>();
+
+                for (int k = 0; k < currentImplicants.Count - 1; k++)
+                {
+                    int[] compared = currentImplicants[k].ToArray();
+                    for (int g = k + 1; g < currentImplicants.Count; g++)
                     {
-                        coveringNextImplicants.Add(new List<int>());
+                        int[] comparing = currentImplicants[g].ToArray();
+                        int differentValuesCounter = 0;
+                        bool dontCaresMisplaced = false;
                         for (int h = 0; h < termsLength; h++)
-                            if (compared[h] == comparing[h])
-                                coveringNextImplicants[coveringNextImplicants.Count - 1].Add(compared[h]);
-                            else
-                                coveringNextImplicants[coveringNextImplicants.Count - 1].Add(-1);
+                        {
+                            if (compared[h] == 0 && comparing[h] == 1 || compared[h] == 1 && comparing[h] == 0)
+                                differentValuesCounter++;
+                            if (compared[h] == -1 && comparing[h] != -1 || compared[h] != -1 && comparing[h] == -1)
+                                dontCaresMisplaced = true;
+                        }
+                        if (dontCaresMisplaced)
+                            continue;
+
+                        if (differentValuesCounter == 1)
+                        {
+                            coveringNextImplicants.Add(new List<int>());
+                            for (int h = 0; h < termsLength; h++)
+                                if (compared[h] == comparing[h])
+                                    coveringNextImplicants[coveringNextImplicants.Count - 1].Add(compared[h]);
+                                else
+                                    coveringNextImplicants[coveringNextImplicants.Count - 1].Add(-1);
+                        }
                     }
                 }
-            }
 
-            for (int k = 0; k < currentImplicants.Count; k++)
-            {
-                bool prime = true;
-                for (int g = 0; g < coveringNextImplicants.Count; g++)
+                for (int k = 0; k < currentImplicants.Count; k++)
                 {
-                    if (Covers(coveringNextImplicants[g], currentImplicants[k]))
+                    bool prime = true;
+                    for (int g = 0; g < coveringNextImplicants.Count; g++)
                     {
-                        prime = false;
-                        break;
+                        if (Covers(coveringNextImplicants[g], currentImplicants[k]))
+                        {
+                            prime = false;
+                            break;
+                        }
                     }
+
+                    if (prime)
+                        primeImplicants.Add(currentImplicants[k]);
                 }
 
-                if (prime) 
-                    primeImplicants.Add(currentImplicants[k]);
-            }
+                string result = "";
 
-
-            string result = "";
-
-            for (int i = 0; i < currentImplicants.Count; i++)
-            {
-                for (int j = 0; j < currentImplicants[i].Count; j++)
-                    result += currentImplicants[i][j] + "\t";
+                for (int i = 0; i < currentImplicants.Count; i++)
+                {
+                    for (int e = 0; e < currentImplicants[i].Count; e++)
+                        result += currentImplicants[i][e] + "\t";
+                    result += "\n";
+                }
                 result += "\n";
-            }
-            result += "\n";
-            for (int i = 0; i < coveringNextImplicants.Count; i++)
-            {
-                for (int j = 0; j < coveringNextImplicants[i].Count; j++)
-                    result += coveringNextImplicants[i][j] + "\t";
+                for (int i = 0; i < coveringNextImplicants.Count; i++)
+                {
+                    for (int e = 0; e < coveringNextImplicants[i].Count; e++)
+                        result += coveringNextImplicants[i][e] + "\t";
+                    result += "\n";
+                }
                 result += "\n";
-            }
-            result += "\n";
-            for (int i= 0; i < primeImplicants.Count; i++)
-            {
-                for (int j = 0; j < primeImplicants[i].Count; j++)
-                    result += primeImplicants[i][j] + "\t";
-                result += "\n";
-            }
-            System.Windows.Forms.MessageBox.Show(result);
+                for (int i = 0; i < primeImplicants.Count; i++)
+                {
+                    for (int e = 0; e < primeImplicants[i].Count; e++)
+                        result += primeImplicants[i][e] + "\t";
+                    result += "\n";
+                }
+                System.Windows.Forms.MessageBox.Show(result);
 
-            return result;
+                currentImplicants = coveringNextImplicants;
+            }
+
+
+
+            string result1 = "";
+
+            return result1;
         }
 
         public static bool Covers(List<int> implicant, List<int> targetTerm)
         {
             for (int i = 0; i < implicant.Count; i++)
             {
-                if (implicant[i] == -1 || targetTerm[i] == -1)
-                    continue;
-                if (implicant[i] != targetTerm[i])
+                if (implicant[i] == 0 && targetTerm[i] != 0)
+                    return false;
+                if (implicant[i] == 1 && targetTerm[i] != 1)
                     return false;
             }
             return true;
