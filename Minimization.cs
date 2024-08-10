@@ -19,13 +19,13 @@ namespace LogicCircuits
             List<List<int>> truthTable = new List<List<int>>
             {
                 new List<int> { 0, 0, 0, 1 },
-                new List<int> { 0, 0, 1, 0 },
+                new List<int> { 0, 0, 1, 1 },
                 new List<int> { 0, 1, 0, 1 },
-                new List<int> { 0, 1, 1, 0 },
+                new List<int> { 0, 1, 1, 1 },
                 new List<int> { 1, 0, 0, 1 },
-                new List<int> { 1, 0, 1, 0 },
+                new List<int> { 1, 0, 1, 1 },
                 new List<int> { 1, 1, 0, 0 },
-                new List<int> { 1, 1, 1, 1 }
+                new List<int> { 1, 1, 1, 0 }
             };
             List<string> columnNames = new List<string>
             {
@@ -47,23 +47,24 @@ namespace LogicCircuits
             if (minterms.Count == 0) return prefix + "0";
             if (minterms.Count == rows) return prefix = "1";
 
-            List<List<int>> implicants = new List<List<int>>();
+            List<List<int>> currentImplicants = new List<List<int>>();
             for (int i = 0; i < minterms.Count; i++)
             {
-                implicants.Add(new List<int>());
+                currentImplicants.Add(new List<int>());
                 for (int j = 0; j < minterms[i].Count - 1; j++)
-                    implicants[implicants.Count - 1].Add(minterms[i][j]);
+                    currentImplicants[currentImplicants.Count - 1].Add(minterms[i][j]);
             }
 
-            int termsLength = implicants[0].Count;
-            List<List<int>> coveredImplicants = new List<List<int>>();
-            for (int k = 0; k < implicants.Count; k++)
+            List<List<int>> primeImplicants = new List<List<int>>();
+
+            int termsLength = currentImplicants[0].Count;
+            List<List<int>> coveredNextImplicants = new List<List<int>>();
+            for (int k = 0; k < currentImplicants.Count - 1; k++)
             {
-                int[] compared = implicants[k].ToArray();
-                for (int g = 0; g < implicants.Count; g++)
+                int[] compared = currentImplicants[k].ToArray();
+                for (int g = k + 1; g < currentImplicants.Count; g++)
                 {
-                    if (g == k) continue;
-                    int[] comparing = implicants[g].ToArray();
+                    int[] comparing = currentImplicants[g].ToArray();
                     int differentValuesCounter = 0;
                     bool dontCaresMisplaced = false;
                     for (int h = 0; h < termsLength; h++)
@@ -78,35 +79,39 @@ namespace LogicCircuits
 
                     if (differentValuesCounter == 1)
                     {
-                        coveredImplicants.Add(new List<int>());
+                        coveredNextImplicants.Add(new List<int>());
                         for (int h = 0; h < termsLength; h++)
                             if (compared[h] == comparing[h])
-                                coveredImplicants[coveredImplicants.Count - 1].Add(compared[h]);
+                                coveredNextImplicants[coveredNextImplicants.Count - 1].Add(compared[h]);
                             else
-                                coveredImplicants[coveredImplicants.Count - 1].Add(-1);
+                                coveredNextImplicants[coveredNextImplicants.Count - 1].Add(-1);
                     }
                 }
             }
 
 
+
+
             string result = "";
 
-            for (int i = 0; i < implicants.Count; i++)
+            for (int i = 0; i < currentImplicants.Count; i++)
             {
-                for (int j = 0; j < implicants[i].Count; j++)
-                    result += implicants[i][j] + "\t";
+                for (int j = 0; j < currentImplicants[i].Count; j++)
+                    result += currentImplicants[i][j] + "\t";
                 result += "\n";
             }
             result += "\n";
-            for (int i = 0; i < coveredImplicants.Count; i++)
+            for (int i = 0; i < coveredNextImplicants.Count; i++)
             {
-                for (int j = 0; j < coveredImplicants[i].Count; j++)
-                    result += coveredImplicants[i][j] + "\t";
+                for (int j = 0; j < coveredNextImplicants[i].Count; j++)
+                    result += coveredNextImplicants[i][j] + "\t";
                 result += "\n";
             }
             System.Windows.Forms.MessageBox.Show(result);
 
             return result;
         }
+
+
     }
 }
