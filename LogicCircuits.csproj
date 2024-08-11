@@ -101,6 +101,7 @@
     <Compile Include="Forms\Main Form\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\MinimizationForm.cs" />
     <Compile Include="Forms\TruthTableForm.cs" />
     <Compile Include="Minimization.cs" />
     <Compile Include="Program.cs" />

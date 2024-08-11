@@ -25,7 +25,7 @@ namespace LogicCircuits.Forms
                 Font = new Font(FontFamily.GenericSansSerif, 14, FontStyle.Bold),
                 Tag = (truthTable, columnNames),
                 Width = 750,
-                Height = 151,
+                Height = 400,
                 FormBorderStyle = FormBorderStyle.FixedSingle,
                 MaximizeBox = false,
                 AutoScroll = true,
@@ -41,6 +41,15 @@ namespace LogicCircuits.Forms
             };
             form.Controls.Add(textBox);
 
+            string dnf = GetDNF(truthTable, columnNames, cols, rows);
+                textBox.Text = dnf;
+            textBox.Select(0, 0);
+
+            return form;
+        }
+
+        public static string GetDNF(List<List<int>> truthTable, List<string> columnNames, int cols, int rows)
+        {
             string prefix = $"{columnNames[cols - 1]}({columnNames[0]}";
             for (int i = 1; i < cols - 1; i++)
                 prefix += $",{columnNames[i]}";
@@ -53,25 +62,26 @@ namespace LogicCircuits.Forms
                 if (truthTable[i][cols - 1] == 1)
                 {
                     if (!firstconj)
-                        function += " ˅ ";
+                        function += " ˅   ";
 
                     bool firstparam = true;
                     for (int j = 0; j < cols - 1; j++)
                     {
                         if (truthTable[i][j] == 1)
                         {
-                            if (!firstparam) function += "˄";
+                            if (!firstparam) function += " ˄ ";
                             function += columnNames[j];
                             firstparam = false;
                         }
                         else
                         {
-                            if (!firstparam) function += "˄";
+                            if (!firstparam) function += " ˄ ";
                             function += $"¬{columnNames[j]}";
                             firstparam = false;
                         }
                     }
                     firstconj = false;
+                    function += "\r\n";
                 }
             }
 
@@ -80,13 +90,10 @@ namespace LogicCircuits.Forms
                 if (truthTable[i][cols - 1] == 0)
                     maxterms.Add(truthTable[i]);
 
-            if (maxterms.Count == 0) textBox.Text = prefix + "1";
-            else if (maxterms.Count == rows) textBox.Text = prefix + "0";
+            if (maxterms.Count == 0) return prefix + "1";
+            else if (maxterms.Count == rows) return prefix + "0";
             else
-                textBox.Text = prefix + function;
-            textBox.Select(0, 0);
-
-            return form;
+                return prefix + function;
         }
     }
 }

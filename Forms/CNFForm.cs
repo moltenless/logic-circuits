@@ -25,7 +25,7 @@ namespace LogicCircuits.Forms
                 Font = new Font(FontFamily.GenericSansSerif, 14, FontStyle.Bold),
                 Tag = (truthTable, columnNames),
                 Width = 750,
-                Height = 151,
+                Height = 400,
                 FormBorderStyle = FormBorderStyle.FixedSingle,
                 MaximizeBox = false,
                 AutoScroll = true,
@@ -53,20 +53,20 @@ namespace LogicCircuits.Forms
                 if (truthTable[i][cols - 1] == 0)
                 {
                     if (!firstconj)
-                        function += ") ˄ (";
+                        function += ") \r\n˄  (";
 
                     bool firstparam = true;
                     for (int j = 0; j < cols - 1; j++)
                     {
                         if (truthTable[i][j] == 1)
                         {
-                            if (!firstparam) function += "˅";
+                            if (!firstparam) function += " ˅ ";
                             function += $"¬{columnNames[j]}";
                             firstparam = false;
                         }
                         else
                         {
-                            if (!firstparam) function += "˅";
+                            if (!firstparam) function += " ˅ ";
                             function += columnNames[j];
                             firstparam = false;
                         }

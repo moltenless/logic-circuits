@@ -136,11 +136,11 @@ namespace LogicCircuits
             }
             if (tag == 6)
             {
-                Minimization.MinimizeQuineMcCluskey(null);
                 UpdateStatus();
                 if (ready)
                 {
-                    Minimization.MinimizeQuineMcCluskey(registry);
+                    Form minimizationForm = FormsBuilder.GetMinimizationForm(registry);
+                    minimizationForm.ShowDialog();
                 }
                 else
                 {
