@@ -1,9 +1,5 @@
 ﻿using LogicCircuits.Elements;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using LogicCircuits.Forms;
 
 namespace LogicCircuits
@@ -42,6 +38,11 @@ namespace LogicCircuits
 
             while (currentImplicants.Count > 0)
             {
+                for (int k = 0; k < currentImplicants.Count - 1; k++)
+                    for (int g = k + 1; g < currentImplicants.Count; g++)
+                        if (Equals(currentImplicants[k], currentImplicants[g]))
+                            currentImplicants.RemoveAt(g);
+
                 List<List<int>> coveringNextImplicants = new List<List<int>>();
 
                 for (int k = 0; k < currentImplicants.Count - 1; k++)
