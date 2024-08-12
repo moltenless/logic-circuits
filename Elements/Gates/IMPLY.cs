@@ -8,17 +8,23 @@ using System.Windows.Forms;
 
 namespace LogicCircuits.Elements.Gates
 {
+    [Serializable]
     internal class IMPLY : IGate
     {
         public Point Location { get; set; }
-        public Image Diagram { get; } = Properties.Resources.imply;
 
 
         public List<IOutputContainingElement> Inputs { get; set; } = new List<IOutputContainingElement>();
         public InputsMultiplicity InputsMultiplicity { get; } = InputsMultiplicity.Double;
         public IInputContainingElement Output { get; set; }
 
-        public List<Control> Controls { get; set; } = new List<Control>();
+        [NonSerialized]
+        private List<Control> controls;
+        public List<Control> Controls { get => controls; set => controls = value; }
+        public IMPLY()
+        {
+            controls = new List<Control>();
+        }
 
         public bool Connect(IInputContainingElement elementToConnectWith)
         {

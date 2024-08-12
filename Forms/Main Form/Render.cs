@@ -28,9 +28,9 @@ namespace LogicCircuits
             for (int i = 0; i < draft.Count; i++)
             {
                 if (draft[i] is IGate)
-                    g.DrawImage(draft[i].Diagram, draft[i].Location.X - gateWidth / 2, draft[i].Location.Y - gateHeight / 2, gateWidth, gateHeight);
+                    g.DrawImage(DiagramImages.GetDiagram(draft[i]), draft[i].Location.X - gateWidth / 2, draft[i].Location.Y - gateHeight / 2, gateWidth, gateHeight);
                 else
-                    g.DrawImage(draft[i].Diagram, draft[i].Location.X - signalWidth / 2, draft[i].Location.Y - signalHeight / 2, signalWidth, signalHeight);
+                    g.DrawImage(DiagramImages.GetDiagram(draft[i]), draft[i].Location.X - signalWidth / 2, draft[i].Location.Y - signalHeight / 2, signalWidth, signalHeight);
 
                 if (draft[i] is Input input && !input.IsSlave)
                     g.DrawString(input.Name, new Font(FontFamily.GenericSansSerif, 15, FontStyle.Italic, GraphicsUnit.Pixel),
@@ -81,9 +81,9 @@ namespace LogicCircuits
             for (int i = 0; i < draft.Count; i++)
             {
                 if (draft[i] is IGate)
-                    g.DrawImage(draft[i].Diagram, draft[i].Location.X - gateWidth / 2, draft[i].Location.Y - gateHeight / 2, gateWidth, gateHeight);
+                    g.DrawImage(DiagramImages.GetDiagram(draft[i]), draft[i].Location.X - gateWidth / 2, draft[i].Location.Y - gateHeight / 2, gateWidth, gateHeight);
                 else
-                    g.DrawImage(draft[i].Diagram, draft[i].Location.X - signalWidth / 2, draft[i].Location.Y - signalHeight / 2, signalWidth, signalHeight);
+                    g.DrawImage(DiagramImages.GetDiagram(draft[i]), draft[i].Location.X - signalWidth / 2, draft[i].Location.Y - signalHeight / 2, signalWidth, signalHeight);
 
                 if (draft[i] is Input input && !input.IsSlave)
                     g.DrawString(input.Name, new Font(FontFamily.GenericSansSerif, 15, FontStyle.Italic, GraphicsUnit.Pixel),
@@ -127,9 +127,9 @@ namespace LogicCircuits
             for (int i = 0; i < draft.Count; i++)
             {
                 if (draft[i] is IGate)
-                    g.DrawImage(draft[i].Diagram, draft[i].Location.X - gateWidth / 2, draft[i].Location.Y - gateHeight / 2, gateWidth, gateHeight);
+                    g.DrawImage(DiagramImages.GetDiagram(draft[i]), draft[i].Location.X - gateWidth / 2, draft[i].Location.Y - gateHeight / 2, gateWidth, gateHeight);
                 else
-                    g.DrawImage(draft[i].Diagram, draft[i].Location.X - signalWidth / 2, draft[i].Location.Y - signalHeight / 2, signalWidth, signalHeight);
+                    g.DrawImage(DiagramImages.GetDiagram(draft[i]), draft[i].Location.X - signalWidth / 2, draft[i].Location.Y - signalHeight / 2, signalWidth, signalHeight);
 
                 if (draft[i] is Input input && !input.IsSlave)
                     g.DrawString(input.Name, new Font(FontFamily.GenericSansSerif, 15, FontStyle.Italic, GraphicsUnit.Pixel),
@@ -167,7 +167,7 @@ namespace LogicCircuits
             int gateWidth = 70, gateHeight = 40;//coef 0.575
             int signalWidth = 30, signalHeight = 30;
 
-            g.DrawImage(additional.Diagram, additional.Location.X - signalWidth / 2, additional.Location.Y - signalHeight / 2, signalWidth, signalHeight);
+            g.DrawImage(DiagramImages.GetDiagram(additional), additional.Location.X - signalWidth / 2, additional.Location.Y - signalHeight / 2, signalWidth, signalHeight);
             AddRemoveButton(additional, gateWidth, gateHeight, signalWidth, signalHeight);
             AddConnectionButton(additional, gateWidth, gateHeight, signalWidth, signalHeight);
         }
@@ -252,9 +252,9 @@ namespace LogicCircuits
             int signalWidth = 30, signalHeight = 30;
 
             if (element is IGate)
-                g.DrawImage(element.Diagram, element.Location.X - gateWidth / 2, element.Location.Y - gateHeight / 2, gateWidth, gateHeight);
+                g.DrawImage(DiagramImages.GetDiagram(element), element.Location.X - gateWidth / 2, element.Location.Y - gateHeight / 2, gateWidth, gateHeight);
             else
-                g.DrawImage(element.Diagram, element.Location.X - signalWidth / 2, element.Location.Y - signalHeight / 2, signalWidth, signalHeight);
+                g.DrawImage(DiagramImages.GetDiagram(element), element.Location.X - signalWidth / 2, element.Location.Y - signalHeight / 2, signalWidth, signalHeight);
 
             if (element is Input input)
                 g.DrawString(input.Name, new Font(FontFamily.GenericSansSerif, 15, FontStyle.Italic, GraphicsUnit.Pixel),

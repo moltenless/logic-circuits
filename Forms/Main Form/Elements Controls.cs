@@ -270,7 +270,6 @@ namespace LogicCircuits
                 additional.NumberAsAdditional = super.AdditionalOutputs.Count + 1;
 
                 additional.Location = new Point(super.Location.X, super.Location.Y + 33 * additional.NumberAsAdditional);
-                additional.Diagram = Properties.Resources.additional_input;
                 additional.Value = super.Value;
 
                 super.IsSupervisor = true;

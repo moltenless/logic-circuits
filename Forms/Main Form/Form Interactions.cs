@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace LogicCircuits
 {
@@ -91,18 +92,34 @@ namespace LogicCircuits
             }
         }
 
+        public static bool openedNewCircuit = false;
         private void MenuClick(object sender, EventArgs e)
         {
             int tag = int.Parse((sender as Control).Tag.ToString());
-            
+
             if (tag == 1)
             {
                 Form openForm = FormsBuilder.GetOpenForm();
                 openForm.ShowDialog();
+                if (openedNewCircuit)
+                {
+                    UpdateStatus();
+                    RenderCompletely();
+                    openedNewCircuit = false;
+
+                    bool hasOutput = false;
+                    foreach (var element in draft)
+                        if (element is Output)
+                            hasOutput = true;
+                    if (hasOutput)
+                        panelParams.Controls[0].Enabled = false;
+                    else
+                        panelParams.Controls[0].Enabled = true;
+                }
             }
             if (tag == 2)
             {
-                Form saveForm = FormsBuilder.GetSaveForm();
+                Form saveForm = FormsBuilder.GetSaveForm(draft);
                 saveForm.ShowDialog();
             }
             if (tag == 3)
@@ -116,7 +133,7 @@ namespace LogicCircuits
                 else
                     MessageBox.Show("Скласти таблицю істинності неможливо, бо схема неповна.", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-             if (tag == 4)
+            if (tag == 4)
             {
                 UpdateStatus();
                 if (ready)

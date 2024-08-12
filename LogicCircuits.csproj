@@ -67,6 +67,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Elements\DiagramImages.cs" />
     <Compile Include="Elements\GateInfo.cs" />
     <Compile Include="Elements\Gates\AND.cs" />
     <Compile Include="Elements\Gates\Buffer.cs" />
@@ -111,6 +112,7 @@
     <Compile Include="Forms\Main Form\Render.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Serialization.cs" />
     <EmbeddedResource Include="Forms\Main Form\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>

@@ -1,7 +1,9 @@
-﻿using System;
+﻿using LogicCircuits.Elements;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -10,7 +12,7 @@ namespace LogicCircuits.Forms
 {
     public static partial class FormsBuilder
     {
-        public static Form GetSaveForm()
+        public static Form GetSaveForm(List<IElement> circuit)
         {
             Form form = new Form
             {
@@ -42,8 +44,9 @@ namespace LogicCircuits.Forms
                 Text = "Зберегти",
             };
 
-            button.Click+= (s, e) => { 
-            
+            button.Click+= (s, e) => {
+                Serialization.SerializeCircuit(textBox.Text, DateTime.Now, circuit);
+                form.Close();
             };
 
             form.Controls.Add(button);

@@ -8,10 +8,10 @@ using System.Windows.Forms;
 
 namespace LogicCircuits.Elements
 {
+    [Serializable]
     public class Input : IOutputContainingElement
     {
         public Point Location { get; set; }
-        public Image Diagram { get; set; } = Properties.Resources._in;
         public string Name { get; set; } = null;
         public IInputContainingElement Output { get; set; } = null;
         public int Value { get; set; } = 0;
@@ -22,11 +22,14 @@ namespace LogicCircuits.Elements
         public Input Supervisor { get; set; } = null;
         public int NumberAsAdditional { get; set; }
 
-        public List<Control> Controls { get; set; } = new List<Control>();
+        [NonSerialized]
+        private List<Control> controls;
+        public List<Control> Controls { get => controls; set => controls = value; }
 
 
         public Input(string name)
         {
+            controls = new List<Control>();
             Name = name;
         }
 

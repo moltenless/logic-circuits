@@ -8,18 +8,21 @@ using System.Windows.Forms;
 
 namespace LogicCircuits.Elements
 {
+    [Serializable]
     public class Output : IInputContainingElement
     {
         public Point Location { get; set; }
-        public Image Diagram { get; } = Properties.Resources._out;
         public string Name { get; } = null;
         public List<IOutputContainingElement> Inputs { get; set; } = new List<IOutputContainingElement>();
         public InputsMultiplicity InputsMultiplicity => InputsMultiplicity.Single;
 
-        public List<Control> Controls { get; set; } = new List<Control>();
+        [NonSerialized]
+        private List<Control> controls;
+        public List<Control> Controls { get => controls; set => controls = value; }
 
         public Output(string name)
         {
+            controls = new List<Control>();
             Name = name;
         }
 

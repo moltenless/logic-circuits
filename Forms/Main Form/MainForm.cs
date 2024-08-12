@@ -12,14 +12,13 @@ namespace LogicCircuits
     public partial class MainForm : Form
     {
         private GateInfo[] gateInfos;
-        private List<IElement> draft;
+        public static List<IElement> draft = new List<IElement>();
 
         public MainForm()
         {
             InitializeComponent();
             gateInfos = new GateInfo[9] { Elements.Gates.Buffer.GetInfo(), NOT.GetInfo(), AND.GetInfo(),
                 OR.GetInfo(), NAND.GetInfo(), NOR.GetInfo(), XOR.GetInfo(), XNOR.GetInfo(), IMPLY.GetInfo()};
-            draft = new List<IElement>();
         }
 
         private void MainForm_Load(object sender, EventArgs e)

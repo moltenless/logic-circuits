@@ -8,16 +8,22 @@ using System.Windows.Forms;
 
 namespace LogicCircuits.Elements.Gates
 {
+    [Serializable]
     internal class Buffer : IGate
     {
         public Point Location { get; set; }
-        public Image Diagram { get; } = Properties.Resources.buffer;
 
         public List<IOutputContainingElement> Inputs { get; set; } = new List<IOutputContainingElement>();
         public InputsMultiplicity InputsMultiplicity { get; } = InputsMultiplicity.Single;
         public IInputContainingElement Output { get; set; } = null;
 
-        public List<Control> Controls { get; set; } = new List<Control>();
+        [NonSerialized]
+        private List<Control> controls;
+        public List<Control> Controls { get => controls; set => controls = value; }
+        public Buffer()
+        {
+            controls = new List<Control>();
+        }
 
         public bool Connect(IInputContainingElement elementToConnectWith)
         {
