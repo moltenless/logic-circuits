@@ -61,7 +61,14 @@ namespace LogicCircuits.Forms
                     Text = db[i].Item1,
                     BackColor = SystemColors.ControlLight,
                 };
+
+                button.Click += (s, e) =>
+                {
+
+                };
+
                 panel.Controls.Add(button);
+
 
                 Button delete = new Button
                 {
@@ -72,6 +79,12 @@ namespace LogicCircuits.Forms
                     BackgroundImageLayout = ImageLayout.Zoom,
                     BackColor = SystemColors.ControlLight,
                 };
+
+                delete.Click += (s, e) =>
+                {
+
+                };
+
                 panel.Controls.Add(delete);
             }
 

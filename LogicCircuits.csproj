@@ -103,6 +103,7 @@
     </Compile>
     <Compile Include="Forms\MinimizationForm.cs" />
     <Compile Include="Forms\OpenForm.cs" />
+    <Compile Include="Forms\SaveForm.cs" />
     <Compile Include="Forms\TruthTableForm.cs" />
     <Compile Include="Minimization.cs" />
     <Compile Include="Program.cs" />

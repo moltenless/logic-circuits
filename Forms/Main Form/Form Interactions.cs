@@ -102,7 +102,8 @@ namespace LogicCircuits
             }
             if (tag == 2)
             {
-
+                Form saveForm = FormsBuilder.GetSaveForm();
+                saveForm.ShowDialog();
             }
             if (tag == 3)
             {
