@@ -95,6 +95,15 @@ namespace LogicCircuits
         {
             int tag = int.Parse((sender as Control).Tag.ToString());
             
+            if (tag == 1)
+            {
+                Form openForm = FormsBuilder.GetOpenForm();
+                openForm.ShowDialog();
+            }
+            if (tag == 2)
+            {
+
+            }
             if (tag == 3)
             {
                 UpdateStatus();
@@ -104,9 +113,7 @@ namespace LogicCircuits
                     truthTableForm.ShowDialog();
                 }
                 else
-                {
                     MessageBox.Show("Скласти таблицю істинності неможливо, бо схема неповна.", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
             }
              if (tag == 4)
             {
@@ -117,9 +124,7 @@ namespace LogicCircuits
                     dnfForm.ShowDialog();
                 }
                 else
-                {
                     MessageBox.Show("Скласти ДДНФ неможливо, бо схема неповна.", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
             }
             if (tag == 5)
             {
@@ -130,9 +135,7 @@ namespace LogicCircuits
                     cnfForm.ShowDialog();
                 }
                 else
-                {
                     MessageBox.Show("Скласти ДКНФ неможливо, бо схема неповна.", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
             }
             if (tag == 6)
             {
@@ -143,9 +146,7 @@ namespace LogicCircuits
                     minimizationForm.ShowDialog();
                 }
                 else
-                {
-                    MessageBox.Show("Скласти ДКНФ неможливо, бо схема неповна.", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                    MessageBox.Show("Мінімізувати функцію неможливо, бо схема неповна.", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             if (tag == 7)
             {
