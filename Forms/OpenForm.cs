@@ -30,16 +30,20 @@ namespace LogicCircuits.Forms
                 Padding = new Padding(30, 10, 30, 10)
             };
 
-            bool empty = !Directory.Exists("Circuits");
+            bool empty = false;
 
             IEnumerable<string> circuits = null;
-            if (!empty)
+            try
             {
                 circuits = from f in Directory.GetFiles("Circuits")
                            where Path.GetExtension(f) == ".dat"
                            select f;
                 if (circuits == null || circuits.Count() == 0)
                     empty = true;
+            }
+            catch
+            {
+                empty = true;
             }
 
             if (!empty)

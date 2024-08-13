@@ -15,8 +15,7 @@ namespace LogicCircuits
         {
             BinaryFormatter bf = new BinaryFormatter();
 
-            if (!Directory.Exists("Circuits"))
-                Directory.CreateDirectory("Circuits");
+            Directory.CreateDirectory("Circuits");
 
             using (FileStream stream = new FileStream("Circuits\\" + name + ".dat", FileMode.Create))
             {
