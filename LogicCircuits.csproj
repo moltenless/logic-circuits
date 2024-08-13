@@ -121,6 +121,11 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="bin\Debug\Circuits\велика схема 3.dat" />
+    <None Include="bin\Debug\Circuits\новаСхема1.dat" />
+    <None Include="bin\Debug\Circuits\новаСхема2.dat" />
+    <None Include="bin\Debug\Circuits\схема 5.dat" />
+    <None Include="bin\Debug\Circuits\схема з багатьма мінтермами.dat" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -337,6 +342,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\erase.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Debug\LogicCircuits.exe" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
