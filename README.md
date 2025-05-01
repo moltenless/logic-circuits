@@ -137,3 +137,4 @@ Input nodes and output nodes are implemented as separate classes that provide or
 > - [Conjunctive Normal Form – Wikipedia](https://en.wikipedia.org/wiki/Conjunctive_normal_form)
 > - [Quine–McCluskey Algorithm – Wikipedia](https://en.wikipedia.org/wiki/Quine%E2%80%93McCluskey_algorithm)
 
+---
