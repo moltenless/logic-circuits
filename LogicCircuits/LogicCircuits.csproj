@@ -78,16 +78,16 @@
     <Compile Include="Elements\Gates\OR.cs" />
     <Compile Include="Elements\Gates\XNOR.cs" />
     <Compile Include="Elements\Gates\XOR.cs" />
-    <Compile Include="Elements\IElement.cs" />
-    <Compile Include="Elements\IGate.cs" />
-    <Compile Include="Elements\IInputContainingElement.cs" />
+    <Compile Include="Elements\Interfaces\IElement.cs" />
+    <Compile Include="Elements\Interfaces\IGate.cs" />
+    <Compile Include="Elements\Interfaces\IInputContainingElement.cs" />
     <Compile Include="Elements\Signals\Input.cs" />
     <Compile Include="Elements\InputMultiplicity.cs" />
-    <Compile Include="Elements\IOutputContainingElement.cs" />
+    <Compile Include="Elements\Interfaces\IOutputContainingElement.cs" />
     <Compile Include="Elements\Signals\Output.cs" />
     <Compile Include="Forms\CNFForm.cs" />
     <Compile Include="Forms\DNFForm.cs" />
-    <Compile Include="Forms\Main Form\Circuit Status.cs">
+    <Compile Include="Render\Circuit Status.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Main Form\Elements Controls.cs">
@@ -106,13 +106,13 @@
     <Compile Include="Forms\OpenForm.cs" />
     <Compile Include="Forms\SaveForm.cs" />
     <Compile Include="Forms\TruthTableForm.cs" />
-    <Compile Include="Minimization.cs" />
+    <Compile Include="Minimization\Minimization.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Forms\Main Form\Render.cs">
+    <Compile Include="Render\Render.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Serialization.cs" />
+    <Compile Include="Serialization\Serialization.cs" />
     <EmbeddedResource Include="Forms\Main Form\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -121,9 +121,12 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="bin\Debug\Circuits\2-біт. компаратор.dat" />
+    <None Include="bin\Debug\Circuits\3-біт. компаратор.dat" />
     <None Include="bin\Debug\Circuits\велика схема 3.dat" />
     <None Include="bin\Debug\Circuits\новаСхема1.dat" />
     <None Include="bin\Debug\Circuits\новаСхема2.dat" />
+    <None Include="bin\Debug\Circuits\проста мінімізація.dat" />
     <None Include="bin\Debug\Circuits\схема 5.dat" />
     <None Include="bin\Debug\Circuits\схема з багатьма мінтермами.dat" />
     <None Include="packages.config" />
