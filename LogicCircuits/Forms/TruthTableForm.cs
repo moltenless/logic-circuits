@@ -1,4 +1,5 @@
 ﻿using LogicCircuits.Elements;
+using LogicCircuits.Elements.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Drawing;

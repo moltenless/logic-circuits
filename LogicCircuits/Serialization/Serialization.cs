@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using LogicCircuits.Elements.Interfaces;
 using System.Runtime.Serialization.Formatters.Binary;
 using LogicCircuits.Elements;
 using System.IO;
 
-namespace LogicCircuits
+namespace LogicCircuits.Serialization
 {
     public static class Serialization
     {
