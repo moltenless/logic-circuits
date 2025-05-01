@@ -6,8 +6,10 @@ Users can drag-and-drop standard logic gates (AND, OR, XOR, NAND, etc.) onto a c
 
 Input and output nodes can be given custom labels, and as the user toggles input signals, the application propagates changes through the network in real time, dynamically updating every output. This instant feedback allows users to verify circuit behavior immediately.
 
-LogicCircuits then automatically generates the complete **truth table** for the assembled circuit, listing all combinations of input values and corresponding outputs. From this truth table, the application derives both the **Disjunctive Normal Form (DNF)** and **Conjunctive Normal Form (CNF)** of the Boolean function.  
-![image (1)](https://github.com/user-attachments/assets/2b98565d-abb3-443a-a304-4dde733ca54f)  
+LogicCircuits then automatically generates the complete **truth table** for the assembled circuit, listing all combinations of input values and corresponding outputs. From this truth table, the application derives both the **Disjunctive Normal Form (DNF)** and **Conjunctive Normal Form (CNF)** of the Boolean function.    
+  
+![image](https://github.com/user-attachments/assets/af6e8fb4-5662-4f29-9e9a-e4ede6810864)
+
 
 These are canonical forms:
 - **DNF** = OR of AND-clauses
