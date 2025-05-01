@@ -1,11 +1,10 @@
 ﻿using LogicCircuits.Elements;
 using System.Collections.Generic;
 using LogicCircuits.Forms;
-using LogicCircuits.Elements.Interfaces;
 
-namespace LogicCircuits.Minimization
+namespace LogicCircuits
 {
-    public static class Minimization
+    internal static class Minimization
     {
         public static string MinimizeQuineMcCluskey(List<(IElement, int outputResult)> registry)
         {
@@ -24,7 +23,7 @@ namespace LogicCircuits.Minimization
             prefix += ") = ";
 
             if (minterms.Count == 0) return prefix + "0";
-            if (minterms.Count == rows) return prefix + "1";
+            if (minterms.Count == rows) return prefix = "1";
 
             List<List<int>> currentImplicants = new List<List<int>>();
             for (int i = 0; i < minterms.Count; i++)

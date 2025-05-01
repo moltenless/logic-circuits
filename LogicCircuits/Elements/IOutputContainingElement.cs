@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LogicCircuits.Elements.Interfaces
+namespace LogicCircuits.Elements
 {
     public interface IOutputContainingElement : IElement
     {

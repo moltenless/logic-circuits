@@ -5,7 +5,6 @@ using System.Drawing;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
-using LogicCircuits.Elements.Interfaces;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -13,8 +12,6 @@ namespace LogicCircuits.Forms
 {
     public static partial class FormsBuilder
     {
-        private static object serialization;
-
         public static Form GetSaveForm(List<IElement> circuit)
         {
             Form form = new Form
@@ -48,7 +45,7 @@ namespace LogicCircuits.Forms
             };
 
             button.Click+= (s, e) => {
-                Serialization.Serialization.SerializeCircuit(textBox.Text, DateTime.Now, circuit);
+                Serialization.SerializeCircuit(textBox.Text, DateTime.Now, circuit);
                 form.Close();
             };
 

@@ -1,6 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using LogicCircuits.Elements;
+using System.Collections.Generic;
 using System.Drawing;
-using LogicCircuits.Elements.Interfaces;
 using System.Windows.Forms;
 
 namespace LogicCircuits.Forms
@@ -51,8 +51,8 @@ namespace LogicCircuits.Forms
                 ScrollBars = ScrollBars.Vertical,
             };
             form.Controls.Add(textBox2);
-            
-            string minimized = Minimization.Minimization.MinimizeQuineMcCluskey(registry);
+
+            string minimized = Minimization.MinimizeQuineMcCluskey(registry);
             textBox2.Text = "Мінімізована форма:\r\n" + minimized;
             textBox2.Select(0, 0);
 
