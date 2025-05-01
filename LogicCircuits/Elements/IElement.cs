@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace LogicCircuits.Elements.Interfaces
+namespace LogicCircuits.Elements
 {
     public interface IElement
     {

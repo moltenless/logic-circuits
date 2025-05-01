@@ -1,9 +1,9 @@
 ﻿using LogicCircuits.Elements;
 using LogicCircuits.Elements.Gates;
-using LogicCircuits.Elements.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.Windows.Forms;
 
 
