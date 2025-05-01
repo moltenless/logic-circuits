@@ -1,13 +1,9 @@
-﻿using LogicCircuits.Elements;
-using System;
-using System.Collections;
+﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
+using LogicCircuits.Elements.Interfaces;
 using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace LogicCircuits.Forms
@@ -50,7 +46,7 @@ namespace LogicCircuits.Forms
             {
                 for (int i = circuits.Count() - 1; i >= 0; i--)
                 {
-                    Serialization.DeserializeCircuit(circuits.ElementAt(i), out string name, out DateTime dateTime, out _);
+                    Serialization.Serialization.DeserializeCircuit(circuits.ElementAt(i), out string name, out DateTime dateTime, out _);
 
                     Panel panel = new Panel
                     {
@@ -85,7 +81,7 @@ namespace LogicCircuits.Forms
                     button.Click += (s, e) =>
                     {
                         string file = (s as Control).Parent.Tag as string;
-                        Serialization.DeserializeCircuit(file, out _, out _, out List<IElement> circuit);
+                        Serialization.Serialization.DeserializeCircuit(file, out _, out _, out List<IElement> circuit);
                         foreach (var c in circuit)
                             if (c.Controls == null)
                                 c.Controls = new List<Control>();

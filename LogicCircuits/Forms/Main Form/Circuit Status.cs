@@ -1,4 +1,5 @@
-﻿using LogicCircuits.Elements;
+﻿using LogicCircuits.Elements.Interfaces;
+using LogicCircuits.Elements;
 using LogicCircuits.Elements.Gates;
 using System;
 using System.Collections.Generic;
