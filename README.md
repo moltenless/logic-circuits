@@ -1,6 +1,6 @@
-# ⚡💡 LogicCircuits 🔌 (Screenshots are below)
+# ⚡ Logic Circuits 🔌 (Screenshots are below)
 
-**LogicCircuits** is a Windows desktop application (C#, .NET Framework, Windows Forms) that provides an interactive graphical environment for designing and analyzing combinational logic circuits.
+**Logic Circuits** is a Windows desktop application (C#, .NET Framework, Windows Forms) that provides an interactive graphical environment for designing and analyzing combinational logic circuits.
 
 Users can drag-and-drop standard logic gates (AND, OR, XOR, NAND, etc.) onto a canvas and connect them with wires to form complete circuits. Each gate implements a fundamental Boolean function, combining binary inputs to produce an output.
 
